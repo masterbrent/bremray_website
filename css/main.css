@@ -580,4 +580,49 @@ nav a.active {
 .local-content li {
     margin-bottom: 1rem;
     line-height: 1.8;
+}/* Content Pages */
+.content-section {
+    padding: 4rem 0;
+}
+
+.content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.content-wrapper h2 {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.content-wrapper h3 {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    margin: 2.5rem 0 1rem;
+}
+
+.content-wrapper h4 {
+    color: var(--secondary-color);
+    font-size: 1.25rem;
+    margin: 2rem 0 0.75rem;
+}
+
+.content-wrapper p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.content-wrapper ul, .content-wrapper ol {
+    margin: 1rem 0 2rem 2rem;
+}
+
+.content-wrapper li {
+    margin-bottom: 0.75rem;
+    line-height: 1.8;
+}
+
+.content-wrapper strong {
+    color: var(--secondary-color);
 }
