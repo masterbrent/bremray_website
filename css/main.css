@@ -51,7 +51,7 @@ header {
 }
 
 .logo img {
-    height: 40px;
+    height: 70px;
     width: auto;
 }
 
@@ -410,6 +410,10 @@ footer {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    .logo img {
+        height: 50px;
+    }
+    
     .header-content {
         flex-direction: column;
         gap: 1rem;
