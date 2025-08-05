@@ -57,9 +57,9 @@ document.addEventListener('DOMContentLoaded', function() {
         burger.className = 'burger-menu';
         burger.innerHTML = '<span></span><span></span><span></span>';
         
-        // Insert burger after logo
-        const logo = document.querySelector('.logo');
-        logo.parentNode.insertBefore(burger, nav);
+        // Insert burger after phone button
+        const phoneBtn = document.querySelector('.phone-cta');
+        phoneBtn.parentNode.insertBefore(burger, phoneBtn.nextSibling);
         
         // Toggle menu on click
         burger.addEventListener('click', function() {
