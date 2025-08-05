@@ -138,6 +138,11 @@ nav a:hover {
     background: #e67e22;
 }
 
+/* Burger Menu - Hidden on Desktop */
+.burger-menu {
+    display: none;
+}
+
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, var(--secondary-color) 0%, #34495e 100%);
@@ -411,12 +416,63 @@ footer {
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .logo img {
-        height: 50px;
+        height: 60px;
     }
     
     .header-content {
-        flex-direction: column;
+        flex-direction: row;
         gap: 1rem;
+        padding: 0.75rem 0;
+    }
+    
+    /* Mobile Navigation */
+    nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    nav.active {
+        display: flex;
+    }
+    
+    .phone-cta {
+        display: none;
+    }
+    
+    /* Burger Menu */
+    .burger-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+        margin-left: auto;
+    }
+    
+    .burger-menu span {
+        width: 25px;
+        height: 3px;
+        background: var(--secondary-color);
+        transition: all 0.3s ease;
+    }
+    
+    .burger-menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .burger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .burger-menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
     }
     
     nav {
@@ -720,5 +776,21 @@ nav a.active {
     
     .dropdown:hover .dropdown-menu {
         display: block;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: block;
+        box-shadow: none;
+        background: var(--light-bg);
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+    }
+    
+    .dropdown-toggle::after {
+        display: none;
     }
 }
