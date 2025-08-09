@@ -6,6 +6,14 @@
     <title>Electrical Services Ann Arbor | All Services | Bremray Electrical</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <meta name="description" content="Complete electrical services in Ann Arbor & Washtenaw County. Panel upgrades, EV chargers, generators, residential wiring. Licensed electrician since 1988.">
+    <link rel="canonical" href="https://bremray.com/services.html" />
+    <meta name="theme-color" content="#f39c12">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bremray Electrical">
+    <meta property="og:title" content="Electrical Services in Ann Arbor | Bremray Electrical">
+    <meta property="og:description" content="Panel upgrades, EV chargers, generators, and residential wiring across Washtenaw County.">
+    <meta property="og:url" content="https://bremray.com/services.html">
+    <meta property="og:image" content="https://bremray.com/images/logo.png">
     <link rel="stylesheet" href="css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,7 +76,7 @@
                     <li>Still running on fuses</li>
                 </ul>
                 
-                <p><strong>What's involved:</strong> New 200-amp panel, updated grounding and bonding to 2023 NEC, grouped service disconnects, surge protection, proper torquing, complete inspection. Starting at $3,700 due to expanded code requirements.</p>
+                <p><strong>What's involved:</strong> New 200-amp panel, updated grounding and bonding to 2023 NEC, grouped service disconnects, surge protection, proper torquing, complete inspection. We’ll inspect and provide a written estimate.</p>
                 <a href="electrical-panel-upgrade.html" class="btn btn-primary">Learn About Panel Upgrades</a>
             </div>
 
@@ -162,17 +170,17 @@
             </div>
 
             <div class="service-item">
-                <h2>Pricing Philosophy</h2>
+                <h2>How We Price</h2>
                 <p>We quote fair prices and stick to them. No games. Here's how we work:</p>
                 <ul>
-                    <li><strong>Service calls:</strong> $150-250 to diagnose the problem</li>
-                    <li><strong>Small jobs:</strong> Quoted on the spot, fixed price</li>
-                    <li><strong>Large projects:</strong> Written estimate after assessment</li>
+                    <li><strong>Service calls:</strong> We diagnose the problem and explain options</li>
+                    <li><strong>Small jobs:</strong> Clear, firm quote on the spot</li>
+                    <li><strong>Larger projects:</strong> Written estimate after assessment</li>
                     <li><strong>No surprises:</strong> If we find something unexpected, we stop and discuss</li>
-                    <li><strong>Payment:</strong> Due on completion, we take checks and cards</li>
+                    <li><strong>Payment:</strong> Due on completion; checks and cards accepted</li>
                 </ul>
                 
-                <p>We're not the cheapest in town. Bob's Discount Electric will always beat our price. We're also not the most expensive. We're right in the middle where quality meets fair value. Been in business since 1988 because we treat people right.</p>
+                <p>We’re not the cheapest or the most expensive — we focus on quality, safety, and standing behind our work.</p>
             </div>
         </div>
     </section>
@@ -220,6 +228,35 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://bremray.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://bremray.com/services.html"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Electrician",
+      "@id": "https://bremray.com/#business",
+      "name": "Bremray Electrical",
+      "url": "https://bremray.com/",
+      "logo": "https://bremray.com/images/logo.png",
+      "image": "https://bremray.com/images/logo.png",
+      "telephone": "+1-734-216-9437",
+      "address": {"@type": "PostalAddress", "addressLocality": "Ann Arbor", "addressRegion": "MI", "postalCode": "48103"}
+    }
+    </script>
+
+    <script defer src="js/main.js"></script>
+    <div class="mobile-sticky-cta" role="navigation" aria-label="Mobile quick actions">
+        <a class="cta-call" href="tel:7342169437" aria-label="Call Bremray Electrical">Call (734) 216-9437</a>
+        <a class="cta-text" href="get-help.html" aria-label="Describe your project">Get Help</a>
+    </div>
 </body>
 </html>

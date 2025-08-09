@@ -8,6 +8,14 @@
     <link rel="alternate icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
     <meta name="description" content="Bremray Electrical - Licensed electrician serving Ann Arbor, Ypsilanti, Chelsea, Dexter, Saline & all of Washtenaw County. EV charger installation, panel upgrades, generators. Family-owned since 1988.">
+    <link rel="canonical" href="https://bremray.com/" />
+    <meta name="theme-color" content="#f39c12">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bremray Electrical">
+    <meta property="og:title" content="Electrician Ann Arbor | Bremray Electrical">
+    <meta property="og:description" content="Licensed electrician serving Ann Arbor & Washtenaw County: EV chargers, panel upgrades, generators. Family-owned since 1988.">
+    <meta property="og:url" content="https://bremray.com/">
+    <meta property="og:image" content="https://bremray.com/images/logo.png">
     <link rel="stylesheet" href="css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,8 +26,13 @@
     {
       "@context": "https://schema.org",
       "@type": "Electrician",
+      "@id": "https://bremray.com/#business",
       "name": "Bremray Electrical",
-      "image": "https://bremray.com/logo.jpg",
+      "url": "https://bremray.com/",
+      "logo": "https://bremray.com/images/logo.png",
+      "image": "https://bremray.com/images/logo.png",
+      "telephone": "+1-734-216-9437",
+      "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Ann Arbor",
@@ -31,9 +44,6 @@
         "latitude": 42.2808,
         "longitude": -83.7430
       },
-      "url": "https://bremrayelectrical.com",
-      "telephone": "(734) 216-9437",
-      "priceRange": "$$",
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -81,17 +91,31 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Licensed Electrician in Ann Arbor</h1>
-                <p class="hero-subtitle">Panel Upgrades • EV Charger Installation • Whole House Generators</p>
-                <div class="hero-cta">
-                    <a href="tel:7342169437" class="btn btn-primary">Call: (734) 216-9437</a>
-                    <a href="get-help.html" class="btn btn-secondary">Tell Us What's Going On</a>
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="hero-kicker">Installers • EV chargers • Panels • Generators</span>
+                    <h1>Licensed Electrician in Ann Arbor</h1>
+                    <p class="hero-subtitle">Honest, code-compliant installations. EV chargers, electrical panel upgrades, whole house generators, plus troubleshooting when things act up.</p>
+                    <div class="hero-cta">
+                        <a href="tel:7342169437" class="btn btn-primary">Call: (734) 216-9437</a>
+                        <a href="get-help.html" class="btn btn-secondary">Request Service</a>
+                    </div>
+                    <div class="trust-badges">
+                        <span>✓ Talk directly with an electrician</span>
+                        <span>✓ Family owned since 1988</span>
+                        <span>✓ Serving all Washtenaw County</span>
+                    </div>
                 </div>
-                <div class="trust-badges">
-                    <span>✓ You'll speak directly with an electrician</span>
-                    <span>✓ Family Owned Since 1988</span>
-                    <span>✓ Serving All Washtenaw County</span>
+                <div class="hero-side">
+                    <div class="hero-card">
+                        <h3>Most Requested Installs</h3>
+                        <ul class="hero-list">
+                            <li><a href="ev-charger-installation.html" class="service-link">Level 2 EV Chargers</a></li>
+                            <li><a href="electrical-panel-upgrade.html" class="service-link">Electrical Panel Upgrades</a></li>
+                            <li><a href="whole-house-generator.html" class="service-link">Whole House Generators</a></li>
+                            <li><a href="residential-electrical.html" class="service-link">Lighting, Fans & Outlets</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -124,6 +148,41 @@
                     <h3>Residential Electrical</h3>
                     <p>Complete home electrical services. Outlets, lighting, troubleshooting, and repairs.</p>
                     <a href="residential-electrical.html" class="service-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <h2>How We Install</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-num">1</div>
+                    <h3>Talk with an Electrician</h3>
+                    <p>Call or describe your project online. We’ll give straight answers and an initial estimate.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">2</div>
+                    <h3>Photo/Visit & Quote</h3>
+                    <p>Text photos or schedule a quick visit. We confirm scope, price, and schedule.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">3</div>
+                    <h3>Schedule the Install</h3>
+                    <p>We handle permits when needed and set a date that works for you.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">4</div>
+                    <h3>Clean, Code‑Compliant Work</h3>
+                    <p>Licensed & insured installs, done right the first time. We clean up before we leave.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">5</div>
+                    <h3>Inspection & Follow‑up</h3>
+                    <p>We coordinate inspection (when required) and make sure you’re 100% satisfied.</p>
                 </div>
             </div>
         </div>
@@ -201,6 +260,10 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script defer src="js/main.js"></script>
+    <div class="mobile-sticky-cta" role="navigation" aria-label="Mobile quick actions">
+        <a class="cta-call" href="tel:7342169437" aria-label="Call Bremray Electrical">Call (734) 216-9437</a>
+        <a class="cta-text" href="get-help.html" aria-label="Tell us what's going on">Get Help</a>
+    </div>
 </body>
 </html>
