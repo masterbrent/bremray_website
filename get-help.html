@@ -69,18 +69,21 @@
     <section class="form-container">
         <div class="container">
             <div class="simple-form">
-                <!-- This is where your GoHighLevel form embed goes -->
-                <div style="background: #f0f0f0; padding: 3rem; text-align: center; border-radius: 10px;">
-                    <h3>GoHighLevel Form Embed Goes Here</h3>
-                    <p>Replace this with your actual GHL form embed code</p>
-                    <br>
-                    <p><strong>Suggested form fields:</strong></p>
-                    <ul style="text-align: left; display: inline-block;">
-                        <li>Name (optional)</li>
-                        <li>Phone (required)</li>
-                        <li>Describe your electrical needs (text area, optional)</li>
-                    </ul>
-                </div>
+                <form action="https://formspree.io/f/xkgwnnqr" method="POST">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name">
+                    
+                    <label for="phone">Phone <span style="color: red;">*</span></label>
+                    <input type="tel" id="phone" name="phone" placeholder="(734) 555-0123" required>
+                    
+                    <label for="email">Email <span class="optional-label">(optional)</span></label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com">
+                    
+                    <label for="message">Describe Your Electrical Needs</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Tell us about your electrical project or issue..."></textarea>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.2rem;">Request Service</button>
+                </form>
             </div>
             
             <div style="text-align: center; margin-top: 2rem;">
