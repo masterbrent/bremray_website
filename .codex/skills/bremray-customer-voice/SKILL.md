@@ -13,7 +13,7 @@ Identify what the reader needs to know: whether Bremray does the job, what affec
 
 Installations are the business priority: generators, EV chargers, and panel upgrades. Keep service calls available without giving them equal promotional weight on a general landing page. On an actual repair page, answer the repair customer's question fully.
 
-For panel work, lead with the customer's problem and ordinary panel options. Brent says most jobs use Square D, Siemens, and Eaton. Keep the SPAN credential at the bottom as secondary information; do not lead the panel page with it or present SPAN as the default recommendation.
+Start with the problem that brought the customer to Bremray and the result they need. Explain what the work will solve and what happens next. Equipment brands and credentials belong in supporting information when relevant, not the opening sales pitch. For panel work, Brent says most jobs use Square D, Siemens, and Eaton, but the customer usually cares about solving the issue rather than choosing a brand. Keep the SPAN credential at the bottom as secondary information; do not present SPAN as the default recommendation.
 
 ## Accuracy comes before style
 
@@ -32,6 +32,8 @@ Read the existing passage and surrounding page when available. If only excerpts 
 For a voice cleanup, edit the particular phrase or sentence that causes the problem. Prefer removing padding to replacing it with new sales language. A request to look for “AI footprints” calls for a close wording review, not a wholesale rewrite or a claim that a detector can establish who wrote it.
 
 Prefer active voice, short sentences, ordinary verbs, and contractions where natural. Name who does what: “We install the charger” rather than “The charger installation is carried out by our team.” Keep complete conversational sentences and vary their length when that helps the explanation. Do not force fragments, rigid sentence limits, or a clipped rhythm to sound human. Explain electrical terms when a customer needs them; retain details that help the customer decide.
+
+Use everyday English without talking down to the reader. Assume an intelligent customer who does not work as an electrician. Explain the practical consequence of a technical detail when it matters; do not start with a lesson in electrical terminology or replace useful specifics with vague reassurance.
 
 Cut decorative geography, vague praise, and generic slogans. Examples to reconsider: “proudly serving,” “unique electrical needs,” “expertise and care,” and “from historic homes to new construction.” These are editing signals, not a mechanical banned-word list. Place names belong in clear service-area information or a real, confirmed job example. Do not assume a house needs an upgrade because of its age or neighborhood.
 

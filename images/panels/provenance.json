@@ -1,0 +1,33 @@
+{
+  "purpose": "Real reference photographs for panel identification. Not Bremray projects or evidence that a pictured installation has failed.",
+  "assets": [
+    {
+      "file": "federal-pacific-stab-lok.jpg",
+      "title": "Stab-Lok circuit breaker panel interior",
+      "creator": "Repeater-reclaim",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Stab-Lok_circuit_breaker_panel_interior_.jpg",
+      "asset_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Stab-Lok_circuit_breaker_panel_interior_.jpg/960px-Stab-Lok_circuit_breaker_panel_interior_.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Stab-Lok_circuit_breaker_panel_interior_.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "Wikimedia 960px resized rendition; no further edits. Image remains CC BY-SA 4.0.",
+      "sha256": "dfdca72d094580ada2cabfd2a965e5d28fc10ef9b8a88a7526ca44bc4c6f1dca"
+    },
+    {
+      "file": "murray-fuse-box.jpg",
+      "title": "Murray fuse box",
+      "creator": "p.Gordon",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Murray-fuse-box.jpg",
+      "asset_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Murray-fuse-box.jpg/960px-Murray-fuse-box.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Murray-fuse-box.jpg",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0/",
+      "changes": "Commons version cropped and optimized by Gazebo. Wikimedia 960px resized rendition; no further edits.",
+      "sha256": "24dac184ae617581e61279629ece73e91214e2a80da5fd2e667e312ff30c9d3b"
+    }
+  ],
+  "guidance_sources": [
+    "https://www.cpsc.gov/Newsroom/News-Releases/1983/Commission-Closes-Investigation-Of-FPE-Circuit-Breakers-And-Provides-Safety-Information-For-Consumers",
+    "https://www.cpsc.gov/s3fs-public/518.pdf"
+  ]
+}
