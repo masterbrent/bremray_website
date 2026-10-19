@@ -36,3 +36,13 @@ test('generator guidance makes warranty and capacity dependent on the selected e
     assert.match(html, /https:\/\/www\.generac\.com\/resources\/home-management\/what-size-generator-do-i-need\//, file);
   }
 });
+
+test('grounding guidance distinguishes the electrode system from the fault-current return path', () => {
+  for (const file of ['electrical-panel-upgrade.html', 'grounding-and-bonding.html']) {
+    const html = read(file);
+    assert.doesNotMatch(html, /infinite electrical sink|Fault current has a low-resistance path to dissipate|Lightning energy spreads out harmlessly|Using water pipes instead of proper ground rods/, file);
+    assert.match(html, /(?:back to (?:its|the electrical) source)[^<.]+(?:breaker|fuse)/, file);
+  }
+  assert.match(read('electrical-panel-upgrade.html'), /qualifying metal water pipe[^<.]+grounding system[^<.]+supplemental electrode/i);
+  assert.match(read('grounding-and-bonding.html'), /earth alone[^<.]+not[^<.]+effective[^<.]+fault current/i);
+});
