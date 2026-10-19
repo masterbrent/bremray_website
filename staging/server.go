@@ -1,3 +1,61 @@
 package main
-import("log";"net/http";"os";"path/filepath";"strings";"bytes")
-func main(){root,_:=os.Getwd(); http.HandleFunc("/",func(w http.ResponseWriter,r *http.Request){w.Header().Set("X-Robots-Tag","noindex, nofollow");w.Header().Set("Cache-Control","no-store");if r.URL.Path=="/robots.txt"{w.Write([]byte("User-agent: *\nDisallow: /\n"));return};p:=filepath.Clean("/"+r.URL.Path);if p=="/"{p="/index.html"}; if strings.HasPrefix(p,"/.")||strings.HasPrefix(p,"/staging/")||strings.HasPrefix(p,"/tests/"){http.NotFound(w,r);return};if strings.HasSuffix(p,".html"){b,e:=os.ReadFile(filepath.Join(root,p));if e!=nil{http.NotFound(w,r);return};b=bytes.ReplaceAll(b,[]byte(`<script defer src="/js/analytics.js?v=20261019"></script>`),nil);b=bytes.Replace(b,[]byte("</head>"),[]byte(`<meta name="robots" content="noindex,nofollow"><script defer src="/js/staging.js"></script></head>`),1);b=bytes.ReplaceAll(b,[]byte(`action="https://formspree.io/f/xkgwnnqr"`),[]byte(`action="#" data-staging-form="true"`));w.Header().Set("Content-Type","text/html; charset=utf-8");w.Write(b);return};http.ServeFile(w,r,filepath.Join(root,p))});log.Println("Bremray staging: http://127.0.0.1:8766");log.Fatal(http.ListenAndServe("127.0.0.1:8766",nil))}
+
+import (
+	"bytes"
+	_ "embed"
+	"log"
+	"net/http"
+	"os"
+	"path/filepath"
+	"regexp"
+	"strings"
+)
+
+// Remove third-party widgets before the browser receives the HTML.
+// Parent-page submit handlers cannot stop a cross-origin form from sending.
+var leadEmbed = regexp.MustCompile(`(?s)<!--Start of Housecallpro Lead Capture code-->.*?<!--End of Housecallpro Lead Capture code-->`)
+
+//go:embed lead-form-preview.tmpl
+var leadPreview []byte
+
+func main() {
+	root, err := os.Getwd()
+	if err != nil {
+		log.Fatal(err)
+	}
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("X-Robots-Tag", "noindex, nofollow")
+		w.Header().Set("Cache-Control", "no-store")
+		// Also block an external widget accidentally added outside the markers.
+		w.Header().Set("Content-Security-Policy", "frame-src 'none'; object-src 'none'; form-action 'none'; connect-src 'self'; script-src 'self'; base-uri 'self'")
+		if r.URL.Path == "/robots.txt" {
+			w.Write([]byte("User-agent: *\nDisallow: /\n"))
+			return
+		}
+		p := filepath.Clean("/" + r.URL.Path)
+		if p == "/" {
+			p = "/index.html"
+		}
+		if strings.HasPrefix(p, "/.") || strings.HasPrefix(p, "/staging/") || strings.HasPrefix(p, "/tests/") {
+			http.NotFound(w, r)
+			return
+		}
+		if strings.HasSuffix(p, ".html") {
+			b, err := os.ReadFile(filepath.Join(root, p))
+			if err != nil {
+				http.NotFound(w, r)
+				return
+			}
+			b = leadEmbed.ReplaceAllLiteral(b, leadPreview)
+			b = bytes.ReplaceAll(b, []byte(`<script defer src="/js/analytics.js?v=20261019"></script>`), nil)
+			b = bytes.Replace(b, []byte("</head>"), []byte(`<meta name="robots" content="noindex,nofollow"><script defer src="/js/staging.js"></script></head>`), 1)
+			b = bytes.ReplaceAll(b, []byte(`action="https://formspree.io/f/xkgwnnqr"`), []byte(`action="#" data-staging-form="true"`))
+			w.Header().Set("Content-Type", "text/html; charset=utf-8")
+			w.Write(b)
+			return
+		}
+		http.ServeFile(w, r, filepath.Join(root, p))
+	})
+	log.Println("Bremray staging: http://127.0.0.1:8766")
+	log.Fatal(http.ListenAndServe("127.0.0.1:8766", nil))
+}

@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Request Service | Bremray Electrical</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <meta name="description" content="Request electrical service from Bremray Electrical. Professional consultation and estimates available.">
+    <meta name="description" content="Tell Bremray what you need installed or repaired in Ann Arbor and Washtenaw County. Send your project details or call (734) 216-9437.">
     <link rel="canonical" href="https://bremray.com/get-help.html" />
     <link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/css/design.css">
     <style>
         .form-container {
-            max-width: 600px;
+            max-width: 780px;
             margin: 0 auto;
             padding: 2rem;
         }
@@ -43,21 +43,16 @@
     <section class="form-container">
         <div class="container">
             <div class="simple-form">
-                <form action="https://formspree.io/f/xkgwnnqr" method="POST">
-                    <label for="service">What do you need help with?</label><select id="service" name="service"><option value="">Choose a service</option><option>Generator installation</option><option>EV charger installation</option><option>Panel upgrade</option><option>Repair or service call</option><option>Something else / not sure</option></select><div id="project-questions" aria-live="polite"></div><label for="town">Town or ZIP code</label><input id="town" name="town" autocomplete="address-level2" placeholder="Where is the job?"><label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your Name">
-
-                    <label for="phone">Phone <span style="color: red;">*</span></label>
-                    <input type="tel" id="phone" name="phone" placeholder="(734) 555-0123" required>
-
-                    <label for="email">Email <span class="optional-label">(optional)</span></label>
-                    <input type="email" id="email" name="email" placeholder="your@email.com">
-
-                    <label for="message">Describe Your Electrical Needs</label>
-                    <textarea id="message" name="message" rows="5" placeholder="What would you like installed, or what isn’t working?"></textarea>
-
-                    <label for="marketing" class="marketing-choice"><input type="checkbox" id="marketing" name="marketing_opt_in" value="yes"> You can also email me occasional Bremray news and offers. (Optional)</label><p class="form-note">We’ll use your contact details to respond about this job. This form does not give an instant price or book an appointment.</p><button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.2rem;">Send my project details</button>
-                </form>
+                <div class="project-prompt">
+                    <h2>Tell us about the job</h2>
+                    <p>For a generator, EV charger, or panel upgrade, tell us what you want to install and anything you already know about the setup. For a repair, describe what isn’t working. It’s fine if you’re not sure what you need.</p>
+                </div>
+                <p class="form-note">We’ll use your details to follow up about the job. This form does not give an instant price or book an appointment.</p>
+                <!--Start of Housecallpro Lead Capture code-->
+                <script async src="https://online-booking.housecallpro.com/script.js?token=9e242df02d1d42b9a5870a37b41984f3&amp;orgName=Bremray-Electrical"></script>
+                <iframe title="Send your project details to Bremray" class="hcp-lead-form" style="border: none;" id="hcp-lead-iframe" src="https://book.housecallpro.com/lead-form/Bremray-Electrical/9e242df02d1d42b9a5870a37b41984f3"></iframe>
+                <p class="form-note">Form not showing? <a href="https://book.housecallpro.com/lead-form/Bremray-Electrical/9e242df02d1d42b9a5870a37b41984f3">Open the form in Housecall Pro</a>.</p>
+                <!--End of Housecallpro Lead Capture code-->
             </div>
 
             <div style="text-align: center; margin-top: 2rem;">
@@ -74,5 +69,5 @@
 
 
 
-<script defer src="/js/intake.js"></script></body>
+</body>
 </html>
