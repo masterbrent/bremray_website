@@ -1,8 +1,8 @@
 {
   "retrieved_on": "2026-10-19",
   "purpose": "Owner-requested manufacturer logo bank for the local staging preview.",
-  "modifications": "None; original manufacturer-hosted assets.",
-  "usage_note": "Sources identify origin, not a blanket license or endorsement. Only Generac Aligned Partner and SPAN Certified Installer are owner-confirmed credentials. Square D and Siemens are displayed as equipment brands without credential claims.",
+  "modifications": "None; original manufacturer-hosted assets. The Wallbox PNG is extracted byte-for-byte from its official logo archive.",
+  "usage_note": "Sources identify origin, not a blanket license or endorsement. Only Generac Aligned Partner and SPAN Certified Installer are owner-confirmed credentials. Square D, Siemens, Wallbox and ChargePoint are displayed as equipment brands without credential claims. ChargePoint branding guidelines require written approval for use of its brand elements; production permission has not been established by this local preview.",
   "assets": [
     {
       "file": "generac.png",
@@ -31,6 +31,24 @@
       "source_page": "https://press.siemens.com/global/en",
       "asset_url": "https://press.siemens.com/profiles/c2_base/modules/c2cms_instance_logo/assets/sag-logo.png",
       "sha256": "15e94796aa5b26bdf767ad581cfa156727d6a2d68a488371a6c25b87d3c3b285"
+    },
+    {
+      "file": "wallbox.png",
+      "brand": "Wallbox",
+      "source_page": "https://design.wallbox.com/media-toolkit",
+      "asset_url": "https://design.wallbox.com/s/Wallbox-logo.zip",
+      "archive_member": "Wallbox logo/PNG/Wallbox_Brand_B_RGB_R.png",
+      "sha256": "409bcf742d71441e7559c023f73b11b80e874a516448943027f8aa78f1e0d842",
+      "usage_note": "Official media toolkit invites downloading essential assets for brand consistency. No broad trademark license or Bremray endorsement is inferred."
+    },
+    {
+      "file": "chargepoint.svg",
+      "brand": "ChargePoint",
+      "source_page": "https://www.chargepoint.com/branding",
+      "asset_url": "https://www.chargepoint.com/themes/chargepoint/logo.svg",
+      "sha256": "b08eeba7724eeea0ad85a8a8e269184a82d3a43b4fa689093fec7bbd7062dec1",
+      "guidelines_url": "https://www.chargepoint.com/download-file/chargepoint-brand-guidelines",
+      "usage_note": "Original header SVG on the official branding page. Retain orange/blue colors, clear space and balanced visual weight. Guidelines require review and written approval; production permission not confirmed."
     }
   ]
 }
