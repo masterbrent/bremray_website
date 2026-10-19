@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bremray customer voice"
+  short_description: "Plain customer copy with accurate business claims"
+  default_prompt: "Use $bremray-customer-voice to revise this Bremray copy, preserve useful wording, and flag claims that need my confirmation."

@@ -1,0 +1,2 @@
+const {test}=require('node:test');const assert=require('node:assert/strict');const fs=require('node:fs');const path=require('node:path');const root=path.resolve(__dirname,'..');
+test('website does not claim unconfirmed EV manufacturer certifications',()=>{for(const dir of ['.','locations','generators'])for(const file of fs.readdirSync(path.join(root,dir))){if(!file.endsWith('.html'))continue;const html=fs.readFileSync(path.join(root,dir,file),'utf8');assert.doesNotMatch(html,/certified installer[^<.]{0,140}(Tesla|ChargePoint|all major)/i,file);}});
