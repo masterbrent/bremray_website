@@ -39,6 +39,8 @@ Cut decorative geography, vague praise, and generic slogans. Examples to reconsi
 
 Read the draft as an answer on the phone. If a sentence mainly makes the business sound impressive, replace it with useful information or remove it. Avoid making every section a rhetorical question, a slogan, or a three-part list. SEO can use accurate service and town names naturally without padding every paragraph.
 
+Keep reference-photo credits compact. Brent prefers attribution and source details at the bottom of the page instead of repeated disclaimers beneath the photos. Retain required credit and license information, and never present sourced examples as Bremray's own work.
+
 ## Calibration and review
 
 Brent's direct preferences: customers are “local people (normal people)” and “we help them with their issues.” He wants customers' problems and pricing questions addressed. His latest instruction is: “Don't make any substantial changes to the existing copy that I had before.” He wants “active sentences, short sentences” that “sound like a normal human.”
