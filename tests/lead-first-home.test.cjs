@@ -10,7 +10,7 @@ test('homepage begins with the working adaptive intake and keeps the site conten
  assert.equal((page.match(/id="intake-screen"/g)||[]).length,1);
  assert.equal((page.match(/src="\/js\/adaptive-intake.js"/g)||[]).length,1);
  assert.ok(page.indexOf('id="intake-screen"')<page.indexOf('id="services"'));
- assert.ok(page.indexOf('id="intake-screen"')<page.indexOf('/images/home-phone-v2.jpg'));
+ assert.ok(page.indexOf('id="intake-screen"')<page.indexOf('/images/generator.jpg'));
  assert.equal((page.match(/<h1\b/g)||[]).length,1);
  for(const id of ['services','pricing','main-nav','manufacturer-logos'])assert.ok(page.includes('id="'+id+'"'));
 });
@@ -25,10 +25,20 @@ test('homepage intake identifies the preview, offers typing, and keeps a phone a
  assert.match(start,/href="#services"/);
 });
 
-test('all original homepage main copy remains intact beneath the intake',()=>{
+test('original service, pricing, area and FAQ copy remains intact beneath the intake',()=>{
  const crypto=require('node:crypto');
- const content=html().split('<!-- Existing homepage content -->')[1]?.split('</main>')[0];
+ const content=html().split('<div class="trust">')[1]?.split('</main>')[0];
  assert.ok(content,'existing content stays in its own lower section');
- const text=content.replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
- assert.equal(crypto.createHash('sha256').update(text).digest('hex'),'5d47a890fd1924f54848bc4846c00fc0254a38deccdd19c0cf10507b636f0c12');
+ const text=content.replace(/<p class="lead-reading-summary">[^<]*<\/p>/,'').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
+ assert.equal(crypto.createHash('sha256').update(text).digest('hex'),'0428c19281ee10a4b42ff676dd481def1feec9dd90cd09a9e4ae7649de7756cc');
+});
+
+test('the homepage opens as an intake task with no promotional hero ahead of the services',()=>{
+ const page=html();
+ const opening=page.split('<!-- Existing homepage content -->')[0];
+ assert.doesNotMatch(page,/lead-supporting-hero|about-bremray-title/);
+ assert.doesNotMatch(opening,/hero-image|home-phone-v2/);
+ assert.match(opening,/id="intake-path"/);
+ assert.equal((page.match(/Licensed electrician in Ann Arbor/gi)||[]).length,1);
+ assert.match(page,/EV chargers, electrical panel upgrades, whole house generators, and residential electrical service\./);
 });

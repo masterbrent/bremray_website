@@ -4,6 +4,16 @@ const fs=require('node:fs');
 const intake=require('../js/adaptive-intake.js');
 const take=(answers,id,value)=>intake.answer(answers,id,value);
 
+test('presentation follows the displayed question, including Back and mode changes',()=>{
+ const initial={mode:'guided',answers:{},step:0};
+ assert.equal(intake.viewFor(initial),'opening');
+ const next=intake.advance(initial,'intent','install');
+ assert.equal(intake.viewFor(next),'question');
+ assert.equal(intake.viewFor({...next,step:0}),'opening');
+ assert.equal(intake.viewFor({...next,mode:'typed'}),'typed');
+ assert.equal(intake.viewFor({...next,mode:'review'}),'review');
+});
+
 test('starts with customer intent and offers more than the headline installation services',()=>{
  const first=intake.nextQuestion({});
  assert.equal(first.id,'intent');

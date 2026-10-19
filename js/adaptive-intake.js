@@ -151,7 +151,12 @@
   if(!missing)return review(updated);
   return {...updated,step:questionsFor(updated.answers).findIndex(item=>item.id===missing.id)};
  }
- const api={questionsFor,nextQuestion,answer,cleanText,switchMode,review,advance};
+ function viewFor(state){
+  if(state.mode!=='guided')return state.mode;
+  const list=questionsFor(state.answers);
+  return list[Math.max(0,Math.min(state.step,list.length-1))]?.id==='intent'?'opening':'question';
+ }
+ const api={questionsFor,nextQuestion,answer,cleanText,switchMode,review,advance,viewFor};
  if(typeof module==='object'&&module.exports){module.exports=api;return;}
  root.BremrayIntake=api;
  const shell=document.getElementById('intake-screen');
@@ -159,6 +164,7 @@
  let answers={},step=0,typed='',mode='guided',reviewMode='guided';
  const progress=document.getElementById('intake-progress');
  const track=document.getElementById('intake-track');
+ const path=document.getElementById('intake-path');
  const modeButtons=document.querySelectorAll('[data-intake-mode]');
  function state(){return {answers,step,typed,mode,reviewMode};}
  function applyState(value){({answers,step,typed,mode,reviewMode}=value);}
@@ -171,13 +177,36 @@
  function button(text,handler,className='intake-primary'){
   const node=el('button',text,{type:'button',class:className});node.addEventListener('click',handler);return node;
  }
- function focusHeading(){shell.querySelector('h2, legend')?.focus({preventScroll:true});}
+ function focusHeading(){
+  const heading=shell.querySelector('h2, legend');
+  if(!heading)return;
+  heading.focus({preventScroll:true});
+  const bounds=heading.getBoundingClientRect();
+  const anchor=path&&!path.hidden?path:heading;
+  if(anchor.getBoundingClientRect().top<24||bounds.bottom>window.innerHeight-100)anchor.scrollIntoView({block:'start'});
+ }
  function setProgress(label,percent){progress.textContent=label;track.style.width=percent+'%';}
  function render(focus=true){
   shell.replaceChildren();
+  shell.closest('.intake-card')?.setAttribute('data-intake-view',viewFor(state()));
   modeButtons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.intakeMode===(mode==='review'?reviewMode:mode))));
   if(mode==='typed')renderTyped();else if(mode==='review')renderReview();else renderQuestion();
+  renderPath();
   if(focus)focusHeading();
+ }
+ function renderPath(){
+  if(!path)return;
+  path.replaceChildren();
+  const answered=mode==='guided'?questionsFor(answers).slice(0,step):[];
+  answered.forEach((item,index)=>{
+   const label=item.options?.find(choice=>choice.value===answers[item.id])?.label;
+   if(!label)return;
+   const edit=button(label,()=>{mode='guided';step=index;render();},'intake-path-choice');
+   edit.setAttribute('aria-label','Change answer: '+label);
+   edit.setAttribute('title','Change this answer');
+   path.append(edit);
+  });
+  path.hidden=path.childElementCount===0;
  }
  function renderQuestion(){
   const list=questionsFor(answers);step=Math.min(step,list.length-1);
