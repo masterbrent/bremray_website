@@ -3,7 +3,7 @@ test('pages retain real Bremray logo and use the revised house image',()=>{for(c
 test('homepage preserves established service language',()=>{const html=fs.readFileSync(path.join(root,'index.html'),'utf8');for(const copy of ['Licensed Electrician in Ann Arbor','EV chargers, electrical panel upgrades, whole house generators, and residential electrical service.','We\'ll assess your panel capacity and provide professional recommendations.','Network cabling, WiFi systems, smart home integration, and home automation.','Serving Ann Arbor and All of Washtenaw County'])assert.ok(html.includes(copy),copy);});
 
 test('every footer shows six equipment brands and only the two confirmed credential captions', () => {
-  const expectedBrands = ['Generac', 'SPAN', 'Square D', 'Siemens', 'Wallbox', 'ChargePoint'];
+  const expectedBrands = ['Generac', 'Square D', 'Siemens', 'ChargePoint', 'Wallbox', 'SPAN'];
   for (const dir of ['.', 'locations', 'generators']) {
     for (const file of fs.readdirSync(path.join(root, dir)).filter(file => file.endsWith('.html'))) {
       const html = fs.readFileSync(path.join(root, dir, file), 'utf8');
