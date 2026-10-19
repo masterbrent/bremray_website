@@ -13,6 +13,8 @@ Identify what the reader needs to know: whether Bremray does the job, what affec
 
 Installations are the business priority: generators, EV chargers, and panel upgrades. Keep service calls available without giving them equal promotional weight on a general landing page. On an actual repair page, answer the repair customer's question fully.
 
+For panel work, lead with the customer's problem and ordinary panel options. Brent says most jobs use Square D, Siemens, and Eaton. Keep the SPAN credential at the bottom as secondary information; do not lead the panel page with it or present SPAN as the default recommendation.
+
 ## Accuracy comes before style
 
 - Treat the existing website as wording to preserve where useful, not independent evidence that a claim is true. Brent has identified inaccurate certification claims in it.
