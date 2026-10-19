@@ -1,0 +1,36 @@
+{
+  "retrieved_on": "2026-10-19",
+  "purpose": "Owner-requested manufacturer logo bank for the local staging preview.",
+  "modifications": "None; original manufacturer-hosted assets.",
+  "usage_note": "Sources identify origin, not a blanket license or endorsement. Only Generac Aligned Partner and SPAN Certified Installer are owner-confirmed credentials. Square D and Siemens are displayed as equipment brands without credential claims.",
+  "assets": [
+    {
+      "file": "generac.png",
+      "brand": "Generac",
+      "source_page": "https://www.generac.com/about/news/logos/",
+      "asset_url": "https://www.generac.com/globalassets/shared/logos/generac-blue-logo.png",
+      "sha256": "d3bb7b6618b2c59ea963fc10420ad51e688f86af40dde32553fe2bad620cd311"
+    },
+    {
+      "file": "span.svg",
+      "brand": "SPAN",
+      "source_page": "https://www.span.io/website-resources",
+      "asset_url": "https://cdn.prod.website-files.com/628f26de26f0252b4094378b/63a34ec85884a7c55d512118_span-logo-dark.svg",
+      "sha256": "8cd50cc9143455b9c75d6c9d852c38d33822628021c007d1170607c4a207afdc"
+    },
+    {
+      "file": "square-d.svg",
+      "brand": "Square D",
+      "source_page": "https://www.se.com/us/en/brands/squared/",
+      "asset_url": "https://www.se.com/us/en/assets/v2/739/media/203721/Square-D-logo-toggle.svg",
+      "sha256": "bd41371d455fb49ba3aefb912bf88feb46c4d4f61719a50f888bfcabc702015a"
+    },
+    {
+      "file": "siemens.png",
+      "brand": "Siemens",
+      "source_page": "https://press.siemens.com/global/en",
+      "asset_url": "https://press.siemens.com/profiles/c2_base/modules/c2cms_instance_logo/assets/sag-logo.png",
+      "sha256": "15e94796aa5b26bdf767ad581cfa156727d6a2d68a488371a6c25b87d3c3b285"
+    }
+  ]
+}
