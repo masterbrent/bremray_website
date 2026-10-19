@@ -45,6 +45,8 @@ Keep reference-photo credits compact. Brent prefers attribution and source detai
 
 Brent's direct preferences: customers are “local people (normal people)” and “we help them with their issues.” He wants customers' problems and pricing questions addressed. His latest instruction is: “Don't make any substantial changes to the existing copy that I had before.” He wants “active sentences, short sentences” that “sound like a normal human.”
 
+Owner-selected positioning phrase, 2026-10-19: “Home energy resilience.” Brent supplied this for the generator page after the initial “Power resilience” preview. Use the corrected spelling and explain the practical customer benefit in ordinary language.
+
 Rejected example: “From the historic homes in Burns Park and the Old West Side to new construction in Pittsfield Township.” It decorates the paragraph and implies local experience without providing useful evidence.
 
 Proposed rewrite, NOT yet owner-approved wording: “We install EV chargers, generators, and electrical panels in Ann Arbor. We also handle repairs and service calls.” Use as an illustration of concrete language, not a mandatory template or proof of Brent's exact voice.
