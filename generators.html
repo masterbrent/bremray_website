@@ -76,6 +76,7 @@
             }
         }
     </style>
+    <script defer src="/js/generator-tabs.js"></script>
 </head>
 <body>
         <!-- Header -->
@@ -126,7 +127,7 @@
                         </div>
                         <!-- Button Section -->
                         <div style="padding: 1.5rem; text-align: center;">
-                            <button onclick="showTab('standby')" style="background: #28a745; color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; margin-right: 0.5rem;">View Details ↓</button>
+                            <button type="button" data-generator-target="standby" aria-controls="standby-tab" style="background: #28a745; color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; margin-right: 0.5rem;">View Details ↓</button>
                             <a href="generators/standby.html" style="background: #6c757d; color: white; padding: 0.5rem 1.5rem; text-decoration: none; border-radius: 5px; display: inline-block;">Full Info →</a>
                         </div>
                     </div>
@@ -163,7 +164,7 @@
                         </div>
                         <!-- Button Section -->
                         <div style="padding: 1.5rem; text-align: center;">
-                            <button onclick="showTab('portable')" style="background: #007bff; color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; margin-right: 0.5rem;">View Details ↓</button>
+                            <button type="button" data-generator-target="portable" aria-controls="portable-tab" style="background: #007bff; color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; margin-right: 0.5rem;">View Details ↓</button>
                             <a href="generators/portable-interlock.html" style="background: #6c757d; color: white; padding: 0.5rem 1.5rem; text-decoration: none; border-radius: 5px; display: inline-block;">Full Info →</a>
                         </div>
                     </div>
@@ -171,13 +172,13 @@
 
                 <!-- Tab Container -->
                 <div class="tab-container">
-                    <div class="tab-buttons">
-                        <button class="tab-button active" onclick="showTab('standby')">Standby Generators</button>
-                        <button class="tab-button" onclick="showTab('portable')">Portable + Interlock Kit</button>
+                    <div class="tab-buttons" role="tablist" aria-label="Generator options">
+                        <button type="button" id="standby-tab-button" class="tab-button active" role="tab" aria-selected="true" aria-controls="standby-tab" tabindex="0" data-generator-target="standby">Standby Generators</button>
+                        <button type="button" id="portable-tab-button" class="tab-button" role="tab" aria-selected="false" aria-controls="portable-tab" tabindex="-1" data-generator-target="portable">Portable + Interlock Kit</button>
                     </div>
 
                     <!-- Standby Generator Tab Content -->
-                    <div id="standby-tab" class="tab-content active">
+                    <div id="standby-tab" class="tab-content active" role="tabpanel" aria-labelledby="standby-tab-button" tabindex="0">
                         <h2>Automatic Standby Generators</h2>
                         <p>Power outages disrupt everything - from work-from-home setups to medical equipment, refrigerated food to heating and cooling. A whole house generator provides seamless backup power, starting automatically when the grid fails.</p>
 
@@ -257,7 +258,7 @@
                     </div>
 
                     <!-- Portable Generator Tab Content -->
-                    <div id="portable-tab" class="tab-content">
+                    <div id="portable-tab" class="tab-content" role="tabpanel" aria-labelledby="portable-tab-button" tabindex="0" hidden>
                         <h2>Portable Generator with Interlock Kit</h2>
                         <p>A professionally installed portable generator with an interlock kit provides reliable backup power at a fraction of the cost of standby systems. This setup allows you to safely power your electrical panel during an outage - you choose which circuits to run based on your generator's capacity.</p>
 
@@ -410,31 +411,5 @@
 
     <!-- Footer -->
     </main><section class="contact-band"><div class="wrap"><div><span class="eyebrow">GET IN TOUCH</span><h2>Have a project in mind?<br>Something not working?</h2><p>Ann Arbor & Washtenaw County · Monday–Friday, 8am–5pm</p></div><div><a class="button" href="/get-help.html">Tell us what you need <span>↗</span></a><p>Or call <a href="tel:7342169437">(734) 216-9437</a></p></div></div></section><footer class="site-footer"><div class="manufacturer-bank" id="manufacturer-logos"><div class="wrap"><p class="manufacturer-label">Equipment brands</p><div class="manufacturer-logos" aria-label="Manufacturer brands and confirmed credentials"><div class="manufacturer-item"><div class="manufacturer-mark"><img src="/images/manufacturers/generac.png" alt="Generac" width="1024" height="228" loading="lazy"></div><p>Generac Aligned Partner</p></div><div class="manufacturer-item"><div class="manufacturer-mark"><img src="/images/manufacturers/span.svg" alt="SPAN" width="160" height="40" loading="lazy"></div><p>SPAN Certified Installer</p></div><div class="manufacturer-item"><div class="manufacturer-mark"><img src="/images/manufacturers/square-d.svg" alt="Square D" width="196" height="39" loading="lazy"></div></div><div class="manufacturer-item"><div class="manufacturer-mark"><img src="/images/manufacturers/siemens.png" alt="Siemens" width="490" height="65" loading="lazy"></div></div></div></div></div><div class="wrap footer-row"><div><a class="brand" href="/"><img src="/images/logo.png" alt="Bremray Electrical LLC — Licensed & Insured" width="250" height="140"></a><p>Installations and service calls in Washtenaw County.</p></div><div class="footer-links"><a href="/services.html">Services</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a></div><p>© 2026 Bremray Electrical<br>Ann Arbor, Michigan</p></div></footer><div class="mobile-actions"><a class="button dark" href="tel:7342169437">Call Bremray</a><a class="button" href="/get-help.html">Request service ↗</a></div><script defer src="/js/design.js"></script><script defer src="/js/analytics.js?v=20261019"></script>
-    <script>
-        function showTab(tabName) {
-            // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-
-            // Remove active class from all buttons
-            document.querySelectorAll('.tab-button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-
-            // Show selected tab
-            if (tabName === 'standby') {
-                document.getElementById('standby-tab').classList.add('active');
-                document.querySelectorAll('.tab-button')[0].classList.add('active');
-            } else {
-                document.getElementById('portable-tab').classList.add('active');
-                document.querySelectorAll('.tab-button')[1].classList.add('active');
-            }
-
-            // Scroll to tabs
-            document.querySelector('.tab-container').scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
-
 </body>
 </html>
