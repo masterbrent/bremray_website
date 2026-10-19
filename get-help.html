@@ -7,7 +7,7 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <meta name="description" content="Request electrical service from Bremray Electrical. Professional consultation and estimates available.">
     <link rel="canonical" href="https://bremray.com/get-help.html" />
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/css/design.css">
     <style>
         .form-container {
             max-width: 600px;
@@ -30,40 +30,13 @@
 </head>
 <body>
         <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="index.html" class="logo">
-                    <img src="images/logo.png" alt="Bremray Electrical">
-                </a>
-                <nav>
-                    <a href="index.html">Home</a>
-                    <div class="dropdown">
-                        <span class="dropdown-toggle">Services</span>
-                        <div class="dropdown-menu">
-                            <a href="services.html">All Services</a>
-                            <a href="electrical-panel-upgrade.html">Panel Upgrades</a>
-                            <a href="ev-charger-installation.html">EV Chargers</a>
-                            <a href="generators.html">Generators</a>
-                            <a href="residential-electrical.html">Residential</a>
-                        </div>
-                    </div>
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
-                </nav>
-                <a href="tel:7342169437" class="phone-cta">
-                    <span class="phone-icon">📞</span>
-                    <span>(734) 216-9437</span>
-                </a>
-            </div>
-        </div>
-    </header>
+    <div class="topline"><div class="wrap"><span>ANN ARBOR & WASHTENAW COUNTY</span><span>Monday–Friday · 8am–5pm</span></div></div><header class="site-header"><div class="wrap header-row"><a class="brand" href="/" aria-label="Bremray Electrical home">BREM<b>RAY</b><small>ELECTRICAL</small></a><button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button><nav id="main-nav" aria-label="Main navigation"><a href="/services.html">Our services</a><a href="/about.html">About Bremray</a><a href="/contact.html">Contact</a><a class="button dark" href="tel:7342169437">(734) 216-9437 ↗</a></nav></div></header><main class="subpage-main">
 
     <!-- Form Section -->
     <section class="page-header">
         <div class="container">
-            <h1>Request Service</h1>
-            <p>Describe your electrical needs and we'll contact you promptly</p>
+            <h1>What can we help with?</h1>
+            <p>A few details will help us understand the job and get back to you about pricing.</p>
         </div>
     </section>
 
@@ -71,22 +44,22 @@
         <div class="container">
             <div class="simple-form">
                 <form action="https://formspree.io/f/xkgwnnqr" method="POST">
-                    <label for="name">Name</label>
+                    <label for="service">What do you need help with?</label><select id="service" name="service"><option value="">Choose a service</option><option>Generator installation</option><option>EV charger installation</option><option>Panel upgrade</option><option>Repair or service call</option><option>Something else / not sure</option></select><div id="project-questions" aria-live="polite"></div><label for="town">Town or ZIP code</label><input id="town" name="town" autocomplete="address-level2" placeholder="Where is the job?"><label for="name">Name</label>
                     <input type="text" id="name" name="name" placeholder="Your Name">
-                    
+
                     <label for="phone">Phone <span style="color: red;">*</span></label>
                     <input type="tel" id="phone" name="phone" placeholder="(734) 555-0123" required>
-                    
+
                     <label for="email">Email <span class="optional-label">(optional)</span></label>
                     <input type="email" id="email" name="email" placeholder="your@email.com">
-                    
+
                     <label for="message">Describe Your Electrical Needs</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Tell us about your electrical project or issue..."></textarea>
-                    
-                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.2rem;">Request Service</button>
+                    <textarea id="message" name="message" rows="5" placeholder="What would you like installed, or what isn’t working?"></textarea>
+
+                    <label for="marketing" class="marketing-choice"><input type="checkbox" id="marketing" name="marketing_opt_in" value="yes"> You can also email me occasional Bremray news and offers. (Optional)</label><p class="form-note">We’ll use your contact details to respond about this job. This form does not give an instant price or book an appointment.</p><button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.2rem;">Send my project details</button>
                 </form>
             </div>
-            
+
             <div style="text-align: center; margin-top: 2rem;">
                 <p style="font-size: 1.2rem;">Or just call us directly:</p>
                 <a href="tel:7342169437" class="btn btn-primary btn-large">
@@ -97,36 +70,9 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Bremray Electrical</h4>
-                    <p>Licensed & Insured Electrician<br>
-                    </p>
-                </div>
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <ul>
-                        <li>EV Charger Installation</li>
-                        <li>Panel Upgrades</li>
-                        <li>Generators</li>
-                        <li>Residential Electrical</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Phone: (734) 216-9437<br>
-                    Email: contact@bremray.com</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Bremray Electrical. All rights reserved. | Serving Ann Arbor, Ypsilanti, Chelsea, Saline, Dexter & All Washtenaw County</p>
-            </div>
-        </div>
-    </footer>
+    </main><section class="contact-band"><div class="wrap"><div><span class="eyebrow">GET IN TOUCH</span><h2>Have a project in mind?<br>Something not working?</h2><p>Ann Arbor & Washtenaw County · Monday–Friday, 8am–5pm</p></div><div><a class="button" href="/get-help.html">Tell us what you need <span>↗</span></a><p>Or call <a href="tel:7342169437">(734) 216-9437</a></p></div></div></section><footer class="site-footer"><div class="wrap footer-row"><div><a class="brand" href="/">BREM<b>RAY</b><small>ELECTRICAL</small></a><p>Installations and service calls in Washtenaw County.</p></div><div class="footer-links"><a href="/services.html">Services</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a></div><p>© 2026 Bremray Electrical<br>Ann Arbor, Michigan</p></div></footer><div class="mobile-actions"><a class="button dark" href="tel:7342169437">Call Bremray</a><a class="button" href="/get-help.html">Request service ↗</a></div><script defer src="/js/design.js"></script><script defer src="/js/analytics.js?v=20261019"></script>
 
-    <script defer src="js/main.js"></script>
-    <script defer src="/js/analytics.js?v=20261019"></script>
-</body>
+
+
+<script defer src="/js/intake.js"></script></body>
 </html>
