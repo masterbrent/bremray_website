@@ -3,11 +3,14 @@ package main
 import (
 	"bytes"
 	_ "embed"
+	"fmt"
 	"log"
+	"net"
 	"net/http"
 	"os"
 	"path/filepath"
 	"regexp"
+	"strconv"
 	"strings"
 )
 
@@ -18,7 +21,27 @@ var leadEmbed = regexp.MustCompile(`(?s)<!--Start of Housecallpro Lead Capture c
 //go:embed lead-form-preview.tmpl
 var leadPreview []byte
 
+func previewAddress(value string) (string, error) {
+	if value == "" {
+		return "127.0.0.1:8766", nil
+	}
+	host, port, err := net.SplitHostPort(value)
+	if err != nil {
+		return "", fmt.Errorf("preview address must be a loopback IP and port: %w", err)
+	}
+	ip := net.ParseIP(host)
+	n, err := strconv.Atoi(port)
+	if ip == nil || !ip.IsLoopback() || err != nil || n < 1 || n > 65535 {
+		return "", fmt.Errorf("preview address must use a loopback IP and a port from 1 to 65535")
+	}
+	return value, nil
+}
+
 func main() {
+	addr, err := previewAddress(os.Getenv("BREMRAY_PREVIEW_ADDR"))
+	if err != nil {
+		log.Fatal(err)
+	}
 	root, err := os.Getwd()
 	if err != nil {
 		log.Fatal(err)
@@ -56,6 +79,6 @@ func main() {
 		}
 		http.ServeFile(w, r, filepath.Join(root, p))
 	})
-	log.Println("Bremray staging: http://127.0.0.1:8766")
-	log.Fatal(http.ListenAndServe("127.0.0.1:8766", nil))
+	log.Printf("Bremray staging: http://%s", addr)
+	log.Fatal(http.ListenAndServe(addr, nil))
 }

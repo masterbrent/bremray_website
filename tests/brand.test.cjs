@@ -6,6 +6,8 @@ test('every footer shows six equipment brands and only the two confirmed credent
   const expectedBrands = ['Generac', 'Square D', 'Siemens', 'ChargePoint', 'Wallbox', 'SPAN'];
   for (const dir of ['.', 'locations', 'generators']) {
     for (const file of fs.readdirSync(path.join(root, dir)).filter(file => file.endsWith('.html'))) {
+      // The isolated intake preview has its own small footer, not production navigation.
+      if (dir === '.' && file === 'adaptive-intake.html') continue;
       const html = fs.readFileSync(path.join(root, dir, file), 'utf8');
       const footer = html.match(/<div class="manufacturer-bank"[\s\S]*?(?=<div class="wrap footer-row">)/)?.[0];
       assert.ok(footer, file);
