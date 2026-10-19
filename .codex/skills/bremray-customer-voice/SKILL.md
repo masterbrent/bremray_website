@@ -24,9 +24,11 @@ Installations are the business priority: generators, EV chargers, and panel upgr
 
 ## Editing approach
 
-Read the existing passage and surrounding page when available. If only excerpts are provided, work from those; do not invent missing context or broaden access just to find it. Preserve useful explanations, technical distinctions, and Brent's wording. Make the smallest changes that improve clarity or correct facts; do not erase his work just to impose a uniform voice.
+Read the existing passage and surrounding page when available. If only excerpts are provided, work from those; do not invent missing context or broaden access just to find it. Brent's original copy is the baseline. Preserve its meaning, useful explanations, technical distinctions, and wording. Leave clear passages alone. Do not substantially rewrite his copy, reorganize a page, or replace a paragraph just to impose a uniform voice. When versions differ, compare with the original or live copy before treating recent assistant-written text as Brent's work.
 
-Prefer ordinary verbs, contractions where natural, and complete conversational sentences. Explain electrical terms when a customer needs them. Use enough detail to answer the question; short is not automatically better.
+For a voice cleanup, edit the particular phrase or sentence that causes the problem. Prefer removing padding to replacing it with new sales language. A request to look for “AI footprints” calls for a close wording review, not a wholesale rewrite or a claim that a detector can establish who wrote it.
+
+Prefer active voice, short sentences, ordinary verbs, and contractions where natural. Name who does what: “We install the charger” rather than “The charger installation is carried out by our team.” Keep complete conversational sentences and vary their length when that helps the explanation. Do not force fragments, rigid sentence limits, or a clipped rhythm to sound human. Explain electrical terms when a customer needs them; retain details that help the customer decide.
 
 Cut decorative geography, vague praise, and generic slogans. Examples to reconsider: “proudly serving,” “unique electrical needs,” “expertise and care,” and “from historic homes to new construction.” These are editing signals, not a mechanical banned-word list. Place names belong in clear service-area information or a real, confirmed job example. Do not assume a house needs an upgrade because of its age or neighborhood.
 
@@ -34,12 +36,12 @@ Read the draft as an answer on the phone. If a sentence mainly makes the busines
 
 ## Calibration and review
 
-Brent's direct preferences: customers are “local people (normal people)” and “we help them with their issues.” He wants customers' problems and pricing questions addressed, and wants existing copy preserved selectively.
+Brent's direct preferences: customers are “local people (normal people)” and “we help them with their issues.” He wants customers' problems and pricing questions addressed. His latest instruction is: “Don't make any substantial changes to the existing copy that I had before.” He wants “active sentences, short sentences” that “sound like a normal human.”
 
 Rejected example: “From the historic homes in Burns Park and the Old West Side to new construction in Pittsfield Township.” It decorates the paragraph and implies local experience without providing useful evidence.
 
 Proposed rewrite, NOT yet owner-approved wording: “We install EV chargers, generators, and electrical panels in Ann Arbor. We also handle repairs and service calls.” Use as an illustration of concrete language, not a mandatory template or proof of Brent's exact voice.
 
-Before delivering, check factual claims separately from tone. For a copy review, provide the proposed text and briefly identify any fact that needs Brent's answer. If facts are missing, omit the uncertain claim or ask a focused question; continue independent editing. Do not ask for approval on every routine wording choice.
+Before delivering, check factual claims separately from tone. For a copy review, show focused before-and-after edits, explain the specific padding removed, and label proposed wording as a proposal rather than an approved voice sample. Briefly identify facts that need Brent's answer separately; do not quietly replace an uncertain claim with a new promise. If facts are missing, omit the uncertain claim from new copy or ask a focused question; continue independent editing. Do not ask for approval on every routine wording choice.
 
 When Brent corrects a passage, capture the underlying preference and a short approved example. Do not treat assistant-generated wording or silence as owner approval. Update this skill only when authorized to maintain it. A skill invocation does not authorize publishing, sending emails, quoting prices, or changing account settings.
