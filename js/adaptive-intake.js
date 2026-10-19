@@ -6,8 +6,8 @@
  const multiple=option('multiple','A few different things');
  const question=(id,title,help,options)=>({id,title,help,options});
  const q={
-  intent:question('intent','What do you need help with?','Start with what you want to do. You do not need to know the technical details.',[
-   option('repair','Something isn’t working'),option('install','I want something installed'),option('upgrade','I want to upgrade or replace something'),option('unknown','I’m not sure')]),
+  intent:question('intent','How can we help you?','',[
+   option('repair','Something isn’t working'),option('install','Install something new'),option('upgrade','Replace or upgrade something'),option('unknown','I’m not sure')]),
   repair_item:question('repair_item','What isn’t working?','Choose the closest match.',[
    option('outlet','An outlet'),option('light','A light or switch'),option('breaker','A breaker keeps switching off'),option('power','Several things or part of the house'),option('generator','A generator'),multiple,other,unsure]),
   install_item:question('install_item','What would you like installed?','Choose the closest match. There is room for other jobs, too.',[
@@ -145,7 +145,13 @@
   return {...state,mode,step:mode==='guided'?Math.max(0,questionsFor(state.answers).findIndex(item=>!hasAnswer(state.answers,item))):state.step};
  }
  function review(state){return {...state,reviewMode:state.mode,mode:'review'};}
- const api={questionsFor,nextQuestion,answer,cleanText,switchMode,review};
+ function advance(state,id,value){
+  const updated={...state,answers:answer(state.answers,id,value)};
+  const missing=nextQuestion(updated.answers);
+  if(!missing)return review(updated);
+  return {...updated,step:questionsFor(updated.answers).findIndex(item=>item.id===missing.id)};
+ }
+ const api={questionsFor,nextQuestion,answer,cleanText,switchMode,review,advance};
  if(typeof module==='object'&&module.exports){module.exports=api;return;}
  root.BremrayIntake=api;
  const shell=document.getElementById('intake-screen');
@@ -179,7 +185,7 @@
   setProgress('Question '+(step+1),(step+1)*20);
   const field=el('fieldset');
   field.append(el('legend',item.title,{tabindex:'-1'}));
-  field.append(el('p',item.help,{class:'intake-help',id:'question-help'}));
+  if(item.help)field.append(el('p',item.help,{class:'intake-help',id:'question-help'}));
   const choices=el('div',undefined,{class:'intake-choices'+(item.options?.length>6?' intake-choices-compact':'')});
   let selected=answers[item.id];
   if(item.type==='text'){
@@ -191,23 +197,17 @@
    area.addEventListener('input',()=>{selected=area.value;answers=answer(answers,item.id,selected);count.textContent=selected.length+' / 2,000';});
    choices.append(label,area,count);
   }else item.options.forEach(choice=>{
-   const label=el('label',undefined,{class:'intake-choice'});
-   const input=el('input',undefined,{type:'radio',name:item.id,value:choice.value,'aria-describedby':'question-help'});
-   input.checked=selected===choice.value;
-   input.addEventListener('change',()=>{selected=choice.value;answers=answer(answers,item.id,selected);next.disabled=false;});
-   label.append(input,el('span',choice.label));choices.append(label);
+   const pick=button('',()=>{applyState(advance(state(),item.id,choice.value));render();},'intake-choice');
+   pick.setAttribute('aria-pressed',String(selected===choice.value));
+   if(item.help)pick.setAttribute('aria-describedby','question-help');
+   pick.append(el('span',choice.label),el('span','→',{'aria-hidden':'true',class:'intake-choice-arrow'}));
+   choices.append(pick);
   });
   field.append(choices);shell.append(field);
   const nav=el('div',undefined,{class:'intake-navigation'});
   if(step>0)nav.append(button('Back',()=>{step--;render();},'intake-back'));
-  const next=button('Continue →',()=>{
-   if(item.type!=='text'&&!selected)return;
-   answers=answer(answers,item.id,selected);
-   const missing=nextQuestion(answers);
-   if(!missing){applyState(review(state()));render();return;}
-   step=questionsFor(answers).findIndex(item=>item.id===missing.id);render();
-  });
-  next.disabled=item.type!=='text'&&!selected;nav.append(next);shell.append(nav);
+  if(item.type==='text')nav.append(button('Review details →',()=>{applyState(advance(state(),item.id,selected));render();}));
+  if(nav.childElementCount)shell.append(nav);
  }
  function renderTyped(){
   setProgress('Your words. No questionnaire.',25);

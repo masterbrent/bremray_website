@@ -144,3 +144,18 @@ test('panel problems capture the symptom before timing and allow an unlisted sym
  assert.equal(a.panel_when,undefined);
  assert.equal(intake.nextQuestion(a).id,'details');
 });
+
+test('one choice advances immediately, with a final choice opening review',()=>{
+ const initial={mode:'guided',reviewMode:'guided',step:0,typed:'Keep my typed draft.',answers:{}};
+ let state=intake.advance(initial,'intent','repair');
+ assert.equal(state.step,1);
+ assert.equal(state.answers.intent,'repair');
+ assert.equal(state.typed,initial.typed);
+ state=intake.advance(state,'repair_item','outlet');
+ assert.equal(state.step,2);
+ state=intake.advance(state,'repair_when','recent');
+ assert.equal(state.step,3);
+ state=intake.advance(state,'repair_extent','only');
+ assert.equal(state.mode,'review');
+ assert.equal(state.reviewMode,'guided');
+});
