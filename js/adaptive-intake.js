@@ -165,6 +165,12 @@
  const progress=document.getElementById('intake-progress');
  const track=document.getElementById('intake-track');
  const path=document.getElementById('intake-path');
+ const secondary=document.getElementById('intake-secondary');
+ const openingPhotos={
+  repair:{src:'/images/home-phone-v2.jpg',detail:'Outlets, lights, lost power and more'},
+  install:{src:'/images/ev-charging.jpg',detail:'Lights, chargers, new circuits and more'},
+  upgrade:{src:'/images/panel.jpg',detail:'Panels, fixtures, switches and more'}
+ };
  const modeButtons=document.querySelectorAll('[data-intake-mode]');
  function state(){return {answers,step,typed,mode,reviewMode};}
  function applyState(value){({answers,step,typed,mode,reviewMode}=value);}
@@ -188,6 +194,7 @@
  function setProgress(label,percent){progress.textContent=label;track.style.width=percent+'%';}
  function render(focus=true){
   shell.replaceChildren();
+  secondary?.querySelector('.intake-choice-secondary')?.remove();
   shell.closest('.intake-card')?.setAttribute('data-intake-view',viewFor(state()));
   modeButtons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.intakeMode===(mode==='review'?reviewMode:mode))));
   if(mode==='typed')renderTyped();else if(mode==='review')renderReview();else renderQuestion();
@@ -228,8 +235,23 @@
   }else item.options.forEach(choice=>{
    const pick=button('',()=>{applyState(advance(state(),item.id,choice.value));render();},'intake-choice');
    pick.setAttribute('aria-pressed',String(selected===choice.value));
+   pick.setAttribute('data-choice',choice.value);
    if(item.help)pick.setAttribute('aria-describedby','question-help');
-   pick.append(el('span',choice.label),el('span','→',{'aria-hidden':'true',class:'intake-choice-arrow'}));
+   const photo=secondary&&item.id==='intent'?openingPhotos[choice.value]:undefined;
+   if(photo){
+    pick.classList.add('intake-visual-choice');
+    pick.setAttribute('aria-label',choice.label);
+    pick.setAttribute('aria-describedby','choice-detail-'+choice.value);
+    pick.append(el('img',undefined,{src:photo.src,alt:'',width:'600',height:'400',class:'intake-choice-image'}));
+    const copy=el('span',undefined,{class:'intake-choice-copy'});
+    copy.append(el('span',choice.label,{class:'intake-choice-title'}),el('span',photo.detail,{class:'intake-choice-detail',id:'choice-detail-'+choice.value}));
+    pick.append(copy);
+   }else pick.append(el('span',choice.label));
+   pick.append(el('span','→',{'aria-hidden':'true',class:'intake-choice-arrow'}));
+   if(secondary&&item.id==='intent'&&choice.value==='unknown'){
+    pick.classList.add('intake-choice-secondary');
+    secondary.prepend(pick);return;
+   }
    choices.append(pick);
   });
   field.append(choices);shell.append(field);
