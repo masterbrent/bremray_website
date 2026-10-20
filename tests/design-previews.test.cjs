@@ -8,6 +8,7 @@ for(const variant of ['type','service-desk','hybrid']){
   assert.match(html,/<meta\s+name="robots"\s+content="noindex,\s*nofollow"/i);
   assert.match(html,/connect-src 'none'/);assert.match(html,/form-action 'none'/);
   assert.match(html,/href="tel:(?:\+1)?7342169437"/);
+  assert.match(html,/shared\/flow\.css\?v=\d+/);assert.match(html,/shared\/flow\.js\?v=\d+/);
   assert.match(html,/data-demo-intake/);assert.doesNotMatch(html,/data-intake-endpoint|id="intake-screen"|analytics\.js|iframe|\$250|\$195/);
   assert.equal((html.match(/<h1\b/g)||[]).length,1);
   assert.match(html, /src="\/images\/logo\.png"/);
