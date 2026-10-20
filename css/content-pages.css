@@ -5,6 +5,9 @@
 .site-page h1{font-size:clamp(52px,5.8vw,80px);line-height:1.08;letter-spacing:-.025em;max-width:20ch;margin:0 0 22px}
 .site-page .page-header p,.site-page .hero-subtitle{font-size:20px;line-height:1.55;color:var(--muted);max-width:65ch;margin:0}
 .site-page .hero-cta,.site-page .cta-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.site-page .breadcrumb-section{padding-block:16px;border-bottom:1px solid var(--module-line)}
+.site-page .breadcrumb-section nav{font-size:13px;line-height:1.7;color:var(--muted)}
+.site-page .breadcrumb-section a{display:inline-block;padding-block:8px}
 .site-page h2{font-size:var(--section-size);line-height:1.12;letter-spacing:-.02em;margin:44px 0 24px;max-width:25ch}
 .site-page h3{font-family:var(--font-sans);font-size:var(--module-size);line-height:1.25;letter-spacing:-.025em;font-weight:700;margin:30px 0 14px}
 .site-page h4{font-size:18px;line-height:1.4;font-weight:650;margin:24px 0 12px}
@@ -38,15 +41,25 @@
 .site-page .cta-section{margin-top:12px;padding-block:44px;border-top:1px solid var(--module-line);background:var(--soft)}
 .site-page .cta-section h2{margin-top:0}
 .site-page .cta-section p{margin-bottom:0}
+.site-page .contact-band{padding-block:44px;border-top:1px solid var(--module-line);margin-bottom:40px}
+.site-page .contact-band>.wrap{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:40px;align-items:center}
+.site-page .contact-band h2{margin:0 0 16px}
+.site-page .contact-band p{color:var(--muted);font-size:14px;line-height:1.65;margin-bottom:12px}
+.site-page .contact-band .section-subheading{font-size:18px}
+.site-page .contact-band .button{margin-bottom:16px}
 .site-page .warning-box,.site-page .tip-box,.site-page .content-callout,.site-page .alert{border:1px solid var(--module-line);border-left:3px solid var(--accent);background:var(--soft);padding:24px;margin:28px 0}
 .site-page .warning-box>:first-child,.site-page .tip-box>:first-child,.site-page .content-callout>:first-child,.site-page .alert>:first-child{margin-top:0}
 .site-page .warning-box>:last-child,.site-page .tip-box>:last-child,.site-page .content-callout>:last-child,.site-page .alert>:last-child{margin-bottom:0}
 .site-page .surface-panel{border:1px solid var(--module-line);padding:28px;margin:28px 0;background:var(--paper)}
 .site-page .surface-panel>:first-child{margin-top:0}
 .site-page .surface-panel>:last-child{margin-bottom:0}
+.site-page .stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;text-align:center}
+.site-page .stats-grid>div{min-width:0}
+.site-page .stats-grid h3{margin:0 0 8px;overflow-wrap:break-word}
+.site-page .stats-grid p{margin:0}
 .site-page .action-panel{border:1px solid var(--module-line);padding:32px;margin:40px 0;background:var(--soft)}
 .site-page .action-panel h2,.site-page .action-panel h3{margin-top:0}
-.site-page .action-panel>a{display:inline-flex;align-items:center;min-height:44px;font-weight:650}
+.site-page .action-panel>a:not(.btn){display:inline-flex;align-items:center;min-height:44px;font-weight:650}
 .site-page .content-columns,.site-page .comparison-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin:32px 0}
 .site-page .comparison-card{min-width:0;border:1px solid var(--module-line);display:flex;flex-direction:column;background:var(--paper)}
 .site-page .comparison-card>div{padding:0 24px}
@@ -54,7 +67,7 @@
 .site-page .comparison-card>div:last-child{display:flex;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:12px;padding:24px;margin-top:auto}
 .site-page .comparison-card h3{margin-top:0}
 .site-page .comparison-card li{font-size:15px}
-.site-page .comparison-card a{display:inline-flex;align-items:center;min-height:44px;padding:8px 0;font-size:14px;font-weight:650}
+.site-page .comparison-card a:not(.btn){display:inline-flex;align-items:center;min-height:44px;padding:8px 0;font-size:14px;font-weight:650}
 .site-page .tab-container{margin:36px 0}
 .site-page .tab-buttons{display:flex;gap:24px;border-bottom:1px solid var(--module-line);margin-bottom:32px}
 .site-page .tab-button{padding:16px 4px;border:0;border-bottom:3px solid transparent;background:transparent;color:var(--muted);font-size:17px;font-weight:650;line-height:1.4;min-height:56px;text-align:left;cursor:pointer}
@@ -93,6 +106,10 @@
 .site-page .services-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:32px;text-align:left}
 .site-page .service-card{border:1px solid var(--module-line);padding:24px;min-width:0}
 .site-page .service-card h2,.site-page .service-card h3{margin-top:0}
+.site-page .error-section{padding-block:48px;text-align:center}
+.site-page .error-section h2{margin:0 auto 28px}
+.site-page .error-section .services-grid{max-width:800px;margin:28px auto 36px}
+.site-page .error-section .btn-large{margin-bottom:16px}
 
 /* The standalone request page uses the same accessible, lightweight lead controller. */
 .site-page .lead-start{padding:40px 0 0;border-top:1px solid var(--module-line)}
@@ -176,6 +193,7 @@
 @media(max-width:1050px){
   .site-page .container,.site-page .wrap,.site-page .service-banner{width:calc(100% - 56px)}
   .site-page .contact-grid{gap:36px}.site-page .intake-result-layout{gap:28px}
+  .site-page .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .site-page .intake-choices-compact{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:760px){
@@ -189,6 +207,8 @@
   .site-page .service-banner{margin-top:24px}.site-page .service-banner img{height:220px}
   .site-page .service-item{padding-block:28px}.site-page .cta-section,.site-page .pricing-detail{padding-block:32px}
   .site-page .content-columns,.site-page .comparison-grid,.site-page .panel-examples,.site-page .contact-grid,.site-page .services-grid{grid-template-columns:1fr;gap:24px}
+  .site-page .contact-band{padding-block:32px;margin-bottom:28px}.site-page .contact-band>.wrap{grid-template-columns:1fr;gap:20px}
+  .site-page .error-section{padding-block:36px}
   .site-page .tab-buttons{gap:16px}.site-page .tab-button{font-size:15px;flex:1}
   .site-page .surface-panel,.site-page .warning-box,.site-page .tip-box,.site-page .content-callout,.site-page .alert,.site-page .action-panel{padding:20px}
   .site-page .panel-photo img{height:auto;max-height:420px}.site-page .panel-example figcaption{padding:20px}
@@ -209,6 +229,7 @@
   .site-page .intake-contact{padding:22px 18px}.site-page .intake-contact-option{padding-inline:7px}
   .site-page .intake-modes{gap:10px 22px}
 }
+@media(max-width:480px){.site-page .stats-grid{grid-template-columns:1fr;gap:22px}}
 @media(max-width:360px){
   .site-page .container,.site-page .wrap,.site-page .service-banner{width:calc(100% - 32px)}
   .site-page .intake-choice-image{width:82px}.site-page .intake-visual-choice{grid-template-columns:82px minmax(0,1fr)}
