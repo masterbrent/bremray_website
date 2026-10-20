@@ -10,9 +10,9 @@ test('homepage supporting sections use descriptive headings and the common type 
   assert.ok(home.includes('>'+topic+'</h2>'),topic);
  }
  assert.doesNotMatch(home,/<h2[^>]*>That’s a fair question/);
- const css=fs.readFileSync(path.join(root,'css/type-content.css'),'utf8');
- assert.match(css,/font-size: var\(--section-size\)/);
- assert.match(css,/--section-size: 34px/);
+ const css=fs.readFileSync(path.join(root,'css/site.css'),'utf8');
+ assert.match(css,/font-size:\s*var\(--section-size\)/);
+ assert.match(css,/--section-size:\s*34px/);
 });
 
 test('shared contact sections expose their purpose as a heading on every public content page',()=>{
@@ -20,7 +20,7 @@ test('shared contact sections expose their purpose as a heading on every public 
   .map(x=>x.replace(/<\/?loc>/g,'').replace('https://bremray.com/','')||'index.html');
  pages.push('404.html');
  for(const page of pages){
-  if(page==='index.html'){ assert.match(home,/<footer[^>]*id="contact"/); assert.match(home,/href="#questions">Tell us what you need/); continue; }
+  if(page==='index.html'){ assert.match(home,/<footer[^>]*id="contact"/); assert.match(home,/href="\/?#questions">Tell us what you need/); continue; }
   const html=fs.readFileSync(path.join(root,page),'utf8');
   const band=html.match(/<section class="contact-band">([\s\S]*?)<\/section>/)?.[1];
   assert.ok(band,page);

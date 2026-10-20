@@ -1,0 +1,26 @@
+<!doctype html>
+<!-- Generated from site/layout.gohtml and site/pages/. Run go run tools/sitegen/main.go; do not edit this output. -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.svg">
+  <meta name="theme-color" content="#ffffff">
+  {{.Head}}
+  <link rel="preload" href="/fonts/anton-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/site.css?v=2026102003">
+  {{if not .Home}}<link rel="stylesheet" href="/css/content-pages.css?v=2026102003">
+  {{end}}{{range .Scripts}}<script defer src="{{.}}"></script>
+  {{end}}
+</head>
+<body class="{{if .Home}}site-home{{else}}site-page{{end}}">
+  <a class="skip-link" href="#top">Skip to content</a>
+  {{template "header" .}}
+  {{.Content}}
+  {{if not .Home}}{{template "contact" .}}{{end}}
+  {{template "footer" .}}
+  <script defer src="/js/design.js"></script>
+  <script defer src="/js/analytics.js?v=2026102003"></script>
+</body>
+</html>

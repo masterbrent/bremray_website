@@ -10,15 +10,13 @@ const publicPages = ['', 'locations', 'generators'].flatMap(directory =>
     .map(file => path.join(directory, file)));
 
 test('pages use system or self-hosted fonts without external font requests', () => {
-  assert.match(read('css/design.css'), /body\{[^}]*font-family:Arial,Helvetica,sans-serif/);
+  assert.match(read('css/site.css'), /@font-face/);
   for (const file of publicPages) {
     const html = read(file);
     assert.doesNotMatch(html, /https:\/\/fonts\.(?:googleapis|gstatic)\.com/, file);
     const stylesheets = [...html.matchAll(/<link\b[^>]*\brel="stylesheet"[^>]*>/g)].map(match => match[0]);
-    const legacy = stylesheets.findIndex(tag => tag.includes('/css/main.css'));
-    const current = stylesheets.findIndex(tag => tag.includes('/css/design.css'));
-    if(file==='index.html'){assert.match(html,/\/css\/fonts.css/);assert.match(html,/\/css\/type.css/);continue;}
-    assert.ok(current > legacy, `${file}: the current system-font design stays after the legacy stylesheet`);
+    assert.equal(stylesheets.filter(tag=>tag.includes('/css/site.css')).length,1,file);
+    assert.doesNotMatch(html,/\/css\/(?:main|design|type|type-content|fonts)\.css/,file);
   }
 });
 

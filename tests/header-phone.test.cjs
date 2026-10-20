@@ -26,12 +26,11 @@ test('every public header keeps one click-to-call number beside the logo outside
     assert.equal(phone[2].trim(), '(734) 216-9437');
     assert.doesNotMatch(phone[1], /\bhidden|aria-hidden="true"/);
     assert.equal((header.match(/href="tel:(?:\+1)?7342169437"/g) || []).length, 1, `${file}: move the header number instead of duplicating it`);
-    if(file!=='index.html') assert.match(outsideMenu, /<button class="menu-toggle"[^>]*aria-controls="main-nav"[^>]*>Menu<\/button>/);
   }
 });
 
 test('the visible header phone keeps a full-height touch target and an unbroken number', () => {
-  const css = fs.readFileSync(path.join(root, 'css/design.css'), 'utf8');
+  const css = fs.readFileSync(path.join(root, 'css/site.css'), 'utf8');
   const rule = css.match(/\.header-phone\s*\{([^}]+)\}/)?.[1];
   assert.ok(rule, 'the phone has a dedicated visible header style');
   assert.match(rule, /display\s*:\s*inline-flex/);

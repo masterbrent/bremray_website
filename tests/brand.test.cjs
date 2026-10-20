@@ -6,30 +6,18 @@ test('homepage preserves the selected customer-focused services and avoids indus
  assert.doesNotMatch(html,/Commercial &amp; Industrial|Tesla certified|SPAN Certified Installer/);
 });
 
-test('every footer shows six equipment brands and only the two confirmed credential captions', () => {
+test('every footer uses the same six-brand equipment bank without invented credentials', () => {
   const expectedBrands = ['Generac', 'Square D', 'Siemens', 'ChargePoint', 'Wallbox', 'SPAN'];
   for (const dir of ['.', 'locations', 'generators']) {
     for (const file of fs.readdirSync(path.join(root, dir)).filter(file => file.endsWith('.html'))) {
       const html = fs.readFileSync(path.join(root, dir, file), 'utf8');
-      if(file==='index.html'){
+
         const bank=html.match(/<section class="equipment-bank"[\s\S]*?<\/section>/)?.[0];
         assert.ok(bank);
         for(const brand of expectedBrands)assert.ok(bank.includes(brand));
         assert.equal((bank.match(/<img\b/g)||[]).length,5);
         assert.doesNotMatch(bank,/certified|partner|dealer/i);
-        continue;
-      }
-      const footer = html.match(/<div class="manufacturer-bank"[\s\S]*?(?=<div class="wrap footer-row">)/)?.[0];
-      assert.ok(footer, file);
-      const marks = Array.from(footer.matchAll(/<div class="manufacturer-mark">([\s\S]*?)<\/div>/g), match => match[1]);
-      const brands = marks.map(mark => mark.match(/<img\b[^>]*alt="([^"]+)"/)?.[1]
-        || mark.match(/<span class="manufacturer-text">([^<]+)<\/span>/)?.[1]);
-      assert.deepEqual(brands, expectedBrands, file);
-      assert.equal((footer.match(/<img\b/g) || []).length, 5, file);
-      assert.match(footer, /<span class="manufacturer-text">ChargePoint<\/span>/, file);
-      assert.doesNotMatch(html, /chargepoint\.svg/i, file);
-      const captions = Array.from(footer.matchAll(/<p(?:\s[^>]*)?>([^<]+)<\/p>/g), match => match[1]);
-      assert.deepEqual(captions, ['Equipment brands', 'Generac Aligned Partner', 'SPAN Certified Installer'], file);
+      assert.doesNotMatch(html,/chargepoint\.svg/i,file);
     }
   }
 });
