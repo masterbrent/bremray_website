@@ -12,6 +12,19 @@ The live site is a static DigitalOcean App Platform deployment of `masterbrent/b
 
 Technical repairs in October 2026 preserve the visible service copy. More content, ad campaigns and the adaptive lead pipeline are separate work.
 
+## Shared asset build
+
+Edit `assets-src/css/main.css`, `assets-src/js/analytics.js` and `assets-src/js/generator-tabs.js` for these three shared files. Generate their compact production copies at the existing `css/` and `js/` URLs with:
+
+```sh
+GOMAXPROCS=2 go run tools/build-assets.go
+GOMAXPROCS=2 go run tools/build-assets.go --check
+```
+
+The build uses esbuild **v0.28.2**, pinned in the Go wrapper. The first run downloads that Go module; subsequent runs use the local Go cache. No npm installation, bundling, source maps, property-name mangling, or runtime dependency is added. Commit both the readable sources and generated files. Other CSS/JavaScript files remain directly authored at their existing paths.
+
+Run the existing Node suite after building; analytics consent and generator controls are exercised against the actual production JavaScript. The `--check` command rebuilds into a temporary directory and fails if committed outputs are stale. Minification reduces transfer bytes but does not address Housecall Pro's iframe execution cost.
+
 A fast, static HTML website for an electrical contractor business.
 
 ## Structure
@@ -62,7 +75,7 @@ Create these landing pages in GoHighLevel:
 This site is optimized for speed:
 - No frameworks or heavy libraries
 - Minimal CSS and JavaScript
-- Google Fonts loaded asynchronously
+- System fonts; no external font downloads
 - Mobile responsive
 
 ## SEO
