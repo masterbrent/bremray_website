@@ -40,3 +40,13 @@ test('typed alternative preserves text when reviewing and editing',()=>{
  assert.ok(b.mount.querySelectorAll('p').some(n=>n.textContent==='Install a ceiling fan in our bedroom.'));
  b.click('Edit answers');assert.equal(b.mount.querySelector('#demo-project').value,'Install a ceiling fan in our bedroom.');
 });
+test('Start over is available above the questions and contact details and clears the request',()=>{
+ const b=boot();b.pick('install');
+ let stage=b.mount.children[0];
+ assert.equal(stage.children[0].attrs.class,'demo-flow-meta');
+ assert.ok(stage.children[0].querySelectorAll('button').some(n=>n.textContent==='Start over'&&n.attrs.class==='demo-reset'));
+ b.click('Start over');assert.equal(b.mount.querySelector('h2').textContent,'What do you need done?');
+ b.click('I’d rather type');b.fill('project','Install kitchen lights.');b.click('Review details →');
+ stage=b.mount.children[0];assert.ok(stage.children[0].querySelectorAll('button').some(n=>n.textContent==='Start over'));
+ b.fill('name','Preview Test');b.click('Start over');b.click('I’d rather type');assert.equal(b.mount.querySelector('#demo-project').value,'');
+});
