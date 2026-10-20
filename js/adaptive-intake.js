@@ -156,12 +156,33 @@
   const list=questionsFor(state.answers);
   return list[Math.max(0,Math.min(state.step,list.length-1))]?.id==='intent'?'opening':'question';
  }
- const api={questionsFor,nextQuestion,answer,cleanText,switchMode,review,advance,viewFor};
+ function closingFor(state){
+  const a=state.answers||{};
+  const generic={title:'Let’s work out what you need.',summary:'An electrician can talk through the details with you.',pricing:''};
+  if(state.reviewMode==='typed'||!a.intent||a.intent==='unknown')return generic;
+  const item=a[a.intent+'_item'];
+  if(!item||fallback(item))return generic;
+  const serviceRate='Service-call labor is $250 for the first hour, then $195 per hour. Parts are extra.';
+  if(a.intent==='repair'){
+   const titles={outlet:'Let’s get that outlet checked.',light:'Let’s check that light or switch.',breaker:'Let’s find out why the breaker keeps switching off.',power:'Let’s check the power problem.',generator:'Let’s get your generator checked.'};
+   const timing={recent:'You noticed the problem today or yesterday.',week:'You noticed the problem within the last week.',longer:'The problem started more than a week ago.',intermittent:'You said the problem comes and goes.'};
+   const extent={only:'You haven’t noticed anything else losing power.',nearby:'Other things nearby have also lost power.',elsewhere:'Other parts of the house have also lost power.'};
+   return {title:titles[item]||generic.title,summary:[timing[a.repair_when],extent[a.repair_extent]].filter(Boolean).join(' ')||'We’ll need to find out what is causing the problem before pricing the repair.',pricing:serviceRate};
+  }
+  const names={lighting:'lights',fan:'a ceiling fan',outlet:'outlets or switches',ev:'an EV charger',generator:'backup power',power:'power for your equipment or building',panel:'your electrical panel'};
+  if(a.intent==='install')return {title:item==='power'?'You’d like power added for your equipment or building.':'You’d like '+(names[item]||'something new')+' installed.',summary:'We’ll look at what is already there and what the new installation needs.',pricing:''};
+  const replacementNames={...names,generator:'your generator'};
+  const pricing=['outlet','lighting','fan'].includes(item)?'If we handle this as a service call, labor is $250 for the first hour, then $195 per hour. Parts are extra.':'';
+  return {title:'You’d like to replace or upgrade '+(replacementNames[item]||'something')+'.',summary:'We’ll confirm what needs changing and what can stay.',pricing};
+ }
+ const api={questionsFor,nextQuestion,answer,cleanText,switchMode,review,advance,viewFor,closingFor};
  if(typeof module==='object'&&module.exports){module.exports=api;return;}
  root.BremrayIntake=api;
  const shell=document.getElementById('intake-screen');
  if(!shell)return;
  let answers={},step=0,typed='',mode='guided',reviewMode='guided';
+ const emptyContact=()=>({name:'',phone:'',email:'',zip:'',method:'call',ballpark:false});
+ let contact=emptyContact();
  const progress=document.getElementById('intake-progress');
  const track=document.getElementById('intake-track');
  const path=document.getElementById('intake-path');
@@ -276,11 +297,22 @@
   shell.append(label,area,count,next);
  }
  function renderReview(){
-  setProgress('Ready to review',100);
-  shell.append(el('div','PREVIEW · NOT SENT',{class:'intake-kicker'}),el('h2','Here’s what you told us.',{tabindex:'-1'}));
+  setProgress('Your details',100);
+  const closing=closingFor(state());
+  const layout=el('div',undefined,{class:'intake-result-layout'});
+  const copy=el('div',undefined,{class:'intake-result-copy'});
+  copy.append(el('h2',closing.title,{tabindex:'-1'}),el('p',closing.summary,{class:'intake-result-summary'}));
+  copy.append(el('p','Leave your details and an electrician will contact you. We may be able to give you a ballpark estimate over the phone. For most jobs, we need to take a look before confirming the price.',{class:'intake-next-steps'}));
+  if(closing.pricing){
+   const price=el('aside',undefined,{class:'intake-service-rate','aria-label':'Service-call pricing'});
+   price.append(el('h3','Service-call pricing'),el('p',closing.pricing));
+   copy.append(price);
+  }
+  const details=el('details',undefined,{class:'intake-answer-review'});
+  details.append(el('summary','Review or change your answers'));
   if(reviewMode==='typed'){
-   shell.append(el('p',cleanText(typed),{class:'intake-typed-review'}));
-   shell.append(button('Edit my description',()=>{mode='typed';render();},'intake-back'));
+   details.append(el('p',cleanText(typed),{class:'intake-typed-review'}));
+   details.append(button('Edit my description',()=>{mode='typed';render();},'intake-back'));
   }else{
    const summary=el('dl',undefined,{class:'intake-summary'});
    questionsFor(answers).forEach((item,index)=>{
@@ -290,11 +322,64 @@
     const row=el('div');
     const copy=el('div');copy.append(el('dt',item.title),el('dd',label));
     row.append(copy,button('Edit',()=>{mode='guided';step=index;render();},'intake-edit'));summary.append(row);
-   });shell.append(summary);
+   });details.append(summary);
   }
-  const note=el('div',undefined,{class:'intake-review-note'});
-  note.append(el('h3','This is a preview.'),el('p','Nothing is sent to Bremray or Housecall Pro. This version does not calculate a price or book a visit.'));
-  shell.append(note,button('Try another project',()=>{answers={};typed='';step=0;mode='guided';render();},'intake-primary'));
+  copy.append(details);
+  layout.append(copy,renderContact());
+  shell.append(layout,button('Start over',()=>{answers={};typed='';contact=emptyContact();step=0;mode='guided';render();},'intake-back'));
+ }
+ function renderContact(){
+  const panel=el('section',undefined,{class:'intake-contact','aria-labelledby':'contact-heading'});
+  panel.append(el('h3','How can we reach you?',{id:'contact-heading'}));
+  const preview=el('p','Preview only — use made-up details. Nothing is sent.',{class:'intake-contact-preview',id:'contact-preview'});
+  panel.append(preview);
+  function field(key,label,type,autocomplete){
+   const row=el('div',undefined,{class:'intake-contact-field'});
+   const id='intake-contact-'+key;
+   const input=el('input',undefined,{id,type,autocomplete,maxlength:key==='name'?'100':'254','aria-describedby':'contact-preview'});
+   input.value=contact[key];input.required=key!=='zip';
+   if(key==='zip'){input.setAttribute('inputmode','numeric');input.setAttribute('maxlength','10');}
+   input.addEventListener('input',()=>{contact[key]=input.value;});
+   row.append(el('label',label,{for:id}),input);
+   return row;
+  }
+  const name=field('name','Your name','text','name');
+  const phone=field('phone','Phone number','tel','tel');
+  const email=field('email','Email address','email','email');
+  const zip=field('zip','ZIP code (optional)','text','postal-code');
+  const method=el('fieldset',undefined,{class:'intake-contact-methods'});
+  method.append(el('legend','How should we contact you?'));
+  const options=el('div',undefined,{class:'intake-contact-options'});
+  const radios=[];
+  const estimate=el('div',undefined,{class:'intake-ballpark'});
+  const checkbox=el('input',undefined,{id:'intake-ballpark',type:'checkbox'});
+  checkbox.checked=contact.ballpark;
+  checkbox.addEventListener('change',()=>{contact.ballpark=checkbox.checked;});
+  const estimateLabel=el('label',undefined,{for:'intake-ballpark'});
+  estimateLabel.append(checkbox,el('span','I’d like a ballpark estimate by text.'));
+  estimate.append(estimateLabel,el('p','We’ll review your answers first. We may need a few more details or a visit before we can estimate the job.'));
+  function updateMethod(){
+   const byEmail=contact.method==='email';
+   phone.hidden=byEmail;phone.querySelector('input').required=!byEmail;
+   email.hidden=!byEmail;email.querySelector('input').required=byEmail;
+   estimate.hidden=contact.method!=='text';
+   if(contact.method!=='text'){contact.ballpark=false;checkbox.checked=false;}
+   radios.forEach(input=>{input.checked=input.value===contact.method;});
+  }
+  for(const [value,label] of [['call','Call'],['text','Text'],['email','Email']]){
+   const choice=el('label',undefined,{class:'intake-contact-option'});
+   const input=el('input',undefined,{type:'radio',name:'intake-contact-method',value});
+   input.checked=contact.method===value;
+   input.addEventListener('change',()=>{contact.method=value;updateMethod();});
+   radios.push(input);choice.append(input,el('span',label));options.append(choice);
+  }
+  method.append(options);
+  const send=button('Send request',()=>{});
+  send.disabled=true;send.setAttribute('aria-describedby','contact-preview');
+  panel.append(name,method,phone,email,zip,estimate,send);
+  panel.append(el('p','Sending is not connected in this preview.',{class:'intake-contact-footnote'}));
+  updateMethod();
+  return panel;
  }
  modeButtons.forEach(b=>b.addEventListener('click',()=>{
   applyState(switchMode(state(),b.dataset.intakeMode));

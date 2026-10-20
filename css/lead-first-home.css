@@ -53,7 +53,17 @@
 .lead-first-next p{margin:0}
 .lead-first-next a{text-underline-offset:4px;color:#fff}
 .lead-services-link{padding:7px 0;font-size:13px;font-weight:500}
-.lead-first-card[data-intake-view="review"] #intake-screen,.lead-first-card[data-intake-view="typed"] #intake-screen{max-width:760px}
+.lead-first-card[data-intake-view="typed"] #intake-screen{max-width:760px}
+.lead-first-card .intake-result-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);gap:58px;align-items:start}
+.lead-first-card .intake-result-copy{padding-top:5px}
+.lead-first-card .intake-result-summary,.lead-first-card .intake-next-steps{color:#d6e1df}
+.lead-first-card .intake-service-rate{border-color:#efbd66;color:#f5efdf}
+.lead-first-card .intake-service-rate h3{color:#efbd66}
+.lead-first-card .intake-answer-review{border-color:#405a60}
+.lead-first-card .intake-answer-review>summary{color:#f5efdf}
+.lead-first-card .intake-contact{margin-top:0}
+.lead-first-card .intake-contact-methods legend{font:600 14px/1.5 "Avenir Next",Arial,sans-serif;margin:0 0 8px;color:#20333a;letter-spacing:0}
+.lead-first-card .intake-contact input:focus-visible{outline-color:#9b5d09;outline-offset:3px}
 .lead-first-card .intake-summary{margin:8px 0 20px}
 .lead-first-card .intake-summary>div{padding:12px 0;border-color:#405a60}
 .lead-first-card .intake-summary dt{color:#bacacc}
@@ -70,6 +80,7 @@
 .lead-home #services h2{font-size:36px}
 .lead-home #start,.lead-home #services{scroll-margin-top:20px}
 @media(max-width:850px){
+ .lead-first-card .intake-result-layout{gap:28px}
  .lead-home .site-header nav{top:84px}
  .lead-first-card .intake-choices-compact{grid-template-columns:repeat(2,minmax(0,1fr))}
  .intake-choice-title{font-size:20px;min-height:52px}
@@ -77,6 +88,7 @@
  .lead-first-card .intake-visual-choice>.intake-choice-arrow{right:14px;top:174px;width:26px;height:26px}
 }
 @media(max-width:680px){
+ .lead-first-card .intake-result-layout{grid-template-columns:1fr;gap:24px}
  .lead-home .header-row{height:69px}
  .lead-home .header-row .brand img{width:107px}
  .lead-home .site-header nav{top:69px}
