@@ -26,7 +26,7 @@
 .faq h2{margin-bottom:0}
 .faq>.section-subheading{margin-bottom:28px}
 .contact-band .section-subheading{color:#d9e1df}
-.page-header .section-subheading{font-size:20px;line-height:1.5;letter-spacing:0;margin:14px 0 0}
+.page-header .section-subheading{font-size:20px;line-height:1.5;letter-spacing:0;margin:14px auto 0;color:#d9e1df}
 
 /* Keep the call link with the logo, outside the collapsible navigation. */
 .header-contact{display:flex;align-items:center;gap:24px;min-width:0}
