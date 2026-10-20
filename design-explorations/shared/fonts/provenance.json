@@ -1,0 +1,8 @@
+{
+  "downloaded": "2026-10-20",
+  "license": "SIL Open Font License 1.1; license files alongside fonts",
+  "fonts": [
+    {"name":"Anton Latin 400","file":"anton-latin-400.woff2","source":"https://cdn.jsdelivr.net/fontsource/fonts/anton@latest/latin-400-normal.woff2","sha256":"d0fa07ff63dd60cbc0e2f58e29c802dca2a5ae0276c999f59c6111ab7bbaec3b"},
+    {"name":"Inter Latin Variable","file":"inter-latin-variable.woff2","source":"https://cdn.jsdelivr.net/fontsource/fonts/inter:vf@latest/latin-wght-normal.woff2","sha256":"3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"}
+  ]
+}
