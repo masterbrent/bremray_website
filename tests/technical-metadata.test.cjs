@@ -43,6 +43,17 @@ test('generator services identify the same valid Electrician entity as the homep
   }
 });
 
+test('generator providers reuse the public business address without private location details', () => {
+  const business = jsonLd(read('index.html')).find(item => item['@type'] === 'Electrician');
+  assert.ok(business?.address, 'the homepage publishes the service-area business location');
+  for (const file of ['generators/standby.html', 'generators/portable-interlock.html']) {
+    const provider = jsonLd(read(file)).find(item => item['@type'] === 'Service')?.provider;
+    assert.deepEqual(provider?.address, business.address, `${file} includes the same public address as the business`);
+    assert.equal(provider.address.streetAddress, undefined, `${file} must not publish a private street address`);
+    assert.equal(provider.geo, undefined, `${file} must not publish a private map location`);
+  }
+});
+
 test('panel-page FAQ markup describes visible questions and preserves its business entity', () => {
   const html = read('electrical-panel-upgrade.html');
   const data = jsonLd(html);
