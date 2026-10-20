@@ -31,3 +31,18 @@ test('withdrawing then accepting again resumes consent without duplicate tags or
   assert.equal(b.events().filter(x=>x[1]==='page_view').length,1);
   assert.equal(b.events().filter(x=>x[1]==='phone_click').length,1);
 });
+test('confirmed lead receipts only send a sanitized conversion with existing analytics consent',()=>{
+ const b=boot();
+ b.listeners['bremray:lead-delivered']({detail:{email:'private@example.com',phone:'7348227594',description:'Private job'}});
+ assert.equal(b.events().length,0);
+ b.buttons().find(x=>x.textContent==='Accept analytics').click();
+ assert.equal(b.events().filter(x=>x[1]==='generate_lead').length,0,'no retroactive event after consent');
+ b.listeners['bremray:lead-delivered']({detail:{email:'private@example.com'}});
+ const event=b.events().find(x=>x[1]==='generate_lead');
+ assert.equal(event[2].page_location,'https://bremray.com/contact.html');
+ assert.ok(!JSON.stringify(event).includes('private'));
+ assert.deepEqual(Object.keys(event[2]).sort(),['page_location','page_referrer']);
+ b.buttons().find(x=>x.textContent==='Reject analytics').click();
+ b.listeners['bremray:lead-delivered']({});
+ assert.equal(b.events().filter(x=>x[1]==='generate_lead').length,1);
+});

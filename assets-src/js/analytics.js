@@ -1,5 +1,5 @@
 /* Optional analytics. Keep GA4 Enhanced Measurement disabled in the web stream:
-   this module explicitly sends page_view and phone_click only. */
+   this module explicitly sends page_view, phone_click and confirmed generate_lead. */
 (function () {
     'use strict';
     const measurementId = 'G-4062HJ1QDH';
@@ -81,7 +81,7 @@
     title.textContent = 'Your cookie choices';
     panel.appendChild(title);
     const explanation = document.createElement('p');
-    explanation.textContent = 'May we use Google Analytics to measure page visits and call-button clicks? Analytics is optional. You can change your choice in the footer.';
+    explanation.textContent = 'May we use Google Analytics to measure page visits, call-button clicks and completed requests? Analytics is optional. Your form answers and contact details are not included. You can change your choice in the footer.';
     panel.appendChild(explanation);
     const policy = document.createElement('a');
     policy.href = '/privacy.html';
@@ -118,6 +118,9 @@
         if (consent !== 'granted') return;
         const link = event.target.closest && event.target.closest('a[href^="tel:"]');
         if (link) gtag('event', 'phone_click', pageDetails());
+    });
+    document.addEventListener('bremray:lead-delivered', function () {
+        if (consent === 'granted') gtag('event', 'generate_lead', pageDetails());
     });
     window.addEventListener('storage', function (event) {
         if (event.key !== storageKey && event.key !== null) return;
