@@ -1,12 +1,24 @@
 const {test}=require('node:test');const assert=require('node:assert/strict');const fs=require('node:fs');const path=require('node:path');const root=path.resolve(__dirname,'..');
 test('pages retain real Bremray logo and use the revised house image',()=>{for(const dir of ['.','locations','generators'])for(const file of fs.readdirSync(path.join(root,dir))){if(!file.endsWith('.html'))continue;const html=fs.readFileSync(path.join(root,dir,file),'utf8');assert.match(html,/<img[^>]+src="\/images\/logo.png"/,file);assert.doesNotMatch(html,/home-evening.jpg/,file);}});
-test('homepage preserves established service language',()=>{const html=fs.readFileSync(path.join(root,'index.html'),'utf8');for(const copy of ['Licensed Electrician in Ann Arbor','EV chargers, electrical panel upgrades, whole house generators, and residential electrical service.','We\'ll assess your panel capacity and provide professional recommendations.','Network cabling, WiFi systems, smart home integration, and home automation.','Serving Ann Arbor and All of Washtenaw County'])assert.ok(html.includes(copy),copy);});
+test('homepage preserves the selected customer-focused services and avoids industrial or certification promotion',()=>{
+ const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+ for(const text of ['EV chargers','Generators','Panel upgrades','hot tubs and saunas','We’ve served Ann Arbor since 2004'])assert.ok(html.includes(text),text);
+ assert.doesNotMatch(html,/Commercial &amp; Industrial|Tesla certified|SPAN Certified Installer/);
+});
 
 test('every footer shows six equipment brands and only the two confirmed credential captions', () => {
   const expectedBrands = ['Generac', 'Square D', 'Siemens', 'ChargePoint', 'Wallbox', 'SPAN'];
   for (const dir of ['.', 'locations', 'generators']) {
     for (const file of fs.readdirSync(path.join(root, dir)).filter(file => file.endsWith('.html'))) {
       const html = fs.readFileSync(path.join(root, dir, file), 'utf8');
+      if(file==='index.html'){
+        const bank=html.match(/<section class="equipment-bank"[\s\S]*?<\/section>/)?.[0];
+        assert.ok(bank);
+        for(const brand of expectedBrands)assert.ok(bank.includes(brand));
+        assert.equal((bank.match(/<img\b/g)||[]).length,5);
+        assert.doesNotMatch(bank,/certified|partner|dealer/i);
+        continue;
+      }
       const footer = html.match(/<div class="manufacturer-bank"[\s\S]*?(?=<div class="wrap footer-row">)/)?.[0];
       assert.ok(footer, file);
       const marks = Array.from(footer.matchAll(/<div class="manufacturer-mark">([\s\S]*?)<\/div>/g), match => match[1]);

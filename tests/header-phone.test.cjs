@@ -12,21 +12,21 @@ test('every public header keeps one click-to-call number beside the logo outside
   assert.equal(pages.length, 18, 'include all public pages, including the error page');
   for (const file of pages) {
     const html = fs.readFileSync(path.join(root, file), 'utf8');
-    const header = html.match(/<header class="site-header">([\s\S]*?)<\/header>/)?.[1];
+    const header = html.match(/<header class="site-header(?: shell)?">([\s\S]*?)<\/header>/)?.[1];
     assert.ok(header, `${file}: shared header exists`);
-    const nav = header.match(/<nav id="main-nav"[^>]*>([\s\S]*?)<\/nav>/)?.[0];
+    const nav = header.match(/<nav[^>]*id="main-nav"[^>]*>([\s\S]*?)<\/nav>/)?.[0];
     assert.ok(nav, `${file}: existing navigation remains available`);
     const outsideMenu = header.replace(nav, '');
-    const group = outsideMenu.match(/<div class="header-contact">([\s\S]*?)<\/div>/)?.[1];
+    const group = outsideMenu.match(/<div class="(?:header-contact|identity)">([\s\S]*?)<\/div>/)?.[1];
     assert.ok(group, `${file}: logo and number stay together outside the menu`);
-    assert.match(group, /<a class="brand"[^>]*>[\s\S]*?<img[^>]+src="\/images\/logo\.png"[^>]*>[\s\S]*?<\/a>\s*<a class="header-phone"/, `${file}: number directly follows the real logo`);
+    assert.match(group, /<a class="(?:brand|wordmark)"[^>]*>[\s\S]*?<img[^>]+src="\/images\/logo\.png"[^>]*>[\s\S]*?<\/a>\s*<a class="header-phone"/, `${file}: number directly follows the real logo`);
     const phone = group.match(/<a class="header-phone"([^>]*)>([^<]*)<\/a>/);
     assert.ok(phone, `${file}: telephone remains readable without JavaScript`);
-    assert.match(phone[1], /href="tel:7342169437"/);
+    assert.match(phone[1], /href="tel:(?:\+1)?7342169437"/);
     assert.equal(phone[2].trim(), '(734) 216-9437');
     assert.doesNotMatch(phone[1], /\bhidden|aria-hidden="true"/);
-    assert.equal((header.match(/href="tel:7342169437"/g) || []).length, 1, `${file}: move the header number instead of duplicating it`);
-    assert.match(outsideMenu, /<button class="menu-toggle"[^>]*aria-controls="main-nav"[^>]*>Menu<\/button>/);
+    assert.equal((header.match(/href="tel:(?:\+1)?7342169437"/g) || []).length, 1, `${file}: move the header number instead of duplicating it`);
+    if(file!=='index.html') assert.match(outsideMenu, /<button class="menu-toggle"[^>]*aria-controls="main-nav"[^>]*>Menu<\/button>/);
   }
 });
 

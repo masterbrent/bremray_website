@@ -1,0 +1,138 @@
+{
+  "name": "bremraywebsite",
+  "static_sites": [
+    {
+      "name": "bremray-website",
+      "github": {
+        "repo": "masterbrent/bremray_website",
+        "branch": "main",
+        "deploy_on_push": true
+      },
+      "source_dir": "/",
+      "environment_slug": "html",
+      "build_command": "mkdir -p _site && cp *.html robots.txt sitemap.xml _site/ && cp -R css js images locations generators fonts _site/ && rm -f _site/js/staging.js _site/js/intake.js",
+      "output_dir": "_site"
+    }
+  ],
+  "domains": [
+    {
+      "domain": "bremray.com",
+      "type": "PRIMARY",
+      "zone": "bremray.com"
+    },
+    {
+      "domain": "www.bremray.com",
+      "type": "ALIAS",
+      "zone": "bremray.com"
+    }
+  ],
+  "region": "nyc",
+  "alerts": [
+    {
+      "rule": "DEPLOYMENT_FAILED"
+    },
+    {
+      "rule": "DOMAIN_FAILED"
+    }
+  ],
+  "ingress": {
+    "rules": [
+      {
+        "match": {
+          "path": {
+            "prefix": "/"
+          },
+          "authority": {
+            "exact": "www.bremray.com"
+          }
+        },
+        "redirect": {
+          "authority": "bremray.com",
+          "scheme": "https",
+          "redirect_code": 301
+        }
+      },
+      {
+        "match": {
+          "path": {
+            "prefix": "/design-explorations"
+          }
+        },
+        "redirect": {
+          "uri": "/",
+          "authority": "bremray.com",
+          "scheme": "https",
+          "redirect_code": 301
+        }
+      },
+      {
+        "match": {
+          "path": {
+            "prefix": "/adaptive-intake.html"
+          }
+        },
+        "redirect": {
+          "uri": "/",
+          "authority": "bremray.com",
+          "scheme": "https",
+          "redirect_code": 301
+        }
+      },
+      {
+        "match": {
+          "path": {
+            "prefix": "/staging"
+          }
+        },
+        "redirect": {
+          "uri": "/",
+          "authority": "bremray.com",
+          "scheme": "https",
+          "redirect_code": 301
+        }
+      },
+      {
+        "match": {
+          "path": {
+            "prefix": "/tests"
+          }
+        },
+        "redirect": {
+          "uri": "/",
+          "authority": "bremray.com",
+          "scheme": "https",
+          "redirect_code": 301
+        }
+      },
+      {
+        "match": {
+          "path": {
+            "prefix": "/scripts_backup"
+          }
+        },
+        "redirect": {
+          "uri": "/",
+          "authority": "bremray.com",
+          "scheme": "https",
+          "redirect_code": 301
+        }
+      },
+      {
+        "match": {
+          "path": {
+            "prefix": "/"
+          },
+          "authority": {
+            "exact": ""
+          }
+        },
+        "component": {
+          "name": "bremray-website"
+        }
+      }
+    ]
+  },
+  "features": [
+    "buildpack-stack=ubuntu-22"
+  ]
+}

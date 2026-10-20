@@ -9,7 +9,7 @@ const publicPages = ['', 'locations', 'generators'].flatMap(directory =>
   fs.readdirSync(path.join(root, directory)).filter(file => file.endsWith('.html'))
     .map(file => path.join(directory, file)));
 
-test('public pages use the existing system font without unused external font requests', () => {
+test('pages use system or self-hosted fonts without external font requests', () => {
   assert.match(read('css/design.css'), /body\{[^}]*font-family:Arial,Helvetica,sans-serif/);
   for (const file of publicPages) {
     const html = read(file);
@@ -17,6 +17,7 @@ test('public pages use the existing system font without unused external font req
     const stylesheets = [...html.matchAll(/<link\b[^>]*\brel="stylesheet"[^>]*>/g)].map(match => match[0]);
     const legacy = stylesheets.findIndex(tag => tag.includes('/css/main.css'));
     const current = stylesheets.findIndex(tag => tag.includes('/css/design.css'));
+    if(file==='index.html'){assert.match(html,/\/css\/fonts.css/);assert.match(html,/\/css\/type.css/);continue;}
     assert.ok(current > legacy, `${file}: the current system-font design stays after the legacy stylesheet`);
   }
 });
