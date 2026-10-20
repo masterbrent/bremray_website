@@ -5,12 +5,20 @@ const response=await fetch('http://127.0.0.1:8766'+path);assert.equal(response.s
 const robots=await(await fetch('http://127.0.0.1:8766/robots.txt')).text();assert.match(robots,/Disallow: \//);
 });
 test('staging excludes the complete third-party lead widget before JavaScript runs',async()=>{
-for(const path of ['/get-help.html','/contact.html']){
+for(const path of ['/contact.html']){
 const response=await fetch('http://127.0.0.1:8766'+path);const html=await response.text();
 assert.match(html,/data-lead-preview/);assert.match(html,/<fieldset disabled/);
 assert.doesNotMatch(html,/<iframe|book\.housecallpro\.com|online-booking\.housecallpro\.com/);
 const policy=response.headers.get('content-security-policy');
 assert.match(policy,/frame-src 'none'/);assert.match(policy,/connect-src 'self'/);assert.match(policy,/form-action 'none'/);
 assert.match(policy,/script-src 'self'/);
+}
+});
+test('staging strips custom sending endpoints before HTML reaches the browser',async()=>{
+for(const path of ['/','/get-help.html']){
+ const response=await fetch('http://127.0.0.1:8766'+path);const html=await response.text();
+ assert.match(html,/id="intake-screen"/);
+ assert.doesNotMatch(html,/data-intake-endpoint=/);
+ assert.match(response.headers.get('content-security-policy'),/connect-src 'self'/);
 }
 });
