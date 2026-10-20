@@ -462,18 +462,18 @@ footer {
     .logo img {
         height: 60px;
     }
-    
+
     .header-content {
         flex-direction: row;
         gap: 0.75rem;
         padding: 0.75rem 0;
         align-items: center;
     }
-    
+
     .logo {
         flex-shrink: 0;
     }
-    
+
     /* Mobile Navigation */
     nav {
         display: none;
@@ -487,11 +487,11 @@ footer {
         padding: 1rem;
         gap: 1rem;
     }
-    
+
     nav.active {
         display: flex;
     }
-    
+
     .phone-cta {
         padding: 0.4rem 0.8rem;
         font-size: 0.9rem;
@@ -502,11 +502,11 @@ footer {
     .burger-menu {
         display: flex;
     }
-    
+
     .phone-cta .phone-icon {
         display: none;
     }
-    
+
     /* Burger Menu */
     .burger-menu {
         display: flex;
@@ -516,55 +516,55 @@ footer {
         margin-left: 1rem;
         order: 3;
     }
-    
+
     .burger-menu span {
         width: 25px;
         height: 3px;
         background: var(--secondary-color);
         transition: all 0.3s ease;
     }
-    
+
     .burger-menu.active span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
     }
-    
+
     .burger-menu.active span:nth-child(2) {
         opacity: 0;
     }
-    
+
     .burger-menu.active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -6px);
     }
-    
+
     nav {
         order: 3;
         width: 100%;
         justify-content: center;
     }
-    
+
     .phone-cta {
         order: 2;
     }
-    
+
     .hero-content h1 {
         font-size: 2rem;
     }
-    
+
     .hero-cta {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .trust-badges {
         flex-direction: column;
         gap: 0.5rem;
     }
-    
+
     .cta-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .services-grid,
     .reviews-grid {
         grid-template-columns: 1fr;
@@ -887,15 +887,15 @@ nav a.active {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .about-text {
         padding: 0 1rem;
     }
-    
+
     .dropdown {
         position: static;
     }
-    
+
     .dropdown-menu {
         position: static;
         opacity: 1;
@@ -903,11 +903,11 @@ nav a.active {
         transform: none;
         display: none;
     }
-    
+
     .dropdown:hover .dropdown-menu {
         display: block;
     }
-    
+
     .dropdown-menu {
         position: static;
         opacity: 1;
@@ -919,7 +919,7 @@ nav a.active {
         margin: 0.5rem 0;
         padding: 0.5rem;
     }
-    
+
     .dropdown-toggle::after {
         display: none;
     }
