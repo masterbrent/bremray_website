@@ -7,14 +7,14 @@
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
     <meta name="description" content="Generator installation in Washtenaw County. Choose between automatic standby generators or portable generator with interlock kit. Contact for walkthrough.">
     <link rel="canonical" href="https://bremray.com/generators.html" />
-    <meta name="theme-color" content="#f39c12">
+    <meta name="theme-color" content="#173239">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Bremray Electrical">
     <meta property="og:title" content="Generator Installation | Washtenaw County">
     <meta property="og:description" content="Professional generator installation. Standby systems or portable with interlock kit.">
     <meta property="og:url" content="https://bremray.com/generators.html">
     <meta property="og:image" content="https://bremray.com/images/logo.png">
-    <link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/css/design.css?v=20261020">
+    <link rel="stylesheet" href="/css/main.css?v=2026102002"><link rel="stylesheet" href="/css/design.css?v=2026102002">
     <style>
         .tab-container {
             margin: 2rem 0;
@@ -22,7 +22,7 @@
         .tab-buttons {
             display: flex;
             gap: 1rem;
-            border-bottom: 2px solid #dee2e6;
+            border-bottom: 2px solid var(--line);
             margin-bottom: 2rem;
         }
         .tab-button {
@@ -33,15 +33,15 @@
             cursor: pointer;
             font-size: 1.1rem;
             font-weight: 500;
-            color: #6c757d;
+            color: var(--muted);
             transition: all 0.3s;
         }
         .tab-button:hover {
-            color: #495057;
+            color: var(--muted);
         }
         .tab-button.active {
-            color: #f39c12;
-            border-bottom-color: #f39c12;
+            color: var(--accent-ink);
+            border-bottom-color: var(--accent-ink);
         }
         .tab-content {
             display: none;
@@ -64,12 +64,12 @@
                 gap: 0;
             }
             .tab-button {
-                border-bottom: 1px solid #dee2e6;
+                border-bottom: 1px solid var(--line);
                 border-left: 3px solid transparent;
             }
             .tab-button.active {
-                border-left-color: #f39c12;
-                border-bottom-color: #dee2e6;
+                border-left-color: var(--accent-ink);
+                border-bottom-color: var(--line);
             }
         }
     </style>
@@ -95,10 +95,10 @@
                 <!-- Comparison Overview -->
                 <div class="comparison-grid">
                     <!-- Standby Generator Box -->
-                    <div style="background: #f8f9fa; border: 2px solid #28a745; border-radius: 5px; display: flex; flex-direction: column; height: 100%;">
+                    <div style="background: var(--cream); border: 2px solid var(--ink); border-radius: 5px; display: flex; flex-direction: column; height: 100%;">
                         <!-- Header Section -->
                         <div style="padding: 1.5rem 1.5rem 0.5rem 1.5rem;">
-                            <h3 style="margin: 0; color: #28a745;">Whole House Standby Generators</h3>
+                            <h3 style="margin: 0; color: var(--ink);">Whole House Standby Generators</h3>
                         </div>
                         <!-- Price Section -->
                         <div style="padding: 0 1.5rem; min-height: 60px;">
@@ -107,7 +107,7 @@
                         <!-- Content Section -->
                         <div style="padding: 0 1.5rem; flex-grow: 1;">
                             <h4 style="color: #28a745; margin-bottom: 0.5rem; margin-top: 1rem;">Pros:</h4>
-                            <ul style="color: #495057;">
+                            <ul style="color: var(--muted);">
                                 <li>Automatic operation - no action required</li>
                                 <li>Powers entire home including AC</li>
                                 <li>Unlimited runtime on natural gas</li>
@@ -115,7 +115,7 @@
                                 <li>Works when you're away</li>
                             </ul>
                             <h4 style="color: #dc3545; margin-bottom: 0.5rem;">Cons:</h4>
-                            <ul style="color: #495057;">
+                            <ul style="color: var(--muted);">
                                 <li>Higher investment required</li>
                                 <li>2-3 day installation process</li>
                                 <li>Annual maintenance required</li>
@@ -125,16 +125,16 @@
                         </div>
                         <!-- Button Section -->
                         <div style="padding: 1.5rem; text-align: center;">
-                            <button type="button" data-generator-target="standby" aria-controls="standby-tab" style="background: #28a745; color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; margin-right: 0.5rem;">View Details ↓</button>
-                            <a href="generators/standby.html" style="background: #6c757d; color: white; padding: 0.5rem 1.5rem; text-decoration: none; border-radius: 5px; display: inline-block;">Full Info →</a>
+                            <button type="button" data-generator-target="standby" aria-controls="standby-tab" style="background: var(--ink); color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; margin-right: 0.5rem;">View Details ↓</button>
+                            <a href="generators/standby.html" style="background: var(--surface); color: var(--ink); padding: 0.5rem 1.5rem; text-decoration: none; border-radius: 5px; display: inline-block;">Full Info →</a>
                         </div>
                     </div>
 
                     <!-- Portable Generator Box -->
-                    <div style="background: #f8f9fa; border: 2px solid #007bff; border-radius: 5px; display: flex; flex-direction: column; height: 100%;">
+                    <div style="background: var(--cream); border: 2px solid var(--ink); border-radius: 5px; display: flex; flex-direction: column; height: 100%;">
                         <!-- Header Section -->
                         <div style="padding: 1.5rem 1.5rem 0.5rem 1.5rem;">
-                            <h3 style="margin: 0; color: #007bff;">Portable Generator + Interlock Kit</h3>
+                            <h3 style="margin: 0; color: var(--ink);">Portable Generator + Interlock Kit</h3>
                         </div>
                         <!-- Price Section -->
                         <div style="padding: 0 1.5rem; min-height: 60px;">
@@ -144,7 +144,7 @@
                         <!-- Content Section -->
                         <div style="padding: 0 1.5rem; flex-grow: 1;">
                             <h4 style="color: #28a745; margin-bottom: 0.5rem; margin-top: 1rem;">Pros:</h4>
-                            <ul style="color: #495057;">
+                            <ul style="color: var(--muted);">
                                 <li>Professional installation same day</li>
                                 <li>Same-day installation</li>
                                 <li>50-amp models power all lights/outlets</li>
@@ -152,7 +152,7 @@
                                 <li>Works with existing generator</li>
                             </ul>
                             <h4 style="color: #dc3545; margin-bottom: 0.5rem;">Cons:</h4>
-                            <ul style="color: #495057;">
+                            <ul style="color: var(--muted);">
                                 <li>Manual operation required</li>
                                 <li>Cannot run whole house at once</li>
                                 <li>8-12 hour runtime per tank</li>
@@ -162,8 +162,8 @@
                         </div>
                         <!-- Button Section -->
                         <div style="padding: 1.5rem; text-align: center;">
-                            <button type="button" data-generator-target="portable" aria-controls="portable-tab" style="background: #007bff; color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; margin-right: 0.5rem;">View Details ↓</button>
-                            <a href="generators/portable-interlock.html" style="background: #6c757d; color: white; padding: 0.5rem 1.5rem; text-decoration: none; border-radius: 5px; display: inline-block;">Full Info →</a>
+                            <button type="button" data-generator-target="portable" aria-controls="portable-tab" style="background: var(--ink); color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; margin-right: 0.5rem;">View Details ↓</button>
+                            <a href="generators/portable-interlock.html" style="background: var(--surface); color: var(--ink); padding: 0.5rem 1.5rem; text-decoration: none; border-radius: 5px; display: inline-block;">Full Info →</a>
                         </div>
                     </div>
                 </div>
@@ -287,7 +287,7 @@
 
                         <h3>Generator Options</h3>
 
-                        <div style="background: #fff; border: 1px solid #dee2e6; padding: 1.5rem; margin: 1rem 0; border-radius: 5px;">
+                        <div style="background: #fff; border: 1px solid var(--line); padding: 1.5rem; margin: 1rem 0; border-radius: 5px;">
                             <h4>Tri-Fuel Generators (Our Recommendation)</h4>
                             <ul>
                                 <li><strong>50-amp output capability</strong> - Powers all lights and outlets</li>
@@ -296,12 +296,12 @@
                                 <li>Electric start with remote</li>
                                 <li>Natural gas hookup available (we coordinate with gas contractor)</li>
                             </ul>
-                            <p style="margin-top: 1rem; padding: 1rem; background: #e8f4f8; border-radius: 5px;">
+                            <p style="margin-top: 1rem; padding: 1rem; background: var(--surface); border-radius: 5px;">
                                 <strong>Natural gas option:</strong> We can coordinate with a gas contractor to install a quick-connect for natural gas operation. This eliminates refueling during extended outages.
                             </p>
                         </div>
 
-                        <div style="background: #fff; border: 1px solid #dee2e6; padding: 1.5rem; margin: 1rem 0; border-radius: 5px;">
+                        <div style="background: #fff; border: 1px solid var(--line); padding: 1.5rem; margin: 1rem 0; border-radius: 5px;">
                             <h4>Use Your Existing Generator</h4>
                             <ul>
                                 <li>Already have a portable generator? We can install an interlock kit for it</li>
@@ -340,29 +340,29 @@
 
                         <h3>Service Components</h3>
                         <table style="width: 100%; border-collapse: collapse; margin: 2rem 0;">
-                            <tr style="background: #f8f9fa;">
-                                <th style="padding: 1rem; text-align: left; border-bottom: 2px solid #dee2e6;">Component</th>
-                                <th style="padding: 1rem; text-align: left; border-bottom: 2px solid #dee2e6;">Description</th>
+                            <tr style="background: var(--cream);">
+                                <th style="padding: 1rem; text-align: left; border-bottom: 2px solid var(--line);">Component</th>
+                                <th style="padding: 1rem; text-align: left; border-bottom: 2px solid var(--line);">Description</th>
                             </tr>
                             <tr>
-                                <td style="padding: 1rem; border-bottom: 1px solid #dee2e6;"><strong>Interlock kit installation</strong><br>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--line);"><strong>Interlock kit installation</strong><br>
                                 <small>Parts and labor, permit included</small></td>
-                                <td style="padding: 1rem; border-bottom: 1px solid #dee2e6;">Professional same-day installation</td>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--line);">Professional same-day installation</td>
                             </tr>
                             <tr>
-                                <td style="padding: 1rem; border-bottom: 1px solid #dee2e6;"><strong>Tri-fuel generator (optional)</strong><br>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--line);"><strong>Tri-fuel generator (optional)</strong><br>
                                 <small>50-amp capable, if needed</small></td>
-                                <td style="padding: 1rem; border-bottom: 1px solid #dee2e6;">Available if needed</td>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--line);">Available if needed</td>
                             </tr>
                             <tr>
-                                <td style="padding: 1rem; border-bottom: 1px solid #dee2e6;"><strong>Connection cable</strong><br>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--line);"><strong>Connection cable</strong><br>
                                 <small>Heavy-duty 50-amp cable</small></td>
-                                <td style="padding: 1rem; border-bottom: 1px solid #dee2e6;">Required for operation</td>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--line);">Required for operation</td>
                             </tr>
                             <tr>
-                                <td style="padding: 1rem; border-bottom: 1px solid #dee2e6;"><strong>Natural gas hookup (optional)</strong><br>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--line);"><strong>Natural gas hookup (optional)</strong><br>
                                 <small>Through gas contractor</small></td>
-                                <td style="padding: 1rem; border-bottom: 1px solid #dee2e6;">Available option</td>
+                                <td style="padding: 1rem; border-bottom: 1px solid var(--line);">Available option</td>
                             </tr>
                             <tr style="background: #d4edda;">
                                 <td style="padding: 1rem;"><strong>Complete package with new generator</strong></td>
@@ -397,10 +397,10 @@
                 </div>
 
                 <!-- Call to Action -->
-                <div style="background: #f39c12; color: white; padding: 2rem; margin: 3rem 0; border-radius: 5px; text-align: center;">
+                <div style="background: var(--ink); color: white; padding: 2rem; margin: 3rem 0; border-radius: 5px; text-align: center;">
                     <h3>Ready for Reliable Backup Power?</h3>
                     <p style="font-size: 1.2em; margin: 1rem 0;">Professional installation by Bremray. We handle permits and inspections.</p>
-                    <a href="contact.html" style="background: white; color: #f39c12; padding: 0.75rem 2rem; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 1rem;">Schedule Consultation</a>
+                    <a href="contact.html" style="background: white; color: var(--ink); padding: 0.75rem 2rem; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 1rem;">Schedule Consultation</a>
                 </div>
 
             </div>

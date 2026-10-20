@@ -10,7 +10,7 @@
    option('repair','Something isn’t working'),option('install','Install something new'),option('upgrade','Replace or upgrade something'),option('unknown','I’m not sure')]),
   repair_item:question('repair_item','What isn’t working?','Choose the closest match.',[
    option('outlet','An outlet'),option('light','A light or switch'),option('breaker','A breaker keeps switching off'),option('power','Several things or part of the house'),option('generator','A generator'),multiple,other,unsure]),
-  install_item:question('install_item','What would you like installed?','Choose the closest match. There is room for other jobs, too.',[
+  install_item:question('install_item','What do you want us to install?','Choose the closest match. There is room for other jobs, too.',[
    option('lighting','Lights'),option('fan','A ceiling fan'),option('outlet','An outlet or switch'),option('ev','An EV charger'),option('generator','Backup power'),option('power','Power for an appliance, equipment or garage'),multiple,other,unsure]),
   upgrade_item:question('upgrade_item','What would you like to replace or upgrade?','Tell us what you have in mind.',[
    option('panel','The electrical panel'),option('lighting','Lights'),option('fan','A ceiling fan'),option('outlet','Outlets or switches'),option('generator','A generator'),multiple,other,unsure]),
@@ -164,13 +164,13 @@
   const item=a[a.intent+'_item'];
   if(!item||fallback(item))return generic;
   if(a.intent==='repair'){
-   const titles={outlet:'Let’s get that outlet checked.',light:'Let’s check that light or switch.',breaker:'Let’s find out why the breaker keeps switching off.',power:'Let’s check the power problem.',generator:'Let’s get your generator checked.'};
+   const titles={outlet:'Let’s check that outlet.',light:'Let’s check that light or switch.',breaker:'Let’s find out why the breaker keeps switching off.',power:'Let’s check the power problem.',generator:'Let’s check your generator.'};
    const timing={recent:'You noticed the problem today or yesterday.',week:'You noticed the problem within the last week.',longer:'The problem started more than a week ago.',intermittent:'You said the problem comes and goes.'};
    const extent={only:'You haven’t noticed anything else losing power.',nearby:'Other things nearby have also lost power.',elsewhere:'Other parts of the house have also lost power.'};
    return {title:titles[item]||generic.title,summary:[timing[a.repair_when],extent[a.repair_extent]].filter(Boolean).join(' ')||'We’ll need to find out what is causing the problem before pricing the repair.'};
   }
   const names={lighting:'lights',fan:'a ceiling fan',outlet:'outlets or switches',ev:'an EV charger',generator:'backup power',power:'power for your equipment or building',panel:'your electrical panel'};
-  if(a.intent==='install')return {title:item==='power'?'You’d like power added for your equipment or building.':'You’d like '+(names[item]||'something new')+' installed.',summary:'We’ll look at what is already there and what the new installation needs.'};
+  if(a.intent==='install')return {title:item==='power'?'You want us to add power for your equipment or building.':'You want us to install '+(names[item]||'something new')+'.',summary:'We’ll look at what is already there and what the new installation needs.'};
   const replacementNames={...names,generator:'your generator'};
   return {title:'You’d like to replace or upgrade '+(replacementNames[item]||'something')+'.',summary:'We’ll confirm what needs changing and what can stay.'};
  }

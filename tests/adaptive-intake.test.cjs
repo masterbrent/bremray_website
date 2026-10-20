@@ -19,7 +19,7 @@ test('starts with customer intent and offers more than the headline installation
  assert.equal(first.id,'intent');
  assert.deepEqual(first.options.map(o=>o.value),['repair','install','upgrade','unknown']);
  const install=intake.nextQuestion(take({},'intent','install'));
- assert.equal(install.title,'What would you like installed?');
+ assert.equal(install.title,'What do you want us to install?');
  for(const item of ['lighting','fan','outlet','power','other','multiple','unknown'])assert.ok(install.options.some(o=>o.value===item),item);
 });
 
