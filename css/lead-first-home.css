@@ -57,8 +57,6 @@
 .lead-first-card .intake-result-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);gap:58px;align-items:start}
 .lead-first-card .intake-result-copy{padding-top:5px}
 .lead-first-card .intake-result-summary,.lead-first-card .intake-next-steps{color:#d6e1df}
-.lead-first-card .intake-service-rate{border-color:#efbd66;color:#f5efdf}
-.lead-first-card .intake-service-rate h3{color:#efbd66}
 .lead-first-card .intake-answer-review{border-color:#405a60}
 .lead-first-card .intake-answer-review>summary{color:#f5efdf}
 .lead-first-card .intake-contact{margin-top:0}

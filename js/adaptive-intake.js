@@ -156,24 +156,23 @@
   const list=questionsFor(state.answers);
   return list[Math.max(0,Math.min(state.step,list.length-1))]?.id==='intent'?'opening':'question';
  }
+ // Prices belong in follow-up after successful lead capture, not in public intake assets.
  function closingFor(state){
   const a=state.answers||{};
-  const generic={title:'Let’s work out what you need.',summary:'An electrician can talk through the details with you.',pricing:''};
+  const generic={title:'Let’s work out what you need.',summary:'An electrician can talk through the details with you.'};
   if(state.reviewMode==='typed'||!a.intent||a.intent==='unknown')return generic;
   const item=a[a.intent+'_item'];
   if(!item||fallback(item))return generic;
-  const serviceRate='Service-call labor is $250 for the first hour, then $195 per hour. Parts are extra.';
   if(a.intent==='repair'){
    const titles={outlet:'Let’s get that outlet checked.',light:'Let’s check that light or switch.',breaker:'Let’s find out why the breaker keeps switching off.',power:'Let’s check the power problem.',generator:'Let’s get your generator checked.'};
    const timing={recent:'You noticed the problem today or yesterday.',week:'You noticed the problem within the last week.',longer:'The problem started more than a week ago.',intermittent:'You said the problem comes and goes.'};
    const extent={only:'You haven’t noticed anything else losing power.',nearby:'Other things nearby have also lost power.',elsewhere:'Other parts of the house have also lost power.'};
-   return {title:titles[item]||generic.title,summary:[timing[a.repair_when],extent[a.repair_extent]].filter(Boolean).join(' ')||'We’ll need to find out what is causing the problem before pricing the repair.',pricing:serviceRate};
+   return {title:titles[item]||generic.title,summary:[timing[a.repair_when],extent[a.repair_extent]].filter(Boolean).join(' ')||'We’ll need to find out what is causing the problem before pricing the repair.'};
   }
   const names={lighting:'lights',fan:'a ceiling fan',outlet:'outlets or switches',ev:'an EV charger',generator:'backup power',power:'power for your equipment or building',panel:'your electrical panel'};
-  if(a.intent==='install')return {title:item==='power'?'You’d like power added for your equipment or building.':'You’d like '+(names[item]||'something new')+' installed.',summary:'We’ll look at what is already there and what the new installation needs.',pricing:''};
+  if(a.intent==='install')return {title:item==='power'?'You’d like power added for your equipment or building.':'You’d like '+(names[item]||'something new')+' installed.',summary:'We’ll look at what is already there and what the new installation needs.'};
   const replacementNames={...names,generator:'your generator'};
-  const pricing=['outlet','lighting','fan'].includes(item)?'If we handle this as a service call, labor is $250 for the first hour, then $195 per hour. Parts are extra.':'';
-  return {title:'You’d like to replace or upgrade '+(replacementNames[item]||'something')+'.',summary:'We’ll confirm what needs changing and what can stay.',pricing};
+  return {title:'You’d like to replace or upgrade '+(replacementNames[item]||'something')+'.',summary:'We’ll confirm what needs changing and what can stay.'};
  }
  const api={questionsFor,nextQuestion,answer,cleanText,switchMode,review,advance,viewFor,closingFor};
  if(typeof module==='object'&&module.exports){module.exports=api;return;}
@@ -303,11 +302,6 @@
   const copy=el('div',undefined,{class:'intake-result-copy'});
   copy.append(el('h2',closing.title,{tabindex:'-1'}),el('p',closing.summary,{class:'intake-result-summary'}));
   copy.append(el('p','Leave your details and an electrician will contact you. We may be able to give you a ballpark estimate over the phone. For most jobs, we need to take a look before confirming the price.',{class:'intake-next-steps'}));
-  if(closing.pricing){
-   const price=el('aside',undefined,{class:'intake-service-rate','aria-label':'Service-call pricing'});
-   price.append(el('h3','Service-call pricing'),el('p',closing.pricing));
-   copy.append(price);
-  }
   const details=el('details',undefined,{class:'intake-answer-review'});
   details.append(el('summary','Review or change your answers'));
   if(reviewMode==='typed'){
