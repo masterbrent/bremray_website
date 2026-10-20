@@ -16,6 +16,8 @@ Owner service-scope clarification, October 20: Bremray works mostly on residenti
 
 Owner clarification, October 20: Bremray does electrical work for spas, hot tubs and saunas. The old Services We Do Not Provide/referral block was inaccurate and removed. Do not reintroduce that exclusion or claim a referral program. Pool and solar installation scope remains unspecified; do not infer an offering or exclusion.
 
+SPAN positioning: Brent reiterated that SPAN installations are rare. Keep the confirmed certification in the footer; do not list SPAN under “What We Do Best” or promote it as a specialty. The About-page specialty bullet was removed.
+
 ## Shared asset build
 
 Edit `assets-src/css/main.css`, `assets-src/js/analytics.js` and `assets-src/js/generator-tabs.js` for these three shared files. Generate their compact production copies at the existing `css/` and `js/` URLs with:
