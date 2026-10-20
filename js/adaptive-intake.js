@@ -6,7 +6,7 @@
  const multiple=option('multiple','A few different things');
  const question=(id,title,help,options)=>({id,title,help,options});
  const q={
-  intent:question('intent','How can we help you?','',[
+  intent:question('intent','What do you need done?','',[
    option('repair','Something isn’t working'),option('install','Install something new'),option('upgrade','Replace or upgrade something'),option('unknown','I’m not sure')]),
   repair_item:question('repair_item','What isn’t working?','Choose the closest match.',[
    option('outlet','An outlet'),option('light','A light or switch'),option('breaker','A breaker keeps switching off'),option('power','Several things or part of the house'),option('generator','A generator'),multiple,other,unsure]),

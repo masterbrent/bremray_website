@@ -8,7 +8,7 @@
 .lead-first-card .intake-progress{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .lead-first-card .intake-progress-track{display:none}
 .lead-first-card legend,.lead-first-card h2{font-size:36px;font-weight:500;line-height:1.15;letter-spacing:-1.1px;margin:0 0 22px;scroll-margin-top:24px}
-.lead-first-card[data-intake-view="opening"] legend{font-size:clamp(38px,4.7vw,54px);margin-bottom:32px;letter-spacing:-1.7px}
+.lead-first-card[data-intake-view="opening"] legend{font-size:clamp(34px,3.6vw,42px);font-weight:600;margin-bottom:24px;letter-spacing:-1.1px}
 .lead-first-card .intake-help{max-width:650px;font-size:15px;margin-bottom:22px}
 .lead-first-card .intake-choices{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:900px}
 .lead-first-card .intake-choices-compact{grid-template-columns:repeat(3,minmax(0,1fr));max-width:none}
@@ -55,7 +55,7 @@
  .lead-first-layout{padding-top:26px;padding-bottom:25px}
  .lead-start-context h1{font-size:13px;margin-bottom:18px}
  .lead-first-card legend,.lead-first-card h2{font-size:28px;letter-spacing:-.7px;margin-bottom:20px}
- .lead-first-card[data-intake-view="opening"] legend{font-size:32px;letter-spacing:-1px;margin-bottom:23px}
+ .lead-first-card[data-intake-view="opening"] legend{font-size:26px;letter-spacing:-.7px;margin-bottom:23px}
  .lead-first-card[data-intake-view="opening"] .intake-choices{grid-template-columns:1fr;gap:10px}
  .lead-first-card[data-intake-view="opening"] .intake-choice{min-height:68px;padding:18px;font-size:18px;letter-spacing:-.1px}
  .lead-first-card[data-intake-view="opening"] .intake-choice:last-child{min-height:38px;padding:3px 0;font-size:15px}
