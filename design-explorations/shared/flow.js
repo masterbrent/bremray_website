@@ -39,11 +39,16 @@
       if (top < 100 || top > window.innerHeight - 160) mount.scrollIntoView({block: 'start', behavior: 'instant'});
     }
   }
+  function progress(stage, text) {
+    const meta = node('div', undefined, {class: 'demo-flow-meta'});
+    meta.append(node('p', text, {class: 'demo-progress'}), button('Start over', reset, 'demo-reset'));
+    stage.append(meta);
+  }
   function renderQuestion(stage, opening) {
     const list = rules.questionsFor(state.answers);
     state.step = Math.max(0, Math.min(state.step, list.length - 1));
     const question = list[state.step];
-    if (!opening) stage.append(node('p', 'YOUR PROJECT / QUESTION ' + (state.step + 1), {class: 'demo-progress'}));
+    if (!opening) progress(stage, 'YOUR PROJECT / QUESTION ' + (state.step + 1));
     stage.append(node('h2', question.title, {class: 'demo-question', tabindex: '-1'}));
     if (question.help) stage.append(node('p', question.help, {class: 'demo-help'}));
     const options = node('div', undefined, {class: 'demo-options'});
@@ -73,11 +78,11 @@
     if (opening) toolbar.append(button('I’m not sure', () => pick('intent', 'unknown'), 'demo-back'));
     else toolbar.append(button('← Back', () => {state.step--; render();}, 'demo-back'));
     toolbar.append(button('I’d rather type', () => mode('typed'), 'demo-back'));
-    if (!opening) toolbar.append(button('Start over', reset, 'demo-back'));
     stage.append(toolbar);
   }
   function renderTyped(stage) {
-    stage.append(node('p', 'YOUR PROJECT / IN YOUR OWN WORDS', {class: 'demo-progress'}), node('h2', 'What do you have in mind?', {class: 'demo-question', tabindex: '-1'}), node('p', 'Tell us what you want done, or what isn’t working. A sentence or two is enough.', {class: 'demo-help'}));
+    progress(stage, 'YOUR PROJECT / IN YOUR OWN WORDS');
+    stage.append(node('h2', 'What do you have in mind?', {class: 'demo-question', tabindex: '-1'}), node('p', 'Tell us what you want done, or what isn’t working. A sentence or two is enough.', {class: 'demo-help'}));
     const text = node('textarea', undefined, {class: 'demo-text', id: 'demo-project', rows: '5', maxlength: '2000', placeholder: 'For example: We want four lights in the living room. There’s an attic above it.'});
     text.value = state.typed;
     const next = button('Review details →', () => {state.typed = rules.cleanText(text.value); if (state.typed) {state = rules.review(state); render();}}, 'demo-primary');
@@ -87,7 +92,8 @@
   }
   function renderReview(stage) {
     const closing = rules.closingFor(state);
-    stage.append(node('p', 'YOUR PROJECT / CONTACT DETAILS', {class: 'demo-progress'}), node('h2', closing.title, {class: 'demo-question', tabindex: '-1'}), node('p', closing.summary, {class: 'demo-help'}));
+    progress(stage, 'YOUR PROJECT / CONTACT DETAILS');
+    stage.append(node('h2', closing.title, {class: 'demo-question', tabindex: '-1'}), node('p', closing.summary, {class: 'demo-help'}));
     const layout = node('div', undefined, {class: 'demo-review'});
     const summary = node('div', undefined, {class: 'demo-review-copy'});
     summary.append(node('h3', 'What happens next?'), node('p', 'An electrician will talk through the job with you. We may be able to give you a ballpark estimate over the phone. For most jobs, we need to take a look before confirming the price.'));
@@ -109,7 +115,7 @@
     summary.append(review);
     if (state.reviewMode === 'typed') summary.append(button('Edit answers', () => mode('typed'), 'demo-back'));
     layout.append(summary, contactForm());
-    stage.append(layout, button('Start over', reset, 'demo-back'));
+    stage.append(layout);
   }
   function contactForm() {
     const form = node('form', undefined, {class: 'demo-contact', 'aria-label': 'Preview contact details'});
