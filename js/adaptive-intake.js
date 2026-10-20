@@ -220,7 +220,10 @@
   const item=list[step];
   setProgress('Question '+(step+1),(step+1)*20);
   const field=el('fieldset');
-  field.append(el('legend',item.title,{tabindex:'-1'}));
+  const legend=el('legend',undefined,{tabindex:'-1'});
+  if(secondary&&item.id==='intent')legend.append(el('h2',item.title));
+  else legend.textContent=item.title;
+  field.append(legend);
   if(item.help)field.append(el('p',item.help,{class:'intake-help',id:'question-help'}));
   const choices=el('div',undefined,{class:'intake-choices'+(item.options?.length>6?' intake-choices-compact':'')});
   let selected=answers[item.id];
