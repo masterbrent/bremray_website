@@ -7,12 +7,12 @@
 .lead-home .header-row .button.dark{background:#173239;border-radius:2px}
 .lead-home .lead-start{background:#173239;color:#f8f6ef;border:0}
 .lead-first-layout{max-width:1180px;padding-top:30px;padding-bottom:25px}
-.lead-start-context h1{font:500 13px/1.4 "Avenir Next",Arial,sans-serif;color:#d7c7a6;letter-spacing:.15px;margin:0 0 13px}
+.lead-start-context h1{font:650 clamp(36px,4.8vw,56px)/1.08 "Avenir Next",Arial,sans-serif;color:#f8f6ef;letter-spacing:-1.6px;margin:0 0 20px}
 .lead-first-card{padding:0;border:0;border-radius:0;box-shadow:none;background:transparent}
 .lead-first-card .intake-progress{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .lead-first-card .intake-progress-track{display:none}
 .lead-first-card legend,.lead-first-card h2{font-family:"Avenir Next",Arial,sans-serif;font-size:34px;font-weight:500;line-height:1.18;letter-spacing:-.8px;margin:0 0 23px;scroll-margin-top:24px;color:#fff}
-.lead-first-card[data-intake-view="opening"] legend{font-size:38px;font-weight:600;margin-bottom:25px;letter-spacing:-1px}
+.lead-first-card[data-intake-view="opening"] legend{font-size:25px;font-weight:500;margin-bottom:22px;letter-spacing:-.5px;color:#d7c7a6}
 .lead-first-card .intake-help{max-width:650px;font-size:15px;margin-bottom:22px;color:#bdccce}
 .lead-first-card .intake-choices{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:900px}
 .lead-first-card .intake-choices-compact{grid-template-columns:repeat(3,minmax(0,1fr));max-width:none}
@@ -80,9 +80,9 @@
  .lead-home .header-row .brand img{width:107px}
  .lead-home .site-header nav{top:69px}
  .lead-first-layout{padding-top:23px;padding-bottom:20px}
- .lead-start-context h1{font-size:12px;margin-bottom:11px}
+ .lead-start-context h1{font-size:36px;letter-spacing:-1px;margin-bottom:16px}
  .lead-first-card legend,.lead-first-card h2{font-size:27px;letter-spacing:-.6px;margin-bottom:20px}
- .lead-first-card[data-intake-view="opening"] legend{font-size:28px;letter-spacing:-.7px;margin-bottom:21px}
+ .lead-first-card[data-intake-view="opening"] legend{font-size:23px;letter-spacing:-.4px;margin-bottom:20px}
  .lead-first-card[data-intake-view="opening"] .intake-choices{grid-template-columns:1fr;gap:11px}
  .lead-first-card .intake-visual-choice{display:grid;grid-template-columns:91px minmax(0,1fr);align-items:stretch}
  .intake-choice-image{height:100%;min-height:106px;width:91px}
