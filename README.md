@@ -1,4 +1,16 @@
-# YourBusiness Electric Website
+# Bremray Electrical website
+
+## Current production operations
+
+The live site is a static DigitalOcean App Platform deployment of `masterbrent/bremray_website`, branch `main`. A push to `main` deploys automatically. The historical setup and staging notes below are not the current publication state.
+
+- Canonical origin: `https://bremray.com`. The `www.bremray.com` alias is managed in the existing DigitalOcean DNS zone. Its host-specific ingress rule returns a permanent 301 to HTTPS `bremray.com`, preserving the request path and query. Keep this rule before the general site route; never redirect the apex back to `www`.
+- App Platform owns DNS/certificate activation. Check domain status and real HTTPS responses after an infrastructure change; a successful app deployment alone does not prove a newly added certificate is ready.
+- Keep the existing Housecall Pro embed and opt-in analytics behavior. Website email links use the public `contact@bremray.com` address with Cloudflare `email_off` guards so CDN obfuscation cannot turn them into broken fallback URLs.
+- Run `GOMAXPROCS=2 go run staging/server.go` from this checkout, then `node --test --test-concurrency=2 tests/*.test.cjs`. Preview tests require that server at port 8766. The protected preview strips live forms and measurement. The separate adaptive intake preview at port 8767 is not part of this release.
+- Before publishing, check source diffs and phone/desktop navigation. After publishing, check the deployed commit, sitemap URLs, canonical/indexing directives, email links, error-page recovery, the native HCP iframe and HTTPS redirects. Do not submit a customer request as part of a routine smoke check.
+
+Technical repairs in October 2026 preserve the visible service copy. More content, ad campaigns and the adaptive lead pipeline are separate work.
 
 A fast, static HTML website for an electrical contractor business.
 
