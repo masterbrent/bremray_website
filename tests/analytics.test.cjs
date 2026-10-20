@@ -18,3 +18,16 @@ test('saved choices, reopening and withdrawal work',()=>{const b=boot('granted')
 test('blocked storage does not prevent explicit choices',()=>{const b=boot(null,true);b.buttons().find(x=>x.textContent==='Accept analytics').click();assert.equal(b.scripts().length,1);});
 test('every content page includes exactly one deferred local tag',()=>{function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()&&!e.name.startsWith('.')?walk(dir+'/'+e.name):e.name.endsWith('.html')?[dir+'/'+e.name]:[]);}for(const file of walk('.')){const html=fs.readFileSync(file,'utf8');assert.equal((html.match(/<script defer src="\/js\/analytics.js\?v=20261019"><\/script>/g)||[]).length,1,file);}});
 test('cross-tab rejection disables collection and expires existing GA cookies',()=>{const b=boot('granted');b.document.cookie='_ga=abc; _ga_4062HJ1QDH=xyz';b.listeners['window:storage']({key:'bremray-analytics-consent',newValue:'denied'});assert.equal(b.window['ga-disable-G-4062HJ1QDH'],true);assert.match(b.document.cookie,/Max-Age=0/);const count=b.events().length;b.listeners.click({target:{closest:()=>({})}});assert.equal(b.events().length,count);});
+test('withdrawing then accepting again resumes consent without duplicate tags or page views',()=>{
+  const b=boot('granted');
+  const clickPhone=()=>b.listeners.click({target:{closest:()=>({getAttribute:()=> 'tel:7342169437'})}});
+  b.buttons().find(x=>x.textContent==='Reject analytics').click();
+  clickPhone();
+  assert.equal(b.events().filter(x=>x[1]==='phone_click').length,0);
+  b.buttons().find(x=>x.textContent==='Accept analytics').click();
+  clickPhone();
+  assert.equal(b.window['ga-disable-G-4062HJ1QDH'],false);
+  assert.equal(b.scripts().length,1);
+  assert.equal(b.events().filter(x=>x[1]==='page_view').length,1);
+  assert.equal(b.events().filter(x=>x[1]==='phone_click').length,1);
+});
