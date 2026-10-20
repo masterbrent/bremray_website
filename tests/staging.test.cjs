@@ -17,7 +17,7 @@ assert.match(policy,/script-src 'self'/);
 test('staging strips custom sending endpoints before HTML reaches the browser',async()=>{
 for(const path of ['/','/get-help.html']){
  const response=await fetch('http://127.0.0.1:8766'+path);const html=await response.text();
- assert.match(html,/id="intake-screen"/);
+ assert.match(html,path==='/'?/data-live-intake/:/id="intake-screen"/);
  assert.doesNotMatch(html,/data-intake-endpoint=/);
  assert.match(response.headers.get('content-security-policy'),/connect-src 'self'/);
 }

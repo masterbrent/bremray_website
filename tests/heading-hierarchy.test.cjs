@@ -5,16 +5,14 @@ const path=require('node:path');
 const root=path.resolve(__dirname,'..');
 const home=fs.readFileSync(path.join(root,'index.html'),'utf8');
 
-test('homepage section headings name the customer question rather than the supporting response',()=>{
- for(const topic of ['What will it cost?','Not sure where to start?','Before you get in touch']){
-  assert.ok(home.includes('<h2>'+topic+'</h2>'),topic);
+test('homepage supporting sections use descriptive headings and the common type scale',()=>{
+ for(const topic of ['What will it cost?','Electrical work for your home.','Here in Ann Arbor.','Before you get in touch.']){
+  assert.ok(home.includes('>'+topic+'</h2>'),topic);
  }
- for(const support of ['That’s a fair question.','Tell us what’s going on.','A few useful answers.']){
-  assert.ok(home.includes('<p class="section-subheading">'+support+'</p>'),support);
-  assert.ok(!home.includes('<h2>'+support+'</h2>'),support);
- }
- assert.ok(home.includes('<h2>Our Electrical Services</h2>'));
- assert.ok(home.includes('<h2>Serving Ann Arbor and All of Washtenaw County</h2>'));
+ assert.doesNotMatch(home,/<h2[^>]*>That’s a fair question/);
+ const css=fs.readFileSync(path.join(root,'css/type-content.css'),'utf8');
+ assert.match(css,/font-size: var\(--section-size\)/);
+ assert.match(css,/--section-size: 34px/);
 });
 
 test('shared contact sections expose their purpose as a heading on every public content page',()=>{
@@ -22,6 +20,7 @@ test('shared contact sections expose their purpose as a heading on every public 
   .map(x=>x.replace(/<\/?loc>/g,'').replace('https://bremray.com/','')||'index.html');
  pages.push('404.html');
  for(const page of pages){
+  if(page==='index.html'){ assert.match(home,/<footer[^>]*id="contact"/); assert.match(home,/href="#questions">Tell us what you need/); continue; }
   const html=fs.readFileSync(path.join(root,page),'utf8');
   const band=html.match(/<section class="contact-band">([\s\S]*?)<\/section>/)?.[1];
   assert.ok(band,page);
