@@ -12,6 +12,8 @@ The live site is a static DigitalOcean App Platform deployment of `masterbrent/b
 
 The October 20 intake release preserves service copy and technical SEO repairs. It makes section topics prominent and keeps the tap-to-call number beside the logo at every screen size. The custom form preserves job answers and contact preferences, only confirms success after HCP acceptance, and records a sanitized `generate_lead` event only with analytics consent. Estimates and automated text/email follow-up are separate work; public service-call prices remain absent. Customer request IDs and form contents stay in memory in the browser, so reloading loses an unfinished request's local recovery state. Backend idempotency protects retries using the same request ID; it is not cross-device deduplication.
 
+Owner service-scope clarification, October 20: Bremray works mostly on residential jobs, occasionally on smaller commercial projects such as small stores and small schools, and does very little industrial work. Keep commercial/industrial promotion off the homepage. The Services page may briefly describe the confirmed smaller commercial work. Do not infer broad three-phase, industrial equipment, retail/office buildout, warehouse/machine-shop or standalone trenching capabilities from that clarification. The old broad list was removed. Existing generator site-preparation explanations were preserved.
+
 ## Shared asset build
 
 Edit `assets-src/css/main.css`, `assets-src/js/analytics.js` and `assets-src/js/generator-tabs.js` for these three shared files. Generate their compact production copies at the existing `css/` and `js/` URLs with:
@@ -67,7 +69,6 @@ Create these landing pages in GoHighLevel:
 - `/emergency-electrician` - For Google Ads emergency campaign
 - `/ev-charger-installation` - For EV charger campaign
 - `/electrical-panel-upgrade` - For panel upgrade services
-- `/commercial-electrical` - For commercial services
 - `/book-now` - Scheduling page with calendar
 
 ## Performance
