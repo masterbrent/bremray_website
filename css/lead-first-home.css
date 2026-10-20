@@ -4,8 +4,8 @@
 .lead-home .site-header{background:#fff;border-bottom:0}
 .lead-home .header-row{height:84px}
 .lead-home .header-row .brand img{width:134px}
-.lead-home .header-row .button.dark{background:#173239;border-radius:2px}
-.lead-home .lead-start{background:#173239;color:#f8f6ef;border:0}
+.lead-home .header-row .button.dark{background:var(--ink);border-radius:2px}
+.lead-home .lead-start{background:var(--ink);color:#f8f6ef;border:0}
 .lead-first-layout{max-width:1180px;padding-top:30px;padding-bottom:25px}
 .lead-start-context h1{font:650 clamp(36px,4.8vw,56px)/1.08 "Avenir Next",Arial,sans-serif;color:#f8f6ef;letter-spacing:-1.6px;margin:0 0 20px;text-align:center}
 .lead-first-card{padding:0;border:0;border-radius:0;box-shadow:none;background:transparent}
@@ -17,7 +17,7 @@
 .lead-first-card .intake-help{max-width:650px;font-size:15px;margin-bottom:22px;color:#bdccce}
 .lead-first-card .intake-choices{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:900px}
 .lead-first-card .intake-choices-compact{grid-template-columns:repeat(3,minmax(0,1fr));max-width:none}
-.lead-first-card .intake-choice{min-height:63px;padding:16px 19px;border:1px solid #4b6267;border-radius:3px;background:#f5f2e9;color:#20333a;font-size:17px;line-height:1.35;align-items:center;transition:background-color .15s,border-color .15s}
+.lead-first-card .intake-choice{min-height:63px;padding:16px 19px;border:1px solid #4b6267;border-radius:3px;background:#f5f2e9;color:var(--ink);font-size:17px;line-height:1.35;align-items:center;transition:background-color .15s,border-color .15s}
 .lead-first-card .intake-choice:hover{border-color:#e6bc69;background:#f4dfb4}
 .lead-first-card .intake-choice[aria-pressed=true]{border-color:#e6bc69;background:#f4dfb4;box-shadow:none}
 .lead-first-card .intake-choice-arrow{font-size:22px;color:#6d552e;flex:none}
@@ -25,7 +25,7 @@
 .lead-first-card[data-intake-view="opening"] .intake-choices{grid-template-columns:repeat(3,minmax(0,1fr));max-width:none;gap:18px}
 .lead-first-card .intake-visual-choice{position:relative;display:block;padding:0;overflow:hidden;min-height:0;border:0;background:#f7f4ec;text-align:left;transition:transform .15s,background-color .15s}
 .lead-first-card .intake-visual-choice:hover{background:#f2dfb6;transform:translateY(-3px)}
-.lead-first-card .intake-visual-choice[data-choice="install"]{background:#efbd66}
+.lead-first-card .intake-visual-choice[data-choice="install"]{background:var(--lime)}
 .lead-first-card .intake-visual-choice[data-choice="install"]:hover{background:#f7ca7e}
 .intake-choice-image{display:block;width:100%;height:156px;object-fit:cover}
 .intake-visual-choice[data-choice="repair"] .intake-choice-image{object-position:60% 64%}
@@ -34,7 +34,7 @@
 .lead-first-card .intake-choice-copy{display:block;padding:19px 22px 20px;min-height:128px}
 .intake-choice-title{display:block;min-height:57px;padding-right:37px;font-size:23px;font-weight:600;letter-spacing:-.6px;line-height:1.22}
 .intake-choice-detail{display:block;font-size:12px;font-weight:400;line-height:1.5;color:#4b5c5c;margin-top:6px;letter-spacing:0}
-.lead-first-card .intake-visual-choice>.intake-choice-arrow{position:absolute;right:19px;top:178px;border:1px solid #92958b;border-radius:50%;width:31px;height:31px;display:grid;place-items:center;font-size:18px;color:#20333a}
+.lead-first-card .intake-visual-choice>.intake-choice-arrow{position:absolute;right:19px;top:178px;border:1px solid #92958b;border-radius:50%;width:31px;height:31px;display:grid;place-items:center;font-size:18px;color:var(--ink)}
 .lead-first-card .intake-modes{display:flex;align-items:center;flex-wrap:wrap;justify-content:flex-start;gap:25px;margin:17px 0 0;padding:0;background:none}
 .lead-first-card .intake-modes button{background:none;border:0;border-radius:0;box-shadow:none;color:#e3e9e6;padding:5px 0;min-height:34px;font-size:14px;font-weight:400;text-decoration:underline;text-underline-offset:4px}
 .lead-first-card .intake-modes button[data-intake-mode][aria-pressed=true]{display:none}
@@ -42,7 +42,7 @@
 .lead-first-card .intake-choice-secondary .intake-choice-arrow{color:#e8bf78;font-size:17px}
 .lead-first-card .intake-navigation{max-width:900px;margin-top:14px}
 .lead-first-card .intake-back,.lead-first-card .intake-edit{color:#f4e9d3}
-.lead-first-card .intake-primary{background:#efbd66;border-color:#efbd66;color:#1d3036;font-weight:600}
+.lead-first-card .intake-primary{background:var(--lime);border-color:var(--lime);color:var(--ink);font-weight:600}
 .lead-first-card .intake-primary:disabled{background:#59686a;border-color:#59686a;color:#d7dfde}
 .lead-form-preview{font-size:10px;color:#a4b6b8;margin:4px 0 0}
 .intake-path{scroll-margin-top:24px;display:flex;flex-wrap:wrap;gap:8px 15px;margin:0 0 22px}
@@ -60,7 +60,7 @@
 .lead-first-card .intake-answer-review{border-color:#405a60}
 .lead-first-card .intake-answer-review>summary{color:#f5efdf}
 .lead-first-card .intake-contact{margin-top:0}
-.lead-first-card .intake-contact-methods legend{font:600 14px/1.5 "Avenir Next",Arial,sans-serif;margin:0 0 8px;color:#20333a;letter-spacing:0}
+.lead-first-card .intake-contact-methods legend{font:600 14px/1.5 "Avenir Next",Arial,sans-serif;margin:0 0 8px;color:var(--ink);letter-spacing:0}
 .lead-first-card .intake-contact input:focus-visible{outline-color:#9b5d09;outline-offset:3px}
 .lead-first-card .intake-summary{margin:8px 0 20px}
 .lead-first-card .intake-summary>div{padding:12px 0;border-color:#405a60}
@@ -69,11 +69,11 @@
 .lead-first-card .intake-review-note{background:transparent;border-top:1px solid #405a60;padding:15px 0 0;border-radius:0}
 .lead-first-card .intake-review-note p,.lead-first-card .intake-count{color:#bacacc}
 .lead-first-card .intake-kicker{display:none}
-.lead-first-card textarea{background:#fff;color:#20333a}
+.lead-first-card textarea{background:#fff;color:var(--ink)}
 .lead-home .trust{background:#eae9e0}
 .lead-home .trust .wrap{padding-top:17px;padding-bottom:17px;font-size:12px}
 .lead-home #services{padding-top:46px}
-.lead-reading-summary{max-width:800px;margin:0 0 23px;font-size:17px;line-height:1.5;color:#52646b}
+.lead-reading-summary{max-width:800px;margin:0 0 23px;font-size:17px;line-height:1.5;color:var(--muted)}
 .lead-home #services .section-heading{margin-bottom:28px}
 .lead-home #services h2{font-size:36px}
 .lead-home #start,.lead-home #services{scroll-margin-top:20px}
