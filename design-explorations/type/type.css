@@ -16,3 +16,47 @@
 .wordmark img{display:block;width:152px;height:auto}.footer-wordmark img{display:block;width:220px;max-width:100%;height:auto}.service-image{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;margin:0 0 22px}.image-note{margin:18px 0 0;font-size:12px;color:var(--muted)}.preview-bar{font-size:12px}.preview-bar a{min-height:44px}
 @media(max-width:760px){.site-header{min-height:98px;padding-block:10px}.wordmark img{width:124px}.preview-bar{font-size:11px}.service-image{margin-bottom:20px}.footer-wordmark img{width:185px}}
 @media(max-width:360px){.wordmark img{width:110px}.preview-bar{font-size:10px}}
+
+/* Keep Type's black-and-white composition; color identifies actions and small details. */
+:root {
+  --accent: #2455c6;
+  --accent-hover: #1b429c;
+  --soft: #f1f5fd;
+}
+.header-phone,
+.service-number,
+.section-label,
+.demo-arrow,
+.text-link span,
+.browse-link span,
+.service-entry summary::after,
+.faq-list summary::after {
+  color: var(--accent);
+}
+a:hover { color: var(--accent); }
+button:focus-visible, a:focus-visible, summary:focus-visible,
+input:focus-visible, textarea:focus-visible { outline-color: var(--accent); }
+.demo-option:hover,
+.demo-flow-stage[data-stage="opening"] .demo-option:hover {
+  background: var(--soft);
+  color: var(--ink);
+  border-color: var(--accent);
+}
+.demo-flow-stage[data-stage="opening"] .demo-option:first-child,
+.demo-primary {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.demo-flow-stage[data-stage="opening"] .demo-option:first-child:hover,
+.demo-primary:hover {
+  background: var(--accent-hover);
+  color: #fff;
+  border-color: var(--accent-hover);
+}
+.demo-flow-stage[data-stage="opening"] .demo-option:first-child .demo-arrow {
+  color: #fff;
+}
+.demo-flow-stage[data-stage="opening"] .demo-option:first-child .demo-option-detail {
+  opacity: .9;
+}
