@@ -1,4 +1,4 @@
-// Build only the three shared assets that have readable authoring copies.
+// Build only the shared scripts that have readable authoring copies.
 package main
 
 import (
@@ -20,7 +20,7 @@ func main() {
 }
 
 func build(check bool) error {
-	assets := []string{"css/main.css", "js/analytics.js", "js/generator-tabs.js"}
+	assets := []string{"js/analytics.js", "js/generator-tabs.js"}
 	outdir := "."
 	if check {
 		var err error

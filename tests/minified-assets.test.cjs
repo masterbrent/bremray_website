@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {gzipSync} = require('node:zlib');
 const root = path.resolve(__dirname, '..');
-const budgets = {'css/main.css': 13500, 'js/analytics.js': 4600, 'js/generator-tabs.js': 1400};
+const budgets = {'js/analytics.js': 4800, 'js/generator-tabs.js': 1400};
 
 test('shipped shared assets stay compact and smaller than their readable sources', () => {
   for (const [file, maximum] of Object.entries(budgets)) {

@@ -1,0 +1,34 @@
+name: Website checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      GOMAXPROCS: 2
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.24.4'
+          cache: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check templates, content preservation, and generated files
+        run: |
+          go test tools/sitegen/main.go tools/sitegen/main_test.go
+          go run tools/sitegen/main.go -check
+          go run tools/build-assets.go -check
+          go test staging/server.go staging/server_test.go
+      - name: Check protected preview and production behavior
+        run: |
+          go run staging/server.go >/tmp/bremray-preview.log 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid" || true' EXIT
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8766/ >/dev/null; then break; fi
+            sleep 1
+          done
+          node --test --test-concurrency=1 tests/*.test.cjs

@@ -1,0 +1,85 @@
+[
+  {
+    "key": "404",
+    "path": "404.html"
+  },
+  {
+    "key": "about",
+    "path": "about.html"
+  },
+  {
+    "key": "contact",
+    "path": "contact.html"
+  },
+  {
+    "key": "electrical-panel-upgrade",
+    "path": "electrical-panel-upgrade.html"
+  },
+  {
+    "key": "ev-charger-installation",
+    "path": "ev-charger-installation.html"
+  },
+  {
+    "key": "generators",
+    "path": "generators.html",
+    "scripts": [
+      "/js/generator-tabs.js"
+    ]
+  },
+  {
+    "key": "get-help",
+    "path": "get-help.html",
+    "scripts": [
+      "/js/adaptive-intake.js"
+    ]
+  },
+  {
+    "key": "grounding-and-bonding",
+    "path": "grounding-and-bonding.html"
+  },
+  {
+    "home": true,
+    "key": "home",
+    "path": "index.html",
+    "scripts": [
+      "/js/adaptive-intake.js",
+      "/js/home-intake.js?v=2026102001"
+    ]
+  },
+  {
+    "key": "privacy",
+    "path": "privacy.html"
+  },
+  {
+    "key": "residential-electrical",
+    "path": "residential-electrical.html"
+  },
+  {
+    "key": "services",
+    "path": "services.html"
+  },
+  {
+    "key": "locations-ann-arbor-electrician",
+    "path": "locations/ann-arbor-electrician.html"
+  },
+  {
+    "key": "locations-chelsea-electrician",
+    "path": "locations/chelsea-electrician.html"
+  },
+  {
+    "key": "locations-saline-electrician",
+    "path": "locations/saline-electrician.html"
+  },
+  {
+    "key": "locations-ypsilanti-electrician",
+    "path": "locations/ypsilanti-electrician.html"
+  },
+  {
+    "key": "generators-portable-interlock",
+    "path": "generators/portable-interlock.html"
+  },
+  {
+    "key": "generators-standby",
+    "path": "generators/standby.html"
+  }
+]
