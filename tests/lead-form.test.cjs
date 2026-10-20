@@ -5,8 +5,8 @@ const path = require('node:path');
 const read = file => fs.readFileSync(path.join(__dirname, '..', file), 'utf8');
 const formURL = 'https://book.housecallpro.com/lead-form/Bremray-Electrical/9e242df02d1d42b9a5870a37b41984f3';
 
-test('both inquiry pages use the verified Bremray lead form without a second intake path', () => {
-  for (const file of ['get-help.html', 'contact.html']) {
+test('contact page retains the verified Bremray native form as a fallback', () => {
+  for (const file of ['contact.html']) {
     const html = read(file);
     assert.ok(html.includes(`src="${formURL}"`), file);
     assert.match(html, /<iframe[^>]+title="Send your project details to Bremray"/);

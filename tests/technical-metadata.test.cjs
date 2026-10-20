@@ -28,7 +28,7 @@ test('error-page recovery links work from missing URLs inside any directory', ()
 });
 
 test('error-page navigation and recovery controls include the shared design stylesheet', () => {
-  assert.match(read('404.html'), /<link\s+rel="stylesheet"\s+href="\/css\/design\.css"/);
+  assert.match(read('404.html'), /<link\s+rel="stylesheet"\s+href="\/css\/design\.css(?:\?v=\d+)?"/);
 });
 
 test('generator services identify the same valid Electrician entity as the homepage', () => {

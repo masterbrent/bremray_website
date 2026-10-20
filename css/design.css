@@ -17,3 +17,21 @@
 .page-references{padding:0 0 32px}.page-references details{border-top:1px solid var(--line);padding-top:18px;font-size:13px;line-height:1.65;color:var(--muted)}.page-references summary{cursor:pointer;font-weight:600}.page-references p{margin:14px 0 0}.page-references a{overflow-wrap:anywhere}.panel-example p:last-child{margin-bottom:0}#panel-examples{font-size:21px;line-height:1.3}
 
 .manufacturer-text{font-size:20px;font-weight:600;color:var(--ink)}
+
+/* Section topics lead; conversational supporting lines stay at reading size. */
+.section-heading h2,.feature h2,.areas h2,.faq h2,.contact-band h2{font-weight:600}
+.section-subheading,.section-heading .section-subheading{font-size:18px;font-weight:400;line-height:1.5;letter-spacing:0;text-transform:none;margin:12px 0 0;max-width:38rem;color:var(--muted)}
+.feature .section-subheading{margin-bottom:20px}
+.faq h2{margin-bottom:0}
+.faq>.section-subheading{margin-bottom:28px}
+.contact-band .section-subheading{color:#d9e1df}
+.page-header .section-subheading{font-size:20px;line-height:1.5;letter-spacing:0;margin:14px 0 0}
+
+/* Keep the call link with the logo, outside the collapsible navigation. */
+.header-contact{display:flex;align-items:center;gap:24px;min-width:0}
+.site-header .brand{flex:none}
+.header-phone{display:inline-flex;align-items:center;min-height:44px;flex-shrink:0;white-space:nowrap;font-size:18px;line-height:1.2;font-weight:700;text-decoration:none}
+.header-phone:hover{text-decoration:underline;text-underline-offset:4px}
+.site-header .menu-toggle{flex:none;min-height:44px}
+@media(max-width:850px){.header-contact{gap:16px}.header-row{gap:16px}}
+@media(max-width:480px){.site-header .header-row{width:calc(100% - 24px);gap:8px}.header-contact{gap:8px}.site-header .header-row .header-contact .brand img{width:clamp(90px,28vw,120px)}.header-phone{font-size:15px}.site-header .menu-toggle{padding:9px 10px;font-size:14px}}
