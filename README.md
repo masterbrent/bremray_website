@@ -18,6 +18,8 @@ Owner clarification, October 20: Bremray does electrical work for spas, hot tubs
 
 SPAN positioning: Brent reiterated that SPAN installations are rare. Keep the confirmed certification in the footer; do not list SPAN under “What We Do Best” or promote it as a specialty. The About-page specialty bullet was removed.
 
+The shared palette is defined at the top of `css/design.css`: dark green `#173239`, cream `#faf8f3`, and gold `#efbd66`. Legacy `assets-src/css/main.css` aliases these tokens; regenerate its production copy with the existing asset builder. Keep warning/status colors distinct and use dark text on gold buttons. Build on the remote host when the Mac is memory constrained.
+
 ## Shared asset build
 
 Edit `assets-src/css/main.css`, `assets-src/js/analytics.js` and `assets-src/js/generator-tabs.js` for these three shared files. Generate their compact production copies at the existing `css/` and `js/` URLs with:
