@@ -14,6 +14,8 @@ The October 20 intake release preserves service copy and technical SEO repairs. 
 
 Owner service-scope clarification, October 20: Bremray works mostly on residential jobs, occasionally on smaller commercial projects such as small stores and small schools, and does very little industrial work. Keep commercial/industrial promotion off the homepage. The Services page may briefly describe the confirmed smaller commercial work. Do not infer broad three-phase, industrial equipment, retail/office buildout, warehouse/machine-shop or standalone trenching capabilities from that clarification. The old broad list was removed. Existing generator site-preparation explanations were preserved.
 
+Owner clarification, October 20: Bremray does electrical work for spas, hot tubs and saunas. The old Services We Do Not Provide/referral block was inaccurate and removed. Do not reintroduce that exclusion or claim a referral program. Pool and solar installation scope remains unspecified; do not infer an offering or exclusion.
+
 ## Shared asset build
 
 Edit `assets-src/css/main.css`, `assets-src/js/analytics.js` and `assets-src/js/generator-tabs.js` for these three shared files. Generate their compact production copies at the existing `css/` and `js/` URLs with:
