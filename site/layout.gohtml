@@ -6,11 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.svg">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#EEECE4">
   {{.Head}}
-  <link rel="preload" href="/fonts/anton-latin-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/site.css?v=2026102003">
-  {{if not .Home}}<link rel="stylesheet" href="/css/content-pages.css?v=2026102003">
+  <link rel="preload" href="/fonts/archivo-latin-100900.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/ibm-plex-mono-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/site.css?v=2026102101">
+  {{if not .Home}}<link rel="stylesheet" href="/css/content-pages.css?v=2026102101">
   {{end}}{{range .Scripts}}<script defer src="{{.}}"></script>
   {{end}}
 </head>
@@ -20,6 +21,7 @@
   {{.Content}}
   {{if not .Home}}{{template "contact" .}}{{end}}
   {{template "footer" .}}
+  <a class="callbar" href="tel:+17342169437"><span class="cb-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" focusable="false"><path fill="currentColor" d="M6.6 3.5h2.4c.4 0 .7.3.8.6l1 3.2c.1.3 0 .7-.3.9L8.8 9.6a12.4 12.4 0 0 0 5.6 5.6l1.4-1.7c.2-.3.6-.4.9-.3l3.2 1c.4.1.6.4.6.8v2.4c0 .7-.5 1.3-1.2 1.4A16.2 16.2 0 0 1 4.2 4.7c.1-.7.7-1.2 1.4-1.2z"/></svg></span><span class="cb-t"><b>Call (734) 216-9437</b><small>Mon–Fri 8–5 · Ann Arbor area</small></span></a>
   <script defer src="/js/design.js"></script>
   <script defer src="/js/analytics.js?v=2026102003"></script>
 </body>

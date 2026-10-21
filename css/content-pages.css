@@ -236,3 +236,45 @@
   .site-page .intake-choice-copy{padding-left:12px}.site-page .intake-choice-title{font-size:18px}
   .site-page .intake-choices-compact{grid-template-columns:1fr}
 }
+
+/* Breaker Panel interior. Same ink, paper, and switch buttons as the homepage. */
+.site-page .container,.site-page .wrap,.site-page .service-banner{width:min(1100px,calc(100% - 96px))}
+.site-page .page-header,.site-page .hero{padding:56px 0 40px;border-top:0;border-bottom:1.5px solid var(--ink);background:transparent}
+.site-page h1{font-stretch:62%;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.9;font-size:clamp(56px,7vw,92px);max-width:16ch}
+.site-page h2{font-stretch:70%;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.95;font-size:clamp(36px,4.4vw,56px);max-width:22ch}
+.site-page h3{font-family:var(--font-display);font-stretch:85%;font-weight:800;text-transform:uppercase;letter-spacing:-.01em}
+.site-page .page-header p,.site-page .hero-subtitle,.site-page .section-subheading{font-family:var(--font-sans);font-stretch:100%;font-weight:500;text-transform:none;letter-spacing:0;font-size:20px;line-height:1.45;color:var(--ink);max-width:62ch}
+.site-page .breadcrumb-section{border-bottom:1.5px solid var(--ink);font-family:var(--font-mono);letter-spacing:.04em;text-transform:uppercase;font-size:12px}
+.site-page main a:not(.btn):not(.button){color:var(--ink);text-underline-offset:3px}
+.site-page main a:hover{color:var(--red-ink)}
+.site-page .btn,.site-page .button,.site-page button[data-generator-target]:not(.tab-button),.site-page .intake-primary{border:1.5px solid var(--ink);border-radius:0;background:var(--red);color:#fff;box-shadow:4px 4px 0 var(--ink);font-weight:800;font-stretch:110%;text-transform:uppercase;letter-spacing:0}
+.site-page .btn:hover,.site-page .button:hover,.site-page button[data-generator-target]:not(.tab-button):hover,.site-page .intake-primary:hover{background:var(--red);color:#fff;border-color:var(--ink);transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.site-page .btn-secondary{background:transparent;color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.site-page .btn-secondary:hover{background:var(--ink);color:var(--paper)}
+.site-page .service-banner img,.site-page .panel-example,.site-page .comparison-card,.site-page .service-card,.site-page .surface-panel,.site-page .warning-box,.site-page .tip-box,.site-page .content-callout,.site-page .alert,.site-page .action-panel{border:1.5px solid var(--ink);border-radius:0}
+.site-page .warning-box,.site-page .tip-box,.site-page .content-callout,.site-page .alert{border-left-width:6px;background:var(--soft)}
+.site-page .service-item,.site-page .contact-item,.site-page .page-references details{border-color:var(--ink)}
+.site-page .pricing-detail,.site-page .cta-section,.site-page .intake-contact{background:transparent;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.site-page .contact-band{border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);margin:0;padding:48px 0}
+.site-page th,.site-page td{border:1.5px solid var(--ink)}
+.site-page th{background:var(--soft)}
+.site-page tbody tr:nth-child(even){background:transparent}
+.site-page .tab-buttons{border-bottom:1.5px solid var(--ink)}
+.site-page .tab-button{font-family:var(--font-mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;border-radius:0}
+.site-page .tab-button.active{border-bottom-color:var(--red);color:var(--ink)}
+.site-page .intake-choice{border:1.5px solid var(--ink);border-radius:0;background:transparent;font-weight:700;font-stretch:90%;text-transform:uppercase}
+.site-page .intake-choice:hover,.site-page .intake-choice[aria-pressed="true"]{background:var(--red);color:#fff;border-color:var(--red)}
+.site-page .intake-choice-arrow{color:inherit}
+.site-page .intake-card legend,.site-page .intake-card h2{font-family:var(--font-display);font-stretch:70%;font-weight:900;text-transform:uppercase;letter-spacing:-.01em}
+.site-page .intake-contact-option{border:1.5px solid var(--ink);border-radius:0}
+.site-page .intake-contact-option:has(input:checked){background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.site-page .intake-card textarea,.site-page .intake-contact-field>input{border:1.5px solid var(--ink);border-radius:0;background:#f6f4ee}
+.site-page .intake-progress-track{background:var(--soft)}
+.site-page .intake-progress-track span{background:var(--red)}
+.site-page .stats-grid h3{color:var(--red)}
+@media(max-width:760px){
+  .site-page .container,.site-page .wrap,.site-page .service-banner{width:calc(100% - 32px)}
+  .site-page h1{font-size:clamp(44px,12vw,64px)}
+  .site-page h2{font-size:clamp(32px,8vw,44px)}
+  .site-page .page-header,.site-page .hero{padding:32px 0}
+}

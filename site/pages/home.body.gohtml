@@ -1,39 +1,53 @@
 <main id="top">
-    <section class="opening shell" id="start" aria-labelledby="page-title">
-      <h1 id="page-title"><span class="headline-line"><span>Licensed</span> <span>electrician</span></span><span class="headline-line">in Ann Arbor.</span></h1>
+    <section class="hero" id="start" aria-labelledby="page-title">
+      <h1 id="page-title"><span class="headline-line">Licensed</span> <span class="headline-line">electrician</span> <span class="br">in Ann Arbor.</span></h1>
       <div class="intake-wrap" id="questions" data-live-intake data-intake-endpoint="https://bots.propfirmbot.com/bremray-intake/v1/requests"></div>
       <noscript><p class="no-script">Turn on JavaScript to use the questions, or call <a href="tel:+17342169437">(734) 216-9437</a>.</p></noscript>
       <a class="browse-link" href="#services">Just looking? Read about our services <span aria-hidden="true">↓</span></a>
+      <aside class="facts" aria-label="Hours, service area, and phone">
+        <div class="f"><span class="fk">Hours</span><span class="fv">Mon–Fri, 8am–5pm</span></div>
+        <div class="f"><span class="fk">Service area</span><span class="fv">Ann Arbor, Ypsilanti, Chelsea, Saline, Dexter, Pittsfield Twp</span></div>
+        <div class="f"><span class="fk">Phone</span><a class="fv" href="tel:+17342169437">(734) 216-9437</a></div>
+      </aside>
     </section>
 
-    <div class="supporting-content">
-    <section class="price-section shell" id="pricing" aria-labelledby="price-title">
-      <h2 class="section-title" id="price-title">What will it cost?</h2>
-      <div class="price-copy"><p>Tell us a little about the job. We’ll help work out what’s involved and get back to you about the price.</p><p class="supporting">What’s already in your home, and where the new equipment will go, can make a real difference.</p><a class="text-link" href="#questions">Tell us what you’re planning <span aria-hidden="true">↗</span></a></div>
+    <section class="cost" id="pricing" aria-labelledby="price-title">
+      <h2 class="st" id="price-title">What will it cost?</h2>
+      <div class="cost-copy"><p class="lead">Tell us a little about the job. We’ll help work out what’s involved and get back to you about the price.</p><p>What’s already in your home, and where the new equipment will go, can make a real difference.</p><a class="tl" href="#questions">Tell us what you’re planning <span aria-hidden="true">↗</span></a></div>
     </section>
 
-    <section class="services-section shell" id="services" aria-labelledby="services-title">
-      <div class="section-heading"><h2 class="section-title" id="services-title">Electrical work for your home.</h2><p>Generators, EV chargers, and panel upgrades. Tell us what you’re planning and we’ll help work out what the job needs.</p></div>
-      <div class="service-list">
-        <article class="service-entry" id="ev-chargers">
-          <div><img class="service-image" src="/images/ev-charging.jpg" alt="Illustrative home EV charging station" width="1536" height="1024" loading="lazy"><h3>EV chargers</h3><p>Charge your car at home. We’ll assess your panel capacity and work out where to install the charger.</p><details><summary>What affects the work?</summary><div class="detail-copy"><p>The charger location, distance from the panel, wiring route, and available electrical capacity all affect the work.</p><p>You don’t have to know which charger you need before you get in touch.</p><a href="/ev-charger-installation.html">More about EV charger installation →</a></div></details><a class="module-link" href="#questions">Tell us about your installation <span aria-hidden="true">↗</span></a></div>
+    <section class="svc" id="services" aria-labelledby="services-title">
+      <div class="svc-head"><h2 class="st" id="services-title">Electrical work for your home.</h2><p>Generators, EV chargers, and panel upgrades. Tell us what you’re planning and we’ll help work out what the job needs.</p></div>
+      <div class="svc-list">
+        <article class="s" id="ev-chargers">
+          <img class="service-image" src="/images/ev-charging.jpg" alt="Illustrative home EV charging station" width="1536" height="1024" loading="lazy">
+          <h3>EV chargers</h3>
+          <p>Charge your car at home. We’ll assess your panel capacity and work out where to install the charger.</p>
+          <details><summary>What affects the work?</summary><div class="detail-copy"><p>The charger location, distance from the panel, wiring route, and available electrical capacity all affect the work.</p><p>You don’t have to know which charger you need before you get in touch.</p><a href="/ev-charger-installation.html">More about EV charger installation →</a></div></details>
+          <a class="module-link" href="#questions">Tell us about your installation <span aria-hidden="true">↗</span></a>
         </article>
-        <article class="service-entry" id="generators">
-          <div><img class="service-image" src="/images/generator.jpg" alt="Illustrative standby generator beside a house" width="1536" height="1024" loading="lazy"><h3>Generators</h3><p>Keep power to the things you need when an outage hits. We install whole-house generators and portable generator hookups.</p><details><summary>Which setup do you need?</summary><div class="detail-copy"><p>A portable generator hookup and an automatic standby system are different projects. The equipment, location, fuel supply, and circuits you want backed up matter.</p><a href="/generators.html">Compare generator options →</a></div></details><a class="module-link" href="#questions">Tell us what you want to back up <span aria-hidden="true">↗</span></a></div>
+        <article class="s" id="generators">
+          <img class="service-image" src="/images/generator.jpg" alt="Illustrative standby generator beside a house" width="1536" height="1024" loading="lazy">
+          <h3>Generators</h3>
+          <p>Keep power to the things you need when an outage hits. We install whole-house generators and portable generator hookups.</p>
+          <details><summary>Which setup do you need?</summary><div class="detail-copy"><p>A portable generator hookup and an automatic standby system are different projects. The equipment, location, fuel supply, and circuits you want backed up matter.</p><a href="/generators.html">Compare generator options →</a></div></details>
+          <a class="module-link" href="#questions">Tell us what you want to back up <span aria-hidden="true">↗</span></a>
         </article>
-        <article class="service-entry" id="panels">
-          <div><img class="service-image" src="/images/panel.jpg" alt="Illustrative residential electrical panel" width="1536" height="1024" loading="lazy"><h3>Panel upgrades</h3><p>Replacing a problem panel or adding new electrical equipment? We’ll check what you have and work out what you need.</p><details><summary>Do you need more capacity?</summary><div class="detail-copy"><p>What you already have, what you’re adding, and any changes needed to the electrical service determine the scope.</p><p>Adding an EV charger doesn’t always mean you need a service upgrade. We can look at load management options, too.</p><a href="/electrical-panel-upgrade.html">More about panel upgrades →</a></div></details><a class="module-link" href="#questions">Tell us what you want to change <span aria-hidden="true">↗</span></a></div>
+        <article class="s" id="panels">
+          <img class="service-image" src="/images/panel.jpg" alt="Illustrative residential electrical panel" width="1536" height="1024" loading="lazy">
+          <h3>Panel upgrades</h3>
+          <p>Replacing a problem panel or adding new electrical equipment? We’ll check what you have and work out what you need.</p>
+          <details><summary>Do you need more capacity?</summary><div class="detail-copy"><p>What you already have, what you’re adding, and any changes needed to the electrical service determine the scope.</p><p>Adding an EV charger doesn’t always mean you need a service upgrade. We can look at load management options, too.</p><a href="/electrical-panel-upgrade.html">More about panel upgrades →</a></div></details>
+          <a class="module-link" href="#questions">Tell us what you want to change <span aria-hidden="true">↗</span></a>
         </article>
       </div>
-
-      <div class="residential-row"><div><h3>And the other jobs around your home.</h3><p>Lighting, outlets, ceiling fans, whole-house surge protection, and wiring for hot tubs and saunas.</p><a class="text-link" href="/residential-electrical.html">Residential electrical services →</a></div><div><h3>Something stopped working?</h3><p>We handle troubleshooting, repairs, and service calls, too.</p><a class="text-link" href="#questions">Tell us what’s happening <span aria-hidden="true">↗</span></a></div></div>
+      <div class="svc-more"><div><h3>And the other jobs around your home.</h3><p>Lighting, outlets, ceiling fans, whole-house surge protection, and wiring for hot tubs and saunas.</p><a class="tl" href="/residential-electrical.html">Residential electrical services →</a></div><div><h3>Something stopped working?</h3><p>We handle troubleshooting, repairs, and service calls, too.</p><a class="tl" href="#questions">Tell us what’s happening <span aria-hidden="true">↗</span></a></div></div>
     </section>
 
-    <section class="about-section shell" id="about" aria-labelledby="about-title">
-      <div><p class="section-label">Bremray Electrical</p><h2 class="section-title" id="about-title">Here in Ann Arbor.</h2></div>
-      <div class="about-copy"><p class="large-copy">We’ve served Ann Arbor since 2004. We’ll talk through the work with you and answer your questions before we get started.</p><p>You don’t have to know which charger, generator, or panel you need before you call. Tell us what you’re trying to do. We’ll talk through the electrical side with you.</p><dl class="business-details"><div><dt>Where we work</dt><dd><a href="/locations/ann-arbor-electrician.html">Ann Arbor</a> and Washtenaw County, including <a href="/locations/ypsilanti-electrician.html">Ypsilanti</a>, <a href="/locations/chelsea-electrician.html">Chelsea</a>, <a href="/locations/saline-electrician.html">Saline</a>, Dexter, and Pittsfield Township.</dd></div><div><dt>When to reach us</dt><dd>Monday–Friday, 8am–5pm</dd></div></dl></div>
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="ab-h"><p class="lab">Bremray Electrical</p><h2 class="st" id="about-title">Here in Ann Arbor.</h2></div>
+      <div class="ab-c"><p class="lead">We’ve served Ann Arbor since 2004. We’ll talk through the work with you and answer your questions before we get started.</p><p>You don’t have to know which charger, generator, or panel you need before you call. Tell us what you’re trying to do. We’ll talk through the electrical side with you.</p><dl class="business-details"><div><dt>Where we work</dt><dd><a href="/locations/ann-arbor-electrician.html">Ann Arbor</a> and Washtenaw County, including <a href="/locations/ypsilanti-electrician.html">Ypsilanti</a>, <a href="/locations/chelsea-electrician.html">Chelsea</a>, <a href="/locations/saline-electrician.html">Saline</a>, Dexter, and Pittsfield Township.</dd></div><div><dt>When to reach us</dt><dd>Monday–Friday, 8am–5pm</dd></div><div><dt>Call</dt><dd><a href="tel:+17342169437">(734) 216-9437</a></dd></div></dl></div>
     </section>
 
-    <section class="faq-section shell" aria-labelledby="faq-title"><h2 class="section-title" id="faq-title">Before you get in touch.</h2><div class="faq-list"><details><summary>Can you help with smaller electrical jobs?</summary><p>Yes. Residential services include outlets, lighting, troubleshooting, and repairs, alongside larger installation projects.</p></details><details><summary>Do I need a panel upgrade for an EV charger?</summary><p>It depends on your existing electrical service and charging requirements. We’ll assess your panel and planned charger before recommending the work.</p></details><details><summary>What should I include in my request?</summary><p>Your town, how to reach you, and a short description of the project or problem are a useful starting point.</p></details></div></section>
-    </div>
+    <section class="faq" aria-labelledby="faq-title"><h2 class="st" id="faq-title">Before you get in touch.</h2><div class="q"><h3>Can you help with smaller electrical jobs?</h3><p>Yes. Residential services include outlets, lighting, troubleshooting, and repairs, alongside larger installation projects.</p></div><div class="q"><h3>Do I need a panel upgrade for an EV charger?</h3><p>It depends on your existing electrical service and charging requirements. We’ll assess your panel and planned charger before recommending the work.</p></div><div class="q"><h3>What should I include in my request?</h3><p>Your town, how to reach you, and a short description of the project or problem are a useful starting point.</p></div></section>
   </main>

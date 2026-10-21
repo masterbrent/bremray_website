@@ -1,7 +1,12 @@
 {
-  "downloaded": "2026-10-20",
+  "downloaded": "2026-10-21",
   "license": "SIL Open Font License 1.1; license files alongside fonts",
+  "notes": "Breaker Panel uses the Archivo variable latin subset (weight and width axes) and IBM Plex Mono latin 400/500/600. Anton and Inter files remain in this directory from the previous skin and are not referenced by the stylesheet.",
   "fonts": [
+    {"name":"Archivo Latin variable wdth/wght","file":"archivo-latin-100900.woff2","source":"https://fonts.gstatic.com/s/archivo/v25/k3kQo8UDI-1M0wlSfdnoLg.woff2","sha256":"e3a28eade21a900c7155a247757f4b2834c07bb7ef07ad7efa55cebaac1e8f5e"},
+    {"name":"IBM Plex Mono Latin 400","file":"ibm-plex-mono-latin-400.woff2","source":"https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q1w.woff2","sha256":"08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"},
+    {"name":"IBM Plex Mono Latin 500","file":"ibm-plex-mono-latin-500.woff2","source":"https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgg.woff2","sha256":"01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22"},
+    {"name":"IBM Plex Mono Latin 600","file":"ibm-plex-mono-latin-600.woff2","source":"https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgg.woff2","sha256":"0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83"},
     {"name":"Anton Latin 400","file":"anton-latin-400.woff2","source":"https://cdn.jsdelivr.net/fontsource/fonts/anton@latest/latin-400-normal.woff2","sha256":"d0fa07ff63dd60cbc0e2f58e29c802dca2a5ae0276c999f59c6111ab7bbaec3b"},
     {"name":"Inter Latin Variable","file":"inter-latin-variable.woff2","source":"https://cdn.jsdelivr.net/fontsource/fonts/inter:vf@latest/latin-wght-normal.woff2","sha256":"3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"}
   ]
