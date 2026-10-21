@@ -145,6 +145,14 @@
   return {...state,mode,step:mode==='guided'?Math.max(0,questionsFor(state.answers).findIndex(item=>!hasAnswer(state.answers,item))):state.step};
  }
  function review(state){return {...state,reviewMode:state.mode,mode:'review'};}
+ function startFor(service){
+  let state={answers:{},step:0,typed:'',mode:'guided',reviewMode:'guided'};
+  const starts={ev:['install','ev'],generator:['install','generator'],panel:['upgrade','panel'],repair:['repair']};
+  if(!Object.prototype.hasOwnProperty.call(starts,service))return state;
+  const [intent,item]=starts[service];
+  state=advance(state,'intent',intent);
+  return item?advance(state,intent+'_item',item):state;
+ }
  function advance(state,id,value){
   const updated={...state,answers:answer(state.answers,id,value)};
   const missing=nextQuestion(updated.answers);
@@ -227,7 +235,7 @@
    reset(){if(status!=='rejected')return false;payload=null;reported=false;status='ready';return true;}
   };
  }
- const api={questionsFor,nextQuestion,answer,cleanText,switchMode,review,advance,viewFor,closingFor,validateContact,payloadFor,createSubmission};
+ const api={questionsFor,nextQuestion,answer,cleanText,switchMode,review,startFor,advance,viewFor,closingFor,validateContact,payloadFor,createSubmission};
  if(typeof module==='object'&&module.exports){module.exports=api;return;}
  root.BremrayIntake=api;
  const shell=document.getElementById('intake-screen');

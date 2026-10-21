@@ -8,7 +8,7 @@ const id='e456b1cf-a0a4-4cb5-93a8-01a323abc123';
 const response=(status,body)=>({status,json:async()=>body});
 const receipt=(status)=>({request_id:id,status});
 // Exercise the production event handlers, question rules, and delivery client together.
-function boot({url=endpoint,fetch=async()=>response(201,receipt('delivered'))}={}){
+function boot({url=endpoint,entry='home',search='',pathname='/',fetch=async()=>response(201,receipt('delivered'))}={}){
  class Element{
   constructor(tag){this.tag=tag;this.children=[];this.attrs={};this.listeners={};this.value='';this.disabled=false;this.hidden=false;this.classList={add:v=>this.attrs.class=((this.attrs.class||'')+' '+v).trim()};}
   setAttribute(k,v){this.attrs[k]=String(v);}
@@ -29,12 +29,13 @@ function boot({url=endpoint,fetch=async()=>response(201,receipt('delivered'))}={
   return n.tag===s;
  }
  const mount=new Element('div');mount.setAttribute('data-live-intake','');
+ mount.setAttribute('data-intake-entry',entry);
  if(url)mount.setAttribute('data-intake-endpoint',url);
  const events=[];
  const document={querySelector:s=>matches(mount,s)?mount:null,getElementById:()=>null,createElement:tag=>new Element(tag),dispatchEvent:e=>events.push(e.type)};
  let uuidCount=0;
- const window={innerHeight:900,location:{origin:'https://bremray.com',pathname:'/'},crypto:{randomUUID:()=>{uuidCount++;return id;}},fetch};
- const context=vm.createContext({window,document,Event,AbortController,setTimeout,clearTimeout});
+ const window={innerHeight:900,location:{origin:'https://bremray.com',pathname,search},crypto:{randomUUID:()=>{uuidCount++;return id;}},fetch};
+ const context=vm.createContext({window,document,Event,AbortController,URLSearchParams,setTimeout,clearTimeout});
  vm.runInContext(fs.readFileSync('js/adaptive-intake.js','utf8'),context);
  vm.runInContext(fs.readFileSync('js/home-intake.js','utf8'),context);
  const button=text=>mount.querySelectorAll('button').find(n=>n.textContent===text);
@@ -47,6 +48,49 @@ function boot({url=endpoint,fetch=async()=>response(201,receipt('delivered'))}={
  const valid=()=>{fill('name','Bremray Website Test');fill('phone','(734) 822-7594');};
  return {mount,button,click,pick,fill,method,submit,review,valid,events,uuidCount:()=>uuidCount};
 }
+
+test('service-specific entry preserves source and keeps initial choices on the homepage',async()=>{
+ let payload;const b=boot({entry:'service',search:'?service=ev&email=do-not-copy%40example.com',pathname:'/get-help.html',fetch:async(url,opts)=>{payload=JSON.parse(opts.body);return response(201,receipt('delivered'));}});
+ assert.equal(b.mount.querySelector('h2').textContent,'Where would you charge your car?');
+ b.pick('garage');b.pick('none');b.pick('near');b.valid();await b.submit();
+ assert.equal(payload.answers[0].answer,'Install something new');
+ assert.equal(payload.answers[1].answer,'An EV charger');
+ assert.equal(payload.source.page,'https://bremray.com/get-help.html');
+ assert.doesNotMatch(JSON.stringify(payload),/do-not-copy/);
+ const c=boot({entry:'service',search:'?service=panel'});c.click('Start over');
+ assert.ok(c.mount.querySelector('#home-project'));
+ assert.equal(c.mount.querySelectorAll('[data-choice]').length,0);
+ const d=boot({entry:'service',search:'?service=toString'});
+ assert.ok(d.mount.querySelector('#home-project'));
+ assert.equal(d.mount.querySelectorAll('[data-choice]').length,0);
+ const e=boot({entry:'service',search:'?service=ev'});e.click('← Back');
+ assert.ok(e.mount.querySelector('#home-project'));
+ assert.equal(e.mount.querySelectorAll('[data-choice]').length,0);
+});
+
+test('Contact opens a direct message form and preserves details when changing reply method',async()=>{
+ let payload;const b=boot({entry:'contact',search:'?service=ev',pathname:'/contact.html',fetch:async(url,opts)=>{payload=JSON.parse(opts.body);return response(201,receipt('delivered'));}});
+ assert.equal(b.mount.querySelectorAll('[data-choice]').length,0);
+ assert.equal(b.button('Start over'),undefined);
+ b.fill('project','Please install a generator at our home.');b.fill('name','Bremray Website Test');
+ b.method('email');b.fill('email','test@example.com');
+ assert.equal(b.mount.querySelector('#home-project').value,'Please install a generator at our home.');
+ assert.equal(b.mount.querySelector('#home-name').value,'Bremray Website Test');
+ await b.submit();
+ assert.equal(payload.mode,'typed');assert.equal(payload.description,'Please install a generator at our home.');
+ assert.deepEqual(payload.answers,[]);assert.equal(payload.source.page,'https://bremray.com/contact.html');
+ assert.deepEqual(b.events,['bremray:lead-delivered']);
+});
+
+test('direct forms require a message and never send from the protected preview',async()=>{
+ let calls=0;const b=boot({entry:'contact',fetch:async()=>{calls++;return response(201,receipt('delivered'));}});
+ b.valid();b.fill('project','   ');await b.submit();
+ assert.equal(calls,0);assert.ok(b.mount.querySelector('#home-project').invalid);
+ b.fill('project','An outdoor outlet stopped working.');await b.submit();assert.equal(calls,1);
+ const c=boot({entry:'contact',url:'',fetch:async()=>{calls++;}});
+ c.valid();c.fill('project','Test only.');assert.equal(c.button('Send request').disabled,true);
+ await c.submit();assert.equal(calls,1);
+});
 
 test('guided Type intake sends answers and confirms only after actual delivery',async()=>{
  let resolve;const calls=[];

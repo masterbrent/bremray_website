@@ -4,6 +4,18 @@ const fs=require('node:fs');
 const intake=require('../js/adaptive-intake.js');
 const take=(answers,id,value)=>intake.answer(answers,id,value);
 
+test('service links skip only known context and leave every choice editable',()=>{
+ for(const [service,id] of [['ev','ev_place'],['generator','generator_backup'],['panel','panel_reason'],['repair','repair_item']]){
+  const state=intake.startFor(service);
+  assert.equal(intake.questionsFor(state.answers)[state.step].id,id,service);
+  assert.equal(state.mode,'guided');
+ }
+ for(const value of [undefined,'','unknown','<script>','toString','__proto__'])assert.deepEqual(intake.startFor(value).answers,{});
+ const changed=intake.advance({...intake.startFor('ev'),step:0},'intent','repair');
+ assert.equal(changed.answers.install_item,undefined);
+ assert.equal(intake.questionsFor(changed.answers)[changed.step].id,'repair_item');
+});
+
 test('presentation follows the displayed question, including Back and mode changes',()=>{
  const initial={mode:'guided',answers:{},step:0};
  assert.equal(intake.viewFor(initial),'opening');

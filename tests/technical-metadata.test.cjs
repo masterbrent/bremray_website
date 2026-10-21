@@ -24,7 +24,8 @@ test('error-page recovery links work from missing URLs inside any directory', ()
       assert.ok(fs.existsSync(path.join(root, file)), `${missing}: ${href} resolves to missing ${file}`);
     }
   }
-  assert.ok(links.filter(href => href === '/get-help.html').length >= 2, 'both service recovery links reach the request page');
+  assert.ok(links.includes('/get-help.html'), 'recovery offers a direct request link');
+  assert.ok(links.includes('/services.html'), 'recovery also offers service information');
 });
 
 test('error-page navigation and recovery controls include the shared design stylesheet', () => {

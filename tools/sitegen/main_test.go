@@ -12,8 +12,8 @@ import (
 	"testing"
 )
 
-// This frozen manifest captures the approved page content before the template
-// migration. Presentation may change without silently dropping SEO or intake data.
+// This manifest captures the last reviewed page content. Presentation may change
+// without silently dropping SEO or intake data. Re-record only after copy review.
 func TestProductionContentPreserved(t *testing.T) {
 	data, err := os.ReadFile("../../tests/fixtures/template-baseline.json")
 	if err != nil {

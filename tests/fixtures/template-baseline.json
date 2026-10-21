@@ -1,44 +1,44 @@
 {
   "404.html": {
-    "links": [
-      "href=\"/get-help.html\"",
-      "href=\"/get-help.html\"",
-      "href=\"tel:7342169437\""
-    ],
-    "main_text_sha256": "952bb23608d364ec2a823d3b82b20036653d4d2e9d818c49d6351a612e80de11",
     "metadata": [
       "\u003ctitle\u003ePage Not Found | Bremray Electrical\u003c/title\u003e",
       "\u003cmeta name=\"description\" content=\"The page you're looking for isn't here, but we can still help with your electrical needs.\"\u003e",
       "\u003cmeta name=\"robots\" content=\"noindex, follow\"\u003e"
     ],
-    "schemas": null
+    "schemas": null,
+    "main_text_sha256": "e11e15226fb8cc8cb01f2abe0da7157087be1f899aff11166c2375ca12297bea",
+    "links": [
+      "id=\"top\"",
+      "href=\"/get-help.html\"",
+      "href=\"/services.html\"",
+      "href=\"tel:7342169437\""
+    ]
   },
   "about.html": {
-    "links": [
-      "href=\"tel:7342169437\"",
-      "href=\"get-help.html\""
-    ],
-    "main_text_sha256": "1e07adf504bae77f6ed6c6b7a3385b760c1db03ba9e8eb59bfde64f60b8e60d6",
     "metadata": [
-      "\u003ctitle\u003eAbout Us | Bremray Electrical | Ann Arbor Electricians\u003c/title\u003e",
-      "\u003cmeta name=\"description\" content=\"Electrical contractor serving Ann Arbor and Washtenaw County. Licensed and insured.\"\u003e",
+      "\u003ctitle\u003eAbout Bremray Electrical | Ann Arbor Electricians\u003c/title\u003e",
+      "\u003cmeta name=\"description\" content=\"We've done electrical work since 1988 and served Ann Arbor since 2004. Meet Bremray: licensed electricians for home installations, updates, and repairs.\"\u003e",
       "\u003clink rel=\"canonical\" href=\"https://bremray.com/about.html\" /\u003e"
     ],
     "schemas": [
       "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"BreadcrumbList\",\n      \"itemListElement\": [\n        {\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://bremray.com/\"},\n        {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"About\", \"item\": \"https://bremray.com/about.html\"}\n      ]\n    }\n    \u003c/script\u003e",
       "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"Electrician\",\n      \"@id\": \"https://bremray.com/#business\",\n      \"name\": \"Bremray Electrical\",\n      \"url\": \"https://bremray.com/\",\n      \"logo\": \"https://bremray.com/images/logo.png\",\n      \"image\": \"https://bremray.com/images/logo.png\",\n      \"telephone\": \"+1-734-216-9437\",\n      \"email\": \"contact@bremray.com\",\n      \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"addressLocality\": \"Ann Arbor\",\n        \"addressRegion\": \"MI\",\n        \"postalCode\": \"48103\"\n      },\n      \"areaServed\": [\n        \"Ann Arbor\", \"Ypsilanti\", \"Chelsea\", \"Saline\", \"Dexter\",\n        \"Pittsfield Township\", \"Milan\", \"Manchester\", \"Whitmore Lake\", \"Washtenaw County\"\n      ]\n    }\n    \u003c/script\u003e"
+    ],
+    "main_text_sha256": "c58c830f8ba35cddfd311006f8e651bfa078148f44b6df149416d7895991ac3b",
+    "links": [
+      "id=\"top\"",
+      "href=\"/get-help.html\"",
+      "href=\"tel:7342169437\"",
+      "href=\"/ev-charger-installation.html\"",
+      "href=\"/generators.html\"",
+      "href=\"/electrical-panel-upgrade.html\"",
+      "href=\"/residential-electrical.html\"",
+      "href=\"/services.html\"",
+      "href=\"/get-help.html\"",
+      "href=\"tel:7342169437\""
     ]
   },
   "contact.html": {
-    "links": [
-      "href=\"mailto:contact@bremray.com\"",
-      "src=\"https://online-booking.housecallpro.com/script.js?token=9e242df02d1d42b9a5870a37b41984f3\u0026amp;orgName=Bremray-Electrical\"",
-      "id=\"hcp-lead-iframe\"",
-      "src=\"https://book.housecallpro.com/lead-form/Bremray-Electrical/9e242df02d1d42b9a5870a37b41984f3\"",
-      "href=\"https://book.housecallpro.com/lead-form/Bremray-Electrical/9e242df02d1d42b9a5870a37b41984f3\"",
-      "href=\"tel:7342169437\""
-    ],
-    "main_text_sha256": "47f2982d7a742d0cf9f914db7069b592059ef0741e46f71fd50819d44f78938f",
     "metadata": [
       "\u003ctitle\u003eContact Us | Bremray Electrical | Ann Arbor Electrician\u003c/title\u003e",
       "\u003cmeta name=\"description\" content=\"Contact Bremray Electrical about an installation or repair. Call (734) 216-9437 or send your project details.\"\u003e",
@@ -47,22 +47,54 @@
     "schemas": [
       "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"BreadcrumbList\",\n      \"itemListElement\": [\n        {\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://bremray.com/\"},\n        {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Contact\", \"item\": \"https://bremray.com/contact.html\"}\n      ]\n    }\n    \u003c/script\u003e",
       "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"Electrician\",\n      \"@id\": \"https://bremray.com/#business\",\n      \"name\": \"Bremray Electrical\",\n      \"url\": \"https://bremray.com/\",\n      \"logo\": \"https://bremray.com/images/logo.png\",\n      \"image\": \"https://bremray.com/images/logo.png\",\n      \"telephone\": \"+1-734-216-9437\",\n      \"email\": \"contact@bremray.com\",\n      \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"addressLocality\": \"Ann Arbor\",\n        \"addressRegion\": \"MI\",\n        \"postalCode\": \"48103\"\n      },\n      \"areaServed\": [\n        \"Ann Arbor\", \"Ypsilanti\", \"Chelsea\", \"Saline\", \"Dexter\",\n        \"Pittsfield Township\", \"Milan\", \"Manchester\", \"Whitmore Lake\", \"Washtenaw County\"\n      ],\n      \"openingHoursSpecification\": {\n        \"@type\": \"OpeningHoursSpecification\",\n        \"dayOfWeek\": [\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\"],\n        \"opens\": \"08:00\",\n        \"closes\": \"17:00\"\n      }\n    }\n    \u003c/script\u003e"
+    ],
+    "main_text_sha256": "230dab441f963e8eb3dee227354e66ad871ed4049e7e169d5765b165b7dc4033",
+    "links": [
+      "id=\"top\"",
+      "id=\"contact-details\"",
+      "href=\"tel:+17342169437\"",
+      "href=\"mailto:contact@bremray.com\"",
+      "id=\"questions\"",
+      "href=\"tel:+17342169437\"",
+      "href=\"https://book.housecallpro.com/lead-form/Bremray-Electrical/9e242df02d1d42b9a5870a37b41984f3\"",
+      "href=\"tel:7342169437\""
     ]
   },
   "electrical-panel-upgrade.html": {
+    "metadata": [
+      "\u003ctitle\u003eElectrical Panel Upgrades in Ann Arbor | Bremray Electrical\u003c/title\u003e",
+      "\u003cmeta name=\"description\" content=\"Adding an EV charger or having panel problems? Bremray checks your electrical system, explains the options, and installs panel upgrades in Ann Arbor.\"\u003e",
+      "\u003clink rel=\"canonical\" href=\"https://bremray.com/electrical-panel-upgrade.html\" /\u003e",
+      "\u003cmeta property=\"og:type\" content=\"article\"\u003e",
+      "\u003cmeta property=\"og:site_name\" content=\"Bremray Electrical\"\u003e",
+      "\u003cmeta property=\"og:title\" content=\"Electrical Panel Upgrades in Ann Arbor | Bremray Electrical\"\u003e",
+      "\u003cmeta property=\"og:description\" content=\"Adding an EV charger or having panel problems? Bremray checks your electrical system, explains the options, and installs panel upgrades in Ann Arbor.\"\u003e",
+      "\u003cmeta property=\"og:url\" content=\"https://bremray.com/electrical-panel-upgrade.html\"\u003e",
+      "\u003cmeta property=\"og:image\" content=\"https://bremray.com/images/logo.png\"\u003e"
+    ],
+    "schemas": [
+      "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"BreadcrumbList\",\n      \"itemListElement\": [\n        {\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://bremray.com/\"},\n        {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Electrical Panel Upgrades\", \"item\": \"https://bremray.com/electrical-panel-upgrade.html\"}\n      ]\n    }\n    \u003c/script\u003e",
+      "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"Electrician\",\n      \"@id\": \"https://bremray.com/#business\",\n      \"name\": \"Bremray Electrical\",\n      \"url\": \"https://bremray.com/\",\n      \"logo\": \"https://bremray.com/images/logo.png\",\n      \"image\": \"https://bremray.com/images/logo.png\",\n      \"telephone\": \"+1-734-216-9437\",\n      \"address\": {\"@type\": \"PostalAddress\", \"addressLocality\": \"Ann Arbor\", \"addressRegion\": \"MI\", \"postalCode\": \"48103\"}\n    }\n    \u003c/script\u003e"
+    ],
+    "main_text_sha256": "259072a9abba4e76f97e19d30a45dcd401bbb038deda6b994f20b7d0804ab826",
     "links": [
+      "id=\"top\"",
+      "href=\"/get-help.html?service=panel\"",
       "src=\"/images/panel.jpg\"",
       "id=\"pricing\"",
-      "href=\"/get-help.html\"",
+      "href=\"/get-help.html?service=panel\"",
       "id=\"why-replace\"",
       "id=\"panel-examples\"",
       "href=\"/images/panels/federal-pacific-stab-lok.jpg\"",
       "src=\"/images/panels/federal-pacific-stab-lok.jpg\"",
       "href=\"/images/panels/murray-fuse-box.jpg\"",
       "src=\"/images/panels/murray-fuse-box.jpg\"",
+      "href=\"/get-help.html?service=panel\"",
       "href=\"grounding-and-bonding.html\"",
+      "href=\"/ev-charger-installation.html\"",
+      "href=\"/generators.html\"",
+      "href=\"/get-help.html?service=panel\"",
       "href=\"tel:7342169437\"",
-      "href=\"get-help.html\"",
       "id=\"panel-references\"",
       "href=\"https://commons.wikimedia.org/wiki/File:Stab-Lok_circuit_breaker_panel_interior_.jpg\"",
       "href=\"https://creativecommons.org/licenses/by-sa/4.0/\"",
@@ -72,167 +104,200 @@
       "href=\"https://inspectapedia.com/electric/Zinsco-Failure-Test-Report.php\"",
       "href=\"https://www.jrlelectricsupplyinc.com/blogs/the-truth-about-challenger-residential-panels-are-challenger-panels-safe/how-to-identify-zinsco-circuit-breakers-with-pictures\"",
       "href=\"https://www.cpsc.gov/s3fs-public/518.pdf\"",
+      "href=\"https://www.michigan.gov/lara/bureau-list/bcc/rules-acts/codes/code-books\"",
       "href=\"https://www.tesla.com/support/charging/wall-connector/power-management\""
-    ],
-    "main_text_sha256": "894ad6afec9b771b0eb7030a93f30ed71a0f34393530e2dd8197e533983132d1",
-    "metadata": [
-      "\u003ctitle\u003eElectrical Panel Upgrades in Ann Arbor | Bremray Electrical\u003c/title\u003e",
-      "\u003cmeta name=\"description\" content=\"Electrical panel upgrade information. Warning signs and Federal Pacific panel safety concerns.\"\u003e",
-      "\u003clink rel=\"canonical\" href=\"https://bremray.com/electrical-panel-upgrade.html\" /\u003e",
-      "\u003cmeta property=\"og:type\" content=\"article\"\u003e",
-      "\u003cmeta property=\"og:site_name\" content=\"Bremray Electrical\"\u003e",
-      "\u003cmeta property=\"og:title\" content=\"Electrical Panel Upgrades in Ann Arbor | Bremray Electrical\"\u003e",
-      "\u003cmeta property=\"og:description\" content=\"Do you really need a panel upgrade? Signs, safety, and code updates for Washtenaw County homes.\"\u003e",
-      "\u003cmeta property=\"og:url\" content=\"https://bremray.com/electrical-panel-upgrade.html\"\u003e",
-      "\u003cmeta property=\"og:image\" content=\"https://bremray.com/images/logo.png\"\u003e"
-    ],
-    "schemas": [
-      "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"BreadcrumbList\",\n      \"itemListElement\": [\n        {\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://bremray.com/\"},\n        {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Electrical Panel Upgrades\", \"item\": \"https://bremray.com/electrical-panel-upgrade.html\"}\n      ]\n    }\n    \u003c/script\u003e",
-      "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"Electrician\",\n      \"@id\": \"https://bremray.com/#business\",\n      \"name\": \"Bremray Electrical\",\n      \"url\": \"https://bremray.com/\",\n      \"logo\": \"https://bremray.com/images/logo.png\",\n      \"image\": \"https://bremray.com/images/logo.png\",\n      \"telephone\": \"+1-734-216-9437\",\n      \"address\": {\"@type\": \"PostalAddress\", \"addressLocality\": \"Ann Arbor\", \"addressRegion\": \"MI\", \"postalCode\": \"48103\"}\n    }\n    \u003c/script\u003e"
     ]
   },
   "ev-charger-installation.html": {
-    "links": [
-      "src=\"/images/ev-charging.jpg\"",
-      "id=\"pricing\"",
-      "href=\"/get-help.html\"",
-      "href=\"tel:7342169437\"",
-      "href=\"get-help.html\""
-    ],
-    "main_text_sha256": "01c85b04c4c40c72c2cb30be5c58d6b5b67be9e818a56465bf6aae9f625b0809",
     "metadata": [
-      "\u003ctitle\u003eEV Charger Installation Ann Arbor | Tesla, Ford, Chevy | Bremray Electrical\u003c/title\u003e",
-      "\u003cmeta name=\"description\" content=\"Everything you need to know about home EV charger installation in Washtenaw County. Vehicle-specific requirements, recommended chargers, professional installation.\"\u003e",
+      "\u003ctitle\u003eEV Charger Installation in Ann Arbor | Bremray Electrical\u003c/title\u003e",
+      "\u003cmeta name=\"description\" content=\"Need an EV charger at home? Bremray installs home charging in Ann Arbor and Washtenaw County. Tell us what you drive and where you park to get started.\"\u003e",
       "\u003clink rel=\"canonical\" href=\"https://bremray.com/ev-charger-installation.html\" /\u003e",
       "\u003cmeta property=\"og:type\" content=\"article\"\u003e",
       "\u003cmeta property=\"og:site_name\" content=\"Bremray Electrical\"\u003e",
       "\u003cmeta property=\"og:title\" content=\"EV Charger Installation in Ann Arbor | Bremray Electrical\"\u003e",
-      "\u003cmeta property=\"og:description\" content=\"Home EV charger installation in Washtenaw County: requirements, charger picks, and professional service.\"\u003e",
+      "\u003cmeta property=\"og:description\" content=\"Need an EV charger at home? Bremray installs home charging in Ann Arbor and Washtenaw County. Tell us what you drive and where you park to get started.\"\u003e",
       "\u003cmeta property=\"og:url\" content=\"https://bremray.com/ev-charger-installation.html\"\u003e",
       "\u003cmeta property=\"og:image\" content=\"https://bremray.com/images/logo.png\"\u003e"
     ],
     "schemas": [
       "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"BreadcrumbList\",\n      \"itemListElement\": [\n        {\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://bremray.com/\"},\n        {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"EV Charger Installation\", \"item\": \"https://bremray.com/ev-charger-installation.html\"}\n      ]\n    }\n    \u003c/script\u003e",
-      "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Should I future-proof with a larger circuit?\",\n          \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"If you may upgrade to a full EV later, installing 40–50 amp wiring can make sense. If you’ll keep a PHEV for years, a smaller circuit saves money with no downside now.\"}\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Can I use the dryer outlet?\",\n          \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Yes. With a suitable outlet and proper load management, you can share or swap with the dryer. Practical but not as elegant as a dedicated circuit.\"}\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Do portable Level 2 chargers work well?\",\n          \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"They work great for many owners. If your vehicle includes one, a NEMA 14-50 outlet is often the most practical setup.\"}\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"How far can the charger be from the panel?\",\n          \"acceptedAnswer\": {\"@type\": \"Answer\", \"text\": \"Technically any distance, but installation complexity rises with length. Runs beyond ~100 feet add significant material requirements and voltage drop considerations.\"}\n        }\n      ]\n    }\n    \u003c/script\u003e",
+      "\u003cscript type=\"application/ld+json\"\u003e\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"FAQPage\",\n  \"mainEntity\": [\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Should I install a larger circuit for my next car?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Tell us what you might buy next. We can compare preparing the wiring now with keeping this installation smaller. A larger circuit only helps if your home and charging equipment can use it.\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Can I use the dryer outlet?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Ask us to check it first. The outlet, wiring, circuit rating, and charger must match. Sharing a circuit may need approved load management equipment. Don't assume a plug adapter makes it suitable.\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Can you install a charger in a detached garage?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"Yes. We check the power already available in the garage and the route for any new wiring. Underground work can affect the price.\"\n      }\n    },\n    {\n      \"@type\": \"Question\",\n      \"name\": \"Do I need to buy the charger first?\",\n      \"acceptedAnswer\": {\n        \"@type\": \"Answer\",\n        \"text\": \"No. Tell us about your car and where you park. We can help you choose before you buy, or install suitable equipment you already own.\"\n      }\n    }\n  ]\n}\n\u003c/script\u003e",
       "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"Electrician\",\n      \"@id\": \"https://bremray.com/#business\",\n      \"name\": \"Bremray Electrical\",\n      \"url\": \"https://bremray.com/\",\n      \"logo\": \"https://bremray.com/images/logo.png\",\n      \"image\": \"https://bremray.com/images/logo.png\",\n      \"telephone\": \"+1-734-216-9437\",\n      \"address\": {\"@type\": \"PostalAddress\", \"addressLocality\": \"Ann Arbor\", \"addressRegion\": \"MI\", \"postalCode\": \"48103\"}\n    }\n    \u003c/script\u003e"
+    ],
+    "main_text_sha256": "63d04b46b2dd04305b4cd667cb22a355eb0ad590a25167d9b0eb19286fb3d9ba",
+    "links": [
+      "id=\"top\"",
+      "href=\"/get-help.html?service=ev\"",
+      "src=\"/images/ev-charging.jpg\"",
+      "id=\"pricing\"",
+      "href=\"/get-help.html?service=ev\"",
+      "href=\"/electrical-panel-upgrade.html\"",
+      "href=\"https://dteenergy.com/us/en/residential/service-request/pev/home-ev-charger-rebate.html\"",
+      "href=\"/get-help.html?service=ev\"",
+      "href=\"tel:7342169437\"",
+      "href=\"https://afdc.energy.gov/fuels/electricity-charging-home\"",
+      "href=\"https://www.chargepoint.com/drivers/home/installation/flex\"",
+      "href=\"https://www.tesla.com/support/charging/wall-connector/power-management\""
     ]
   },
   "generators.html": {
+    "metadata": [
+      "\u003ctitle\u003eGenerator Installation in Ann Arbor | Bremray Electrical\u003c/title\u003e",
+      "\u003cmeta name=\"description\" content=\"Keep the essentials running during an outage. Compare standby generators and portable hookups, then tell Bremray what you need to power in Ann Arbor.\"\u003e",
+      "\u003clink rel=\"canonical\" href=\"https://bremray.com/generators.html\" /\u003e",
+      "\u003cmeta property=\"og:type\" content=\"article\"\u003e",
+      "\u003cmeta property=\"og:site_name\" content=\"Bremray Electrical\"\u003e",
+      "\u003cmeta property=\"og:title\" content=\"Generator Installation in Ann Arbor | Bremray Electrical\"\u003e",
+      "\u003cmeta property=\"og:description\" content=\"Keep the essentials running during an outage. Compare standby generators and portable hookups, then tell Bremray what you need to power in Ann Arbor.\"\u003e",
+      "\u003cmeta property=\"og:url\" content=\"https://bremray.com/generators.html\"\u003e",
+      "\u003cmeta property=\"og:image\" content=\"https://bremray.com/images/logo.png\"\u003e"
+    ],
+    "schemas": null,
+    "main_text_sha256": "c1c67a8580a8c8a424c0b1d9f4019e11ba260664c392105a8373e702e42e0008",
     "links": [
+      "id=\"top\"",
+      "href=\"/get-help.html?service=generator\"",
       "src=\"/images/generator.jpg\"",
       "id=\"pricing\"",
-      "href=\"/get-help.html\"",
+      "href=\"/get-help.html?service=generator\"",
       "href=\"generators/standby.html\"",
       "href=\"generators/portable-interlock.html\"",
       "id=\"standby-tab-button\"",
       "id=\"portable-tab-button\"",
       "id=\"standby-tab\"",
-      "href=\"https://www.generac.com/resources/home-management/what-size-generator-do-i-need/\"",
-      "href=\"https://www.generac.com/globalassets/products/residential/standby-generators/warranty/5-year-limited-warranty-air-cooled-standby-generator-warranty.pdf\"",
+      "href=\"generators/standby.html\"",
       "id=\"portable-tab\"",
-      "href=\"contact.html\""
-    ],
-    "main_text_sha256": "19473e25ab549efbc46505dcbefc4a2b8b7353ff2d6e30e316d785a991088bf8",
-    "metadata": [
-      "\u003ctitle\u003eGenerator Installation Ann Arbor | Standby \u0026 Portable Options | Bremray\u003c/title\u003e",
-      "\u003cmeta name=\"description\" content=\"Generator installation in Washtenaw County. Choose between automatic standby generators or portable generator with interlock kit. Contact for walkthrough.\"\u003e",
-      "\u003clink rel=\"canonical\" href=\"https://bremray.com/generators.html\" /\u003e",
-      "\u003cmeta property=\"og:type\" content=\"article\"\u003e",
-      "\u003cmeta property=\"og:site_name\" content=\"Bremray Electrical\"\u003e",
-      "\u003cmeta property=\"og:title\" content=\"Generator Installation | Washtenaw County\"\u003e",
-      "\u003cmeta property=\"og:description\" content=\"Professional generator installation. Standby systems or portable with interlock kit.\"\u003e",
-      "\u003cmeta property=\"og:url\" content=\"https://bremray.com/generators.html\"\u003e",
-      "\u003cmeta property=\"og:image\" content=\"https://bremray.com/images/logo.png\"\u003e"
-    ],
-    "schemas": null
+      "href=\"generators/portable-interlock.html\"",
+      "href=\"/get-help.html?service=generator\"",
+      "href=\"https://www.generac.com/resources/home-management/what-size-generator-do-i-need/\"",
+      "href=\"https://support.generac.com/s/article/Continuous-use-maintenance-for-home-standby-generators\"",
+      "href=\"https://www.cpsc.gov/Newsroom/News-Releases/2022/CPSC-Releases-New-Report-on-Carbon-Monoxide-CO-Fatalities-Urges-Generator-Safety-in-New-PSA\""
+    ]
   },
   "generators/portable-interlock.html": {
-    "links": [
-      "href=\"../index.html\"",
-      "href=\"../generators.html\"",
-      "href=\"../generators.html\"",
-      "href=\"standby.html\"",
-      "href=\"../contact.html\""
-    ],
-    "main_text_sha256": "b004947c55dd206cc9650842e7ad0db9a2059b02befd71adc301234af16c67bd",
     "metadata": [
-      "\u003ctitle\u003eGenerator Interlock Kit Installation Ann Arbor | Same Day Service | Bremray\u003c/title\u003e",
-      "\u003cmeta name=\"description\" content=\"Professional generator interlock kit installation. Same-day service. Works with your portable generator or we supply tri-fuel 50-amp models.\"\u003e",
+      "\u003ctitle\u003ePortable Generator Hookups in Ann Arbor | Bremray\u003c/title\u003e",
+      "\u003cmeta name=\"description\" content=\"Need a portable generator connection? Bremray installs compatible interlocks, inlets, and wiring in Ann Arbor. Tell us about your generator and home.\"\u003e",
       "\u003clink rel=\"canonical\" href=\"https://bremray.com/generators/portable-interlock.html\" /\u003e",
       "\u003cmeta property=\"og:type\" content=\"article\"\u003e",
       "\u003cmeta property=\"og:site_name\" content=\"Bremray Electrical\"\u003e",
-      "\u003cmeta property=\"og:title\" content=\"Generator Interlock Kit Installation | Same Day Service\"\u003e",
-      "\u003cmeta property=\"og:description\" content=\"Professional interlock installation for portable generators. Safe, code-compliant panel connection. Same day service.\"\u003e",
+      "\u003cmeta property=\"og:title\" content=\"Portable Generator Hookups in Ann Arbor | Bremray\"\u003e",
+      "\u003cmeta property=\"og:description\" content=\"Need a portable generator connection? Bremray installs compatible interlocks, inlets, and wiring in Ann Arbor. Tell us about your generator and home.\"\u003e",
       "\u003cmeta property=\"og:url\" content=\"https://bremray.com/generators/portable-interlock.html\"\u003e",
       "\u003cmeta property=\"og:image\" content=\"https://bremray.com/images/logo.png\"\u003e"
     ],
     "schemas": [
-      "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"Service\",\n      \"name\": \"Generator Interlock Kit Installation\",\n      \"provider\": {\n        \"@type\": \"Electrician\",\n        \"@id\": \"https://bremray.com/#business\",\n        \"name\": \"Bremray Electrical\",\n        \"address\": {\n          \"@type\": \"PostalAddress\",\n          \"addressLocality\": \"Ann Arbor\",\n          \"addressRegion\": \"MI\",\n          \"postalCode\": \"48103\"\n        }\n      },\n      \"areaServed\": \"Washtenaw County, Michigan\",\n      \"description\": \"Professional installation of generator interlock kits for portable generators\",\n      \"offers\": {\n        \"@type\": \"Offer\",\n        \"availability\": \"https://schema.org/InStock\"\n      }\n    }\n    \u003c/script\u003e"
+      "\u003cscript type=\"application/ld+json\"\u003e\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Service\",\n  \"name\": \"Generator Interlock Kit Installation\",\n  \"provider\": {\n    \"@type\": \"Electrician\",\n    \"@id\": \"https://bremray.com/#business\",\n    \"name\": \"Bremray Electrical\",\n    \"address\": {\n      \"@type\": \"PostalAddress\",\n      \"addressLocality\": \"Ann Arbor\",\n      \"addressRegion\": \"MI\",\n      \"postalCode\": \"48103\"\n    }\n  },\n  \"areaServed\": \"Washtenaw County, Michigan\",\n  \"description\": \"Professional installation of generator interlock kits for portable generators\"\n}\n\u003c/script\u003e"
+    ],
+    "main_text_sha256": "ffa016095f7b39aba1f7db1876ae2a22a49295a632cb0d469f5244fae1ce705b",
+    "links": [
+      "id=\"top\"",
+      "href=\"/get-help.html?service=generator\"",
+      "href=\"/\"",
+      "href=\"/generators.html\"",
+      "href=\"/generators/standby.html\"",
+      "href=\"/get-help.html?service=generator\"",
+      "href=\"/generators/standby.html\"",
+      "href=\"/generators.html\"",
+      "href=\"/get-help.html?service=generator\"",
+      "href=\"https://www.se.com/us/en/faqs/FA102992/\"",
+      "href=\"https://www.cpsc.gov/Newsroom/News-Releases/2022/CPSC-Releases-New-Report-on-Carbon-Monoxide-CO-Fatalities-Urges-Generator-Safety-in-New-PSA\"",
+      "href=\"https://www.generac.com/portable-power-solutions/portable-generator-safety/\""
     ]
   },
   "generators/standby.html": {
-    "links": [
-      "href=\"../index.html\"",
-      "href=\"../generators.html\"",
-      "href=\"https://www.generac.com/globalassets/products/residential/standby-generators/warranty/5-year-limited-warranty-air-cooled-standby-generator-warranty.pdf\"",
-      "href=\"https://www.generac.com/resources/home-management/what-size-generator-do-i-need/\"",
-      "href=\"../generators.html\"",
-      "href=\"portable-interlock.html\"",
-      "href=\"../contact.html\""
-    ],
-    "main_text_sha256": "6d89821d8b4c4c7c1da5fbba4f7460f8b30b08fd21bc5e9a1c62752b44993deb",
     "metadata": [
       "\u003ctitle\u003eStandby Generator Installation in Ann Arbor | Bremray\u003c/title\u003e",
-      "\u003cmeta name=\"description\" content=\"Automatic standby generator installation in Ann Arbor and Washtenaw County. Bremray is a Generac Aligned Partner.\"\u003e",
+      "\u003cmeta name=\"description\" content=\"Automatic backup power for your home in Ann Arbor or Washtenaw County. Tell Bremray what you want to run and we’ll help plan the generator installation.\"\u003e",
       "\u003clink rel=\"canonical\" href=\"https://bremray.com/generators/standby.html\" /\u003e",
       "\u003cmeta property=\"og:type\" content=\"article\"\u003e",
       "\u003cmeta property=\"og:site_name\" content=\"Bremray Electrical\"\u003e",
       "\u003cmeta property=\"og:title\" content=\"Standby Generator Installation in Ann Arbor | Bremray\"\u003e",
-      "\u003cmeta property=\"og:description\" content=\"Automatic whole house generator installation. Powers entire home including AC. 2-day professional installation.\"\u003e",
+      "\u003cmeta property=\"og:description\" content=\"Automatic backup power for your home in Ann Arbor or Washtenaw County. Tell Bremray what you want to run and we’ll help plan the generator installation.\"\u003e",
       "\u003cmeta property=\"og:url\" content=\"https://bremray.com/generators/standby.html\"\u003e",
       "\u003cmeta property=\"og:image\" content=\"https://bremray.com/images/logo.png\"\u003e"
     ],
     "schemas": [
-      "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"Service\",\n      \"name\": \"Standby Generator Installation\",\n      \"provider\": {\n        \"@type\": \"Electrician\",\n        \"@id\": \"https://bremray.com/#business\",\n        \"name\": \"Bremray Electrical\",\n        \"address\": {\n          \"@type\": \"PostalAddress\",\n          \"addressLocality\": \"Ann Arbor\",\n          \"addressRegion\": \"MI\",\n          \"postalCode\": \"48103\"\n        }\n      },\n      \"areaServed\": \"Washtenaw County, Michigan\",\n      \"description\": \"Professional installation of Generac standby generators\",\n      \"offers\": {\n        \"@type\": \"Offer\",\n        \"availability\": \"https://schema.org/InStock\"\n      }\n    }\n    \u003c/script\u003e"
+      "\u003cscript type=\"application/ld+json\"\u003e\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Service\",\n  \"name\": \"Standby Generator Installation\",\n  \"provider\": {\n    \"@type\": \"Electrician\",\n    \"@id\": \"https://bremray.com/#business\",\n    \"name\": \"Bremray Electrical\",\n    \"address\": {\n      \"@type\": \"PostalAddress\",\n      \"addressLocality\": \"Ann Arbor\",\n      \"addressRegion\": \"MI\",\n      \"postalCode\": \"48103\"\n    }\n  },\n  \"areaServed\": \"Washtenaw County, Michigan\",\n  \"description\": \"Professional installation of Generac standby generators\"\n}\n\u003c/script\u003e"
+    ],
+    "main_text_sha256": "46ce1f766224bb4f9907b3082cb921eb5e38176d030ef5653b024940904052e2",
+    "links": [
+      "id=\"top\"",
+      "href=\"/get-help.html?service=generator\"",
+      "href=\"/\"",
+      "href=\"/generators.html\"",
+      "href=\"/get-help.html?service=generator\"",
+      "href=\"/generators/portable-interlock.html\"",
+      "href=\"/generators.html\"",
+      "href=\"/get-help.html?service=generator\"",
+      "href=\"https://www.generac.com/resources/home-management/what-size-generator-do-i-need/\"",
+      "href=\"https://support.generac.com/s/article/Continuous-use-maintenance-for-home-standby-generators\""
     ]
   },
   "get-help.html": {
-    "links": [
-      "id=\"start\"",
-      "id=\"lead-title\"",
-      "id=\"intake-path\"",
-      "id=\"intake-progress\"",
-      "id=\"intake-track\"",
-      "id=\"intake-screen\"",
-      "id=\"intake-secondary\"",
-      "href=\"tel:7342169437\"",
-      "href=\"tel:7342169437\"",
-      "href=\"/services.html\"",
-      "href=\"https://book.housecallpro.com/lead-form/Bremray-Electrical/9e242df02d1d42b9a5870a37b41984f3\"",
-      "href=\"tel:7342169437\""
-    ],
-    "main_text_sha256": "1a7b1a6e260ee8ccffc414a3f4f67371f4019b99ddc90984915dea953fb3c959",
     "metadata": [
       "\u003ctitle\u003eRequest Service | Bremray Electrical\u003c/title\u003e",
       "\u003cmeta name=\"description\" content=\"Tell Bremray what you need installed or repaired in Ann Arbor and Washtenaw County. Send your project details or call (734) 216-9437.\"\u003e",
       "\u003clink rel=\"canonical\" href=\"https://bremray.com/get-help.html\" /\u003e"
     ],
-    "schemas": null
+    "schemas": null,
+    "main_text_sha256": "4d54149672fdf5cacacbbebc35930d778b925a08945ffd548c6d7c1098697d90",
+    "links": [
+      "id=\"top\"",
+      "id=\"page-title\"",
+      "id=\"questions\"",
+      "href=\"tel:+17342169437\"",
+      "href=\"mailto:contact@bremray.com\"",
+      "href=\"tel:7342169437\"",
+      "href=\"/services.html\"",
+      "href=\"https://book.housecallpro.com/lead-form/Bremray-Electrical/9e242df02d1d42b9a5870a37b41984f3\"",
+      "href=\"tel:7342169437\""
+    ]
   },
   "grounding-and-bonding.html": {
-    "links": [
-      "href=\"tel:7342169437\"",
-      "href=\"get-help.html\""
-    ],
-    "main_text_sha256": "18b05bb8871d06db837025ce27d37b91c935aec21827a6b027de1ad74267d298",
     "metadata": [
-      "\u003ctitle\u003eGrounding and Bonding Explained | Electrical Safety | Bremray Electrical\u003c/title\u003e",
-      "\u003cmeta name=\"description\" content=\"Understanding electrical grounding and bonding - why it matters for your safety. Common shortcuts to avoid and 2023 NEC requirements explained.\"\u003e",
-      "\u003clink rel=\"canonical\" href=\"https://bremray.com/grounding-and-bonding.html\" /\u003e"
+      "\u003ctitle\u003eGrounding and Bonding in Ann Arbor | Bremray Electrical\u003c/title\u003e",
+      "\u003cmeta name=\"description\" content=\"Did an inspection flag a grounding or bonding problem? Bremray checks home electrical connections in Ann Arbor and explains the work you need.\"\u003e",
+      "\u003clink rel=\"canonical\" href=\"https://bremray.com/grounding-and-bonding.html\" /\u003e",
+      "\u003cmeta property=\"og:type\" content=\"article\"\u003e",
+      "\u003cmeta property=\"og:site_name\" content=\"Bremray Electrical\"\u003e",
+      "\u003cmeta property=\"og:title\" content=\"Grounding and Bonding in Ann Arbor | Bremray Electrical\"\u003e",
+      "\u003cmeta property=\"og:description\" content=\"Did an inspection flag a grounding or bonding problem? Bremray checks home electrical connections in Ann Arbor and explains the work you need.\"\u003e",
+      "\u003cmeta property=\"og:url\" content=\"https://bremray.com/grounding-and-bonding.html\"\u003e",
+      "\u003cmeta property=\"og:image\" content=\"https://bremray.com/images/logo.png\"\u003e"
     ],
-    "schemas": null
+    "schemas": null,
+    "main_text_sha256": "af7fb6c60e48851d5e35d0b03bd27ceff1679fba2aac82065fc17837284f6dcb",
+    "links": [
+      "id=\"top\"",
+      "href=\"/get-help.html\"",
+      "href=\"/electrical-panel-upgrade.html\"",
+      "href=\"/get-help.html\"",
+      "href=\"tel:7342169437\"",
+      "href=\"/get-help.html\"",
+      "href=\"tel:7342169437\"",
+      "href=\"https://www.nfpa.org/news-blogs-and-articles/blogs/2024/03/14/how-grounding-and-bonding-are-achieved\"",
+      "href=\"https://www.cpsc.gov/s3fs-public/518.pdf\"",
+      "href=\"https://www.michigan.gov/lara/bureau-list/bcc/rules-acts/codes/code-books\""
+    ]
   },
   "index.html": {
+    "metadata": [
+      "\u003ctitle\u003eElectrician Ann Arbor | Bremray Electrical | Panel Upgrades \u0026 EV Chargers\u003c/title\u003e",
+      "\u003cmeta name=\"description\" content=\"Licensed electrician serving Ann Arbor, Ypsilanti, Chelsea, Dexter, Saline \u0026 all of Washtenaw County. EV charger installation, panel upgrades, generators.\"\u003e",
+      "\u003clink rel=\"canonical\" href=\"https://bremray.com/\" /\u003e",
+      "\u003cmeta property=\"og:type\" content=\"website\"\u003e",
+      "\u003cmeta property=\"og:site_name\" content=\"Bremray Electrical\"\u003e",
+      "\u003cmeta property=\"og:title\" content=\"Electrician Ann Arbor | Bremray Electrical\"\u003e",
+      "\u003cmeta property=\"og:description\" content=\"Licensed electrician serving Ann Arbor \u0026 Washtenaw County: EV chargers, panel upgrades, generators.\"\u003e",
+      "\u003cmeta property=\"og:url\" content=\"https://bremray.com/\"\u003e",
+      "\u003cmeta property=\"og:image\" content=\"https://bremray.com/images/logo.png\"\u003e"
+    ],
+    "schemas": [
+      "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"Electrician\",\n      \"@id\": \"https://bremray.com/#business\",\n      \"name\": \"Bremray Electrical\",\n      \"url\": \"https://bremray.com/\",\n      \"logo\": \"https://bremray.com/images/logo.png\",\n      \"image\": \"https://bremray.com/images/logo.png\",\n      \"telephone\": \"+1-734-216-9437\",\n      \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"addressLocality\": \"Ann Arbor\",\n        \"addressRegion\": \"MI\",\n        \"postalCode\": \"48103\"\n      },\n      \"openingHoursSpecification\": {\n        \"@type\": \"OpeningHoursSpecification\",\n        \"dayOfWeek\": [\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\"],\n        \"opens\": \"08:00\",\n        \"closes\": \"17:00\"\n      },\n      \"areaServed\": [\n        \"Ann Arbor\", \"Ypsilanti\", \"Chelsea\", \"Saline\", \"Dexter\",\n        \"Pittsfield Township\", \"Milan\", \"Manchester\", \"Whitmore Lake\", \"Washtenaw County\"\n      ]\n    }\n    \u003c/script\u003e"
+    ],
+    "main_text_sha256": "c169b8e779abb5aee879527561054cd8f9411a41dc426130fbcbb961e8acc887",
     "links": [
       "id=\"top\"",
       "id=\"start\"",
@@ -248,17 +313,17 @@
       "id=\"ev-chargers\"",
       "src=\"/images/ev-charging.jpg\"",
       "href=\"/ev-charger-installation.html\"",
-      "href=\"#questions\"",
+      "href=\"/get-help.html?service=ev\"",
       "id=\"generators\"",
       "src=\"/images/generator.jpg\"",
       "href=\"/generators.html\"",
-      "href=\"#questions\"",
+      "href=\"/get-help.html?service=generator\"",
       "id=\"panels\"",
       "src=\"/images/panel.jpg\"",
       "href=\"/electrical-panel-upgrade.html\"",
-      "href=\"#questions\"",
+      "href=\"/get-help.html?service=panel\"",
       "href=\"/residential-electrical.html\"",
-      "href=\"#questions\"",
+      "href=\"/get-help.html?service=repair\"",
       "id=\"about\"",
       "id=\"about-title\"",
       "href=\"/locations/ann-arbor-electrician.html\"",
@@ -266,181 +331,207 @@
       "href=\"/locations/chelsea-electrician.html\"",
       "href=\"/locations/saline-electrician.html\"",
       "id=\"faq-title\""
-    ],
-    "main_text_sha256": "602f56702126b6e8a53ee7916a4ec9d07c4c3b39b384d24774941f4438b491e5",
-    "metadata": [
-      "\u003ctitle\u003eElectrician Ann Arbor | Bremray Electrical | Panel Upgrades \u0026 EV Chargers\u003c/title\u003e",
-      "\u003cmeta name=\"description\" content=\"Licensed electrician serving Ann Arbor, Ypsilanti, Chelsea, Dexter, Saline \u0026 all of Washtenaw County. EV charger installation, panel upgrades, generators.\"\u003e",
-      "\u003clink rel=\"canonical\" href=\"https://bremray.com/\" /\u003e",
-      "\u003cmeta property=\"og:type\" content=\"website\"\u003e",
-      "\u003cmeta property=\"og:site_name\" content=\"Bremray Electrical\"\u003e",
-      "\u003cmeta property=\"og:title\" content=\"Electrician Ann Arbor | Bremray Electrical\"\u003e",
-      "\u003cmeta property=\"og:description\" content=\"Licensed electrician serving Ann Arbor \u0026 Washtenaw County: EV chargers, panel upgrades, generators.\"\u003e",
-      "\u003cmeta property=\"og:url\" content=\"https://bremray.com/\"\u003e",
-      "\u003cmeta property=\"og:image\" content=\"https://bremray.com/images/logo.png\"\u003e"
-    ],
-    "schemas": [
-      "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"Electrician\",\n      \"@id\": \"https://bremray.com/#business\",\n      \"name\": \"Bremray Electrical\",\n      \"url\": \"https://bremray.com/\",\n      \"logo\": \"https://bremray.com/images/logo.png\",\n      \"image\": \"https://bremray.com/images/logo.png\",\n      \"telephone\": \"+1-734-216-9437\",\n      \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"addressLocality\": \"Ann Arbor\",\n        \"addressRegion\": \"MI\",\n        \"postalCode\": \"48103\"\n      },\n      \"openingHoursSpecification\": {\n        \"@type\": \"OpeningHoursSpecification\",\n        \"dayOfWeek\": [\"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\"],\n        \"opens\": \"08:00\",\n        \"closes\": \"17:00\"\n      },\n      \"areaServed\": [\n        \"Ann Arbor\", \"Ypsilanti\", \"Chelsea\", \"Saline\", \"Dexter\",\n        \"Pittsfield Township\", \"Milan\", \"Manchester\", \"Whitmore Lake\", \"Washtenaw County\"\n      ]\n    }\n    \u003c/script\u003e"
     ]
   },
   "locations/ann-arbor-electrician.html": {
-    "links": [
-      "href=\"../get-help.html\"",
-      "href=\"tel:7342169437\"",
-      "href=\"tel:7342169437\"",
-      "href=\"../get-help.html\""
-    ],
-    "main_text_sha256": "0e8f6a032d079f913071975f02ce5d744e956b550ee71c9632d3b1b209b7f69b",
     "metadata": [
       "\u003ctitle\u003eElectrician in Ann Arbor, MI | Bremray Electrical\u003c/title\u003e",
-      "\u003cmeta name=\"description\" content=\"Licensed electrician serving Ann Arbor, MI. EV charger installation, electrical panel upgrades, whole house generators, and residential electrical services.\"\u003e",
+      "\u003cmeta name=\"description\" content=\"Bremray installs EV chargers, generators, and electrical panels in Ann Arbor. We also handle repairs. Tell us what you need for your home.\"\u003e",
       "\u003clink rel=\"canonical\" href=\"https://bremray.com/locations/ann-arbor-electrician.html\" /\u003e",
       "\u003cmeta property=\"og:type\" content=\"article\"\u003e",
       "\u003cmeta property=\"og:site_name\" content=\"Bremray Electrical\"\u003e",
       "\u003cmeta property=\"og:title\" content=\"Electrician in Ann Arbor, MI | Bremray Electrical\"\u003e",
-      "\u003cmeta property=\"og:description\" content=\"Licensed electrician serving Ann Arbor: EV chargers, panel upgrades, generators, residential electrical.\"\u003e",
+      "\u003cmeta property=\"og:description\" content=\"Licensed electricians based in Ann Arbor. Tell us what you want to install, replace, or repair, and we'll help you work out the next step.\"\u003e",
       "\u003cmeta property=\"og:url\" content=\"https://bremray.com/locations/ann-arbor-electrician.html\"\u003e",
       "\u003cmeta property=\"og:image\" content=\"https://bremray.com/images/logo.png\"\u003e"
     ],
     "schemas": [
       "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"BreadcrumbList\",\n      \"itemListElement\": [\n        {\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://bremray.com/\"},\n        {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Ann Arbor Electrician\", \"item\": \"https://bremray.com/locations/ann-arbor-electrician.html\"}\n      ]\n    }\n    \u003c/script\u003e",
       "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"Electrician\",\n      \"@id\": \"https://bremray.com/#business\",\n      \"name\": \"Bremray Electrical\",\n      \"url\": \"https://bremray.com/\",\n      \"logo\": \"https://bremray.com/images/logo.png\",\n      \"image\": \"https://bremray.com/images/logo.png\",\n      \"telephone\": \"+1-734-216-9437\",\n      \"areaServed\": {\"@type\": \"City\", \"name\": \"Ann Arbor\"},\n      \"address\": {\"@type\": \"PostalAddress\", \"addressLocality\": \"Ann Arbor\", \"addressRegion\": \"MI\", \"postalCode\": \"48103\"}\n    }\n    \u003c/script\u003e"
+    ],
+    "main_text_sha256": "f0a676524c5e454ea80ec70f3e0c598d8e8daf5f31579d14825d294576b4e962",
+    "links": [
+      "id=\"top\"",
+      "href=\"/get-help.html\"",
+      "href=\"tel:7342169437\"",
+      "href=\"/ev-charger-installation.html\"",
+      "href=\"/electrical-panel-upgrade.html\"",
+      "href=\"/generators.html\"",
+      "href=\"/residential-electrical.html\"",
+      "href=\"/locations/ypsilanti-electrician.html\"",
+      "href=\"/locations/saline-electrician.html\"",
+      "href=\"/locations/chelsea-electrician.html\"",
+      "href=\"/get-help.html\"",
+      "href=\"tel:7342169437\""
     ]
   },
   "locations/chelsea-electrician.html": {
-    "links": [
-      "href=\"../get-help.html\"",
-      "href=\"tel:7342169437\"",
-      "href=\"tel:7342169437\"",
-      "href=\"../get-help.html\""
-    ],
-    "main_text_sha256": "bc1133a29964f29c29b8d958f431d2db16b589f2f399f06ce6be687a0b84bbeb",
     "metadata": [
-      "\u003ctitle\u003eElectrician Chelsea MI | Bremray Electrical | Panel Upgrades \u0026 EV Chargers\u003c/title\u003e",
-      "\u003cmeta name=\"description\" content=\"Licensed electrician serving Chelsea, MI. EV charger installation, panel upgrades, generators.\"\u003e",
+      "\u003ctitle\u003eElectrician Serving Chelsea, MI | Bremray Electrical\u003c/title\u003e",
+      "\u003cmeta name=\"description\" content=\"Need electrical work in Chelsea? Bremray installs EV chargers, generators, panels, lights, and outlets. Tell us about your installation or repair.\"\u003e",
       "\u003clink rel=\"canonical\" href=\"https://bremray.com/locations/chelsea-electrician.html\" /\u003e",
       "\u003cmeta property=\"og:type\" content=\"article\"\u003e",
       "\u003cmeta property=\"og:site_name\" content=\"Bremray Electrical\"\u003e",
-      "\u003cmeta property=\"og:title\" content=\"Electrician in Chelsea, MI | Bremray Electrical\"\u003e",
-      "\u003cmeta property=\"og:description\" content=\"Electrician serving Chelsea: EV chargers, panel upgrades, generators.\"\u003e",
+      "\u003cmeta property=\"og:title\" content=\"Electrician Serving Chelsea, MI | Bremray Electrical\"\u003e",
+      "\u003cmeta property=\"og:description\" content=\"Licensed electricians serving Chelsea. We install chargers, generators, panels, and more. Tell us about the job and we'll follow up.\"\u003e",
       "\u003cmeta property=\"og:url\" content=\"https://bremray.com/locations/chelsea-electrician.html\"\u003e",
       "\u003cmeta property=\"og:image\" content=\"https://bremray.com/images/logo.png\"\u003e"
     ],
     "schemas": [
       "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"BreadcrumbList\",\n      \"itemListElement\": [\n        {\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://bremray.com/\"},\n        {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Chelsea Electrician\", \"item\": \"https://bremray.com/locations/chelsea-electrician.html\"}\n      ]\n    }\n    \u003c/script\u003e",
       "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"Electrician\",\n      \"@id\": \"https://bremray.com/#business\",\n      \"name\": \"Bremray Electrical\",\n      \"url\": \"https://bremray.com/\",\n      \"logo\": \"https://bremray.com/images/logo.png\",\n      \"image\": \"https://bremray.com/images/logo.png\",\n      \"telephone\": \"+1-734-216-9437\",\n      \"areaServed\": {\"@type\": \"City\", \"name\": \"Chelsea\"},\n      \"address\": {\"@type\": \"PostalAddress\", \"addressLocality\": \"Ann Arbor\", \"addressRegion\": \"MI\", \"postalCode\": \"48103\"}\n    }\n    \u003c/script\u003e"
+    ],
+    "main_text_sha256": "3b9417d577cdbbec6aa1efc18586c16574735452fcfef80fe41ccebd426a6b26",
+    "links": [
+      "id=\"top\"",
+      "href=\"/get-help.html\"",
+      "href=\"tel:7342169437\"",
+      "href=\"/ev-charger-installation.html\"",
+      "href=\"/electrical-panel-upgrade.html\"",
+      "href=\"/generators.html\"",
+      "href=\"/residential-electrical.html\"",
+      "href=\"/get-help.html\"",
+      "href=\"tel:7342169437\""
     ]
   },
   "locations/saline-electrician.html": {
-    "links": [
-      "href=\"../get-help.html\"",
-      "href=\"tel:7342169437\"",
-      "href=\"tel:7342169437\"",
-      "href=\"../get-help.html\""
-    ],
-    "main_text_sha256": "4b09a99d459ad7ecf6483cf0ff16236a970e6cf04e2239f905314105bd433bca",
     "metadata": [
-      "\u003ctitle\u003eElectrician Saline MI | Bremray Electrical | Panel Upgrades \u0026 EV Chargers\u003c/title\u003e",
-      "\u003cmeta name=\"description\" content=\"Licensed electrician serving Saline, MI. EV charger installation, electrical panel upgrades, whole house generators, and residential electrical services.\"\u003e",
+      "\u003ctitle\u003eElectrician Serving Saline, MI | Bremray Electrical\u003c/title\u003e",
+      "\u003cmeta name=\"description\" content=\"Bremray handles electrical installations and repairs for Saline homeowners. Tell us about your charger, generator, panel, lighting, or wiring project.\"\u003e",
       "\u003clink rel=\"canonical\" href=\"https://bremray.com/locations/saline-electrician.html\" /\u003e",
       "\u003cmeta property=\"og:type\" content=\"article\"\u003e",
       "\u003cmeta property=\"og:site_name\" content=\"Bremray Electrical\"\u003e",
-      "\u003cmeta property=\"og:title\" content=\"Electrician in Saline, MI | Bremray Electrical\"\u003e",
-      "\u003cmeta property=\"og:description\" content=\"Licensed electrician serving Saline: EV chargers, panel upgrades, generators, residential electrical.\"\u003e",
+      "\u003cmeta property=\"og:title\" content=\"Electrician Serving Saline, MI | Bremray Electrical\"\u003e",
+      "\u003cmeta property=\"og:description\" content=\"Licensed electricians serving Saline. We install chargers, generators, panels, and lights, and repair electrical problems around the house.\"\u003e",
       "\u003cmeta property=\"og:url\" content=\"https://bremray.com/locations/saline-electrician.html\"\u003e",
       "\u003cmeta property=\"og:image\" content=\"https://bremray.com/images/logo.png\"\u003e"
     ],
     "schemas": [
       "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"BreadcrumbList\",\n      \"itemListElement\": [\n        {\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://bremray.com/\"},\n        {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Saline Electrician\", \"item\": \"https://bremray.com/locations/saline-electrician.html\"}\n      ]\n    }\n    \u003c/script\u003e",
       "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"Electrician\",\n      \"@id\": \"https://bremray.com/#business\",\n      \"name\": \"Bremray Electrical\",\n      \"url\": \"https://bremray.com/\",\n      \"logo\": \"https://bremray.com/images/logo.png\",\n      \"image\": \"https://bremray.com/images/logo.png\",\n      \"telephone\": \"+1-734-216-9437\",\n      \"areaServed\": {\"@type\": \"City\", \"name\": \"Saline\"},\n      \"address\": {\"@type\": \"PostalAddress\", \"addressLocality\": \"Ann Arbor\", \"addressRegion\": \"MI\", \"postalCode\": \"48103\"}\n    }\n    \u003c/script\u003e"
+    ],
+    "main_text_sha256": "94e91a7f09eb797087b52dfe628583ea52a935589719953030ab10d424288880",
+    "links": [
+      "id=\"top\"",
+      "href=\"/get-help.html\"",
+      "href=\"tel:7342169437\"",
+      "href=\"/ev-charger-installation.html\"",
+      "href=\"/electrical-panel-upgrade.html\"",
+      "href=\"/generators.html\"",
+      "href=\"/residential-electrical.html\"",
+      "href=\"/get-help.html\"",
+      "href=\"tel:7342169437\""
     ]
   },
   "locations/ypsilanti-electrician.html": {
-    "links": [
-      "href=\"../get-help.html\"",
-      "href=\"tel:7342169437\"",
-      "href=\"tel:7342169437\"",
-      "href=\"../get-help.html\""
-    ],
-    "main_text_sha256": "d5fa7f904483e8e9006426105caee2b5e8c638bea3e084c59c36ed5486ed3b8a",
     "metadata": [
-      "\u003ctitle\u003eElectrician in Ypsilanti, MI | Bremray Electrical\u003c/title\u003e",
-      "\u003cmeta name=\"description\" content=\"Licensed electrician serving Ypsilanti, MI. EV charger installation, electrical panel upgrades, whole house generators, and residential electrical services.\"\u003e",
+      "\u003ctitle\u003eElectrician Serving Ypsilanti, MI | Bremray Electrical\u003c/title\u003e",
+      "\u003cmeta name=\"description\" content=\"Bremray serves Ypsilanti and Ypsilanti Township. We install EV chargers, generators, and panels, and handle home electrical repairs. Tell us what you need.\"\u003e",
       "\u003clink rel=\"canonical\" href=\"https://bremray.com/locations/ypsilanti-electrician.html\" /\u003e",
       "\u003cmeta property=\"og:type\" content=\"article\"\u003e",
       "\u003cmeta property=\"og:site_name\" content=\"Bremray Electrical\"\u003e",
-      "\u003cmeta property=\"og:title\" content=\"Electrician in Ypsilanti, MI | Bremray Electrical\"\u003e",
-      "\u003cmeta property=\"og:description\" content=\"Licensed electrician serving Ypsilanti: EV chargers, panel upgrades, generators, residential electrical.\"\u003e",
+      "\u003cmeta property=\"og:title\" content=\"Electrician Serving Ypsilanti, MI | Bremray Electrical\"\u003e",
+      "\u003cmeta property=\"og:description\" content=\"Licensed electricians serving Ypsilanti and Ypsilanti Township. Tell us what you want to install or what stopped working. We'll follow up about the job.\"\u003e",
       "\u003cmeta property=\"og:url\" content=\"https://bremray.com/locations/ypsilanti-electrician.html\"\u003e",
       "\u003cmeta property=\"og:image\" content=\"https://bremray.com/images/logo.png\"\u003e"
     ],
     "schemas": [
       "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"BreadcrumbList\",\n      \"itemListElement\": [\n        {\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://bremray.com/\"},\n        {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Ypsilanti Electrician\", \"item\": \"https://bremray.com/locations/ypsilanti-electrician.html\"}\n      ]\n    }\n    \u003c/script\u003e",
       "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"Electrician\",\n      \"@id\": \"https://bremray.com/#business\",\n      \"name\": \"Bremray Electrical\",\n      \"url\": \"https://bremray.com/\",\n      \"logo\": \"https://bremray.com/images/logo.png\",\n      \"image\": \"https://bremray.com/images/logo.png\",\n      \"telephone\": \"+1-734-216-9437\",\n      \"areaServed\": {\"@type\": \"City\", \"name\": \"Ypsilanti\"},\n      \"address\": {\"@type\": \"PostalAddress\", \"addressLocality\": \"Ann Arbor\", \"addressRegion\": \"MI\", \"postalCode\": \"48103\"}\n    }\n    \u003c/script\u003e"
+    ],
+    "main_text_sha256": "0ce36b9350978b3c0836e7fd25bcf98f69c12c2c5cbbca791a206cf8c6c2ee6a",
+    "links": [
+      "id=\"top\"",
+      "href=\"/get-help.html\"",
+      "href=\"tel:7342169437\"",
+      "href=\"/ev-charger-installation.html\"",
+      "href=\"/electrical-panel-upgrade.html\"",
+      "href=\"/generators.html\"",
+      "href=\"/residential-electrical.html\"",
+      "href=\"/get-help.html\"",
+      "href=\"tel:7342169437\""
     ]
   },
   "privacy.html": {
-    "links": [
-      "href=\"https://www.housecallpro.com/privacy/\"",
-      "href=\"https://policies.google.com/privacy\"",
-      "href=\"https://policies.google.com/technologies/partner-sites\"",
-      "href=\"mailto:contact@bremray.com\""
-    ],
-    "main_text_sha256": "f1227965f52525a2e227a4ae7108067524e05eb3ec6e12bc572cbaf983f7f7c5",
     "metadata": [
       "\u003ctitle\u003ePrivacy Policy | Bremray Electrical\u003c/title\u003e",
       "\u003cmeta name=\"description\" content=\"Privacy policy for Bremray Electrical. How we handle your information.\"\u003e",
       "\u003clink rel=\"canonical\" href=\"https://bremray.com/privacy.html\" /\u003e"
     ],
-    "schemas": null
+    "schemas": null,
+    "main_text_sha256": "b69fca445a47e34da80c4a500e9dbd900cae6b7cf5269424e3bc8e47bbf43be8",
+    "links": [
+      "id=\"top\"",
+      "href=\"https://www.housecallpro.com/privacy/\"",
+      "href=\"https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/\"",
+      "href=\"https://policies.google.com/privacy\"",
+      "href=\"https://policies.google.com/technologies/partner-sites\"",
+      "href=\"mailto:contact@bremray.com\"",
+      "href=\"tel:+17342169437\""
+    ]
   },
   "residential-electrical.html": {
-    "links": [
-      "src=\"/images/home-phone-v2.jpg\"",
-      "href=\"tel:7342169437\"",
-      "href=\"get-help.html\""
-    ],
-    "main_text_sha256": "99f5553526c041e46d0871beedbc012655555399cefa77a4c2675d6d58c141d2",
     "metadata": [
-      "\u003ctitle\u003eResidential Electrician Ann Arbor | Home Electrical Services | Bremray\u003c/title\u003e",
-      "\u003cmeta name=\"description\" content=\"Residential electrical services in Washtenaw County. Outlets, lighting, troubleshooting, code corrections. Your local electrician for all home electrical needs.\"\u003e",
+      "\u003ctitle\u003eResidential Electrician in Ann Arbor | Bremray Electrical\u003c/title\u003e",
+      "\u003cmeta name=\"description\" content=\"Need lights, outlets, a ceiling fan, or an electrical repair? Tell Bremray what you need. We help homeowners in Ann Arbor and Washtenaw County.\"\u003e",
       "\u003clink rel=\"canonical\" href=\"https://bremray.com/residential-electrical.html\" /\u003e",
       "\u003cmeta property=\"og:type\" content=\"article\"\u003e",
       "\u003cmeta property=\"og:site_name\" content=\"Bremray Electrical\"\u003e",
       "\u003cmeta property=\"og:title\" content=\"Residential Electrician in Ann Arbor | Bremray Electrical\"\u003e",
-      "\u003cmeta property=\"og:description\" content=\"Home electrical services: outlets, lighting, troubleshooting, and code corrections across Washtenaw County.\"\u003e",
+      "\u003cmeta property=\"og:description\" content=\"Need lights, outlets, a ceiling fan, or an electrical repair? Tell Bremray what you need. We help homeowners in Ann Arbor and Washtenaw County.\"\u003e",
       "\u003cmeta property=\"og:url\" content=\"https://bremray.com/residential-electrical.html\"\u003e",
       "\u003cmeta property=\"og:image\" content=\"https://bremray.com/images/logo.png\"\u003e"
     ],
     "schemas": [
       "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"BreadcrumbList\",\n      \"itemListElement\": [\n        {\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://bremray.com/\"},\n        {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Residential Electrical\", \"item\": \"https://bremray.com/residential-electrical.html\"}\n      ]\n    }\n    \u003c/script\u003e",
       "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"Electrician\",\n      \"@id\": \"https://bremray.com/#business\",\n      \"name\": \"Bremray Electrical\",\n      \"url\": \"https://bremray.com/\",\n      \"logo\": \"https://bremray.com/images/logo.png\",\n      \"image\": \"https://bremray.com/images/logo.png\",\n      \"telephone\": \"+1-734-216-9437\",\n      \"address\": {\"@type\": \"PostalAddress\", \"addressLocality\": \"Ann Arbor\", \"addressRegion\": \"MI\", \"postalCode\": \"48103\"}\n    }\n    \u003c/script\u003e"
+    ],
+    "main_text_sha256": "1cbbfb13d9f5feba87b4d4ca6e93bce2d201e764e97b65cffae2f37b79f0455f",
+    "links": [
+      "id=\"top\"",
+      "href=\"/get-help.html\"",
+      "src=\"/images/home-phone-v2.jpg\"",
+      "href=\"/ev-charger-installation.html\"",
+      "href=\"/generators.html\"",
+      "href=\"/electrical-panel-upgrade.html\"",
+      "href=\"/get-help.html\"",
+      "href=\"/grounding-and-bonding.html\"",
+      "href=\"tel:7342169437\"",
+      "href=\"/get-help.html\"",
+      "href=\"tel:7342169437\"",
+      "href=\"https://www.cpsc.gov/s3fs-public/518.pdf\"",
+      "href=\"https://www.cpsc.gov/Safety-Education/Safety-Guides/Military-Consumer-Safety-Home-Fire/Repairing-Aluminum-Wiring\""
     ]
   },
   "services.html": {
-    "links": [
-      "href=\"electrical-panel-upgrade.html\"",
-      "href=\"ev-charger-installation.html\"",
-      "href=\"generators.html\"",
-      "href=\"residential-electrical.html\"",
-      "href=\"tel:7342169437\"",
-      "href=\"get-help.html\""
-    ],
-    "main_text_sha256": "6a8ed0510a28bcbfc9fe67ee1380e01dde2aed5aae364868dba7654894abdba9",
     "metadata": [
-      "\u003ctitle\u003eElectrical Services Ann Arbor | All Services | Bremray Electrical\u003c/title\u003e",
-      "\u003cmeta name=\"description\" content=\"Complete electrical services in Ann Arbor \u0026 Washtenaw County. Panel upgrades, EV chargers, generators, residential wiring. Licensed electrician since 1988.\"\u003e",
+      "\u003ctitle\u003eElectrical Services in Ann Arbor | Bremray Electrical\u003c/title\u003e",
+      "\u003cmeta name=\"description\" content=\"We install EV chargers, generators, panels, lights, and more in Ann Arbor and Washtenaw County. Tell us what you need and we'll discuss the work.\"\u003e",
       "\u003clink rel=\"canonical\" href=\"https://bremray.com/services.html\" /\u003e",
       "\u003cmeta property=\"og:type\" content=\"website\"\u003e",
       "\u003cmeta property=\"og:site_name\" content=\"Bremray Electrical\"\u003e",
       "\u003cmeta property=\"og:title\" content=\"Electrical Services in Ann Arbor | Bremray Electrical\"\u003e",
-      "\u003cmeta property=\"og:description\" content=\"Panel upgrades, EV chargers, generators, and residential wiring across Washtenaw County.\"\u003e",
+      "\u003cmeta property=\"og:description\" content=\"We install EV chargers, generators, panels, lights, and more. Tell us what you need for your home in Ann Arbor or Washtenaw County.\"\u003e",
       "\u003cmeta property=\"og:url\" content=\"https://bremray.com/services.html\"\u003e",
       "\u003cmeta property=\"og:image\" content=\"https://bremray.com/images/logo.png\"\u003e"
     ],
     "schemas": [
       "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"BreadcrumbList\",\n      \"itemListElement\": [\n        {\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://bremray.com/\"},\n        {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Services\", \"item\": \"https://bremray.com/services.html\"}\n      ]\n    }\n    \u003c/script\u003e",
       "\u003cscript type=\"application/ld+json\"\u003e\n    {\n      \"@context\": \"https://schema.org\",\n      \"@type\": \"Electrician\",\n      \"@id\": \"https://bremray.com/#business\",\n      \"name\": \"Bremray Electrical\",\n      \"url\": \"https://bremray.com/\",\n      \"logo\": \"https://bremray.com/images/logo.png\",\n      \"image\": \"https://bremray.com/images/logo.png\",\n      \"telephone\": \"+1-734-216-9437\",\n      \"address\": {\"@type\": \"PostalAddress\", \"addressLocality\": \"Ann Arbor\", \"addressRegion\": \"MI\", \"postalCode\": \"48103\"}\n    }\n    \u003c/script\u003e"
+    ],
+    "main_text_sha256": "0ac13fb53de435ae4b3d1297b6f230eff796f29046dd3dda5c0b912421ce3647",
+    "links": [
+      "id=\"top\"",
+      "href=\"/get-help.html\"",
+      "href=\"tel:7342169437\"",
+      "href=\"/electrical-panel-upgrade.html\"",
+      "href=\"/ev-charger-installation.html\"",
+      "href=\"/generators.html\"",
+      "href=\"/grounding-and-bonding.html\"",
+      "href=\"/residential-electrical.html\"",
+      "href=\"/get-help.html\"",
+      "href=\"/get-help.html\"",
+      "href=\"tel:7342169437\""
     ]
   }
 }

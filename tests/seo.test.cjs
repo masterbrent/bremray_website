@@ -29,3 +29,51 @@ test('homepage does not imply an unverified map pin', () => {
   const data = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m => JSON.parse(m[1]));
   assert.equal(data.find(d => d['@type'] === 'Electrician').geo, undefined);
 });
+
+test('all public pages have distinct search summaries and one main heading', () => {
+  const entries=JSON.parse(fs.readFileSync(path.join(root,'site/pages.json'),'utf8'));
+  const titles=new Set(), descriptions=new Set();
+  for(const entry of entries){
+    const html=fs.readFileSync(path.join(root,entry.path),'utf8');
+    assert.equal([...html.matchAll(/<h1\b/g)].length,1,entry.path);
+    const title=html.match(/<title>(.*?)<\/title>/s)?.[1];
+    const description=html.match(/<meta name="description" content="([^"]+)"/)?.[1];
+    assert.ok(title&&description,entry.path+' has a title and description');
+    assert.ok(!titles.has(title),entry.path+' has a distinct title');titles.add(title);
+    assert.ok(!descriptions.has(description),entry.path+' has a distinct description');descriptions.add(description);
+    if(entry.path!=='404.html') assert.doesNotMatch(html,/<meta name="robots"[^>]*noindex/,entry.path);
+  }
+});
+
+test('internal links and fragments resolve throughout the site', () => {
+  const entries=JSON.parse(fs.readFileSync(path.join(root,'site/pages.json'),'utf8'));
+  for(const entry of entries){
+    const html=fs.readFileSync(path.join(root,entry.path),'utf8');
+    for(const match of html.matchAll(/<a\b[^>]*href="([^"]*)"/g)){
+      const url=new URL(match[1].replaceAll('&amp;','&'),'https://bremray.com/'+(entry.path==='index.html'?'':entry.path));
+      if(url.origin!=='https://bremray.com')continue;
+      const file=url.pathname==='/'?'index.html':url.pathname.slice(1);
+      assert.ok(fs.existsSync(path.join(root,file)),entry.path+' → '+match[1]);
+      if(url.hash&&file.endsWith('.html')){
+        const target=fs.readFileSync(path.join(root,file),'utf8');
+        assert.ok(target.includes('id="'+decodeURIComponent(url.hash.slice(1))+'"'),entry.path+' → '+match[1]+' fragment');
+      }
+    }
+  }
+});
+
+test('structured answers are present in the visible page copy', () => {
+  const entries=JSON.parse(fs.readFileSync(path.join(root,'site/pages.json'),'utf8'));
+  const normalize=text=>text.replaceAll('&amp;','&').replaceAll('&#39;',"'").replaceAll('&quot;','"').replace(/\s+/g,' ').trim();
+  for(const entry of entries){
+    const html=fs.readFileSync(path.join(root,entry.path),'utf8');
+    const visible=normalize(html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g,'').replace(/<[^>]*>/g,' '));
+    for(const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)){
+      const data=JSON.parse(match[1]);
+      if(data['@type']==='FAQPage')for(const question of data.mainEntity){
+        assert.ok(visible.includes(normalize(question.name)),entry.path+' '+question.name);
+        assert.ok(visible.includes(normalize(question.acceptedAnswer.text)),entry.path+' FAQ answer is visible');
+      }
+    }
+  }
+});

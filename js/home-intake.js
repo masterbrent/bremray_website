@@ -1,11 +1,17 @@
-/* Homepage questionnaire. Delivery and duplicate protection live in BremrayIntake. */
+/* Shared website questionnaire. Delivery and duplicate protection live in BremrayIntake. */
 (function () {
   'use strict';
   const mount = document.querySelector('[data-live-intake]');
   const rules = window.BremrayIntake;
   if (!mount || !rules) return;
-  const initial = () => ({answers: {}, step: 0, typed: '', mode: 'guided', reviewMode: 'guided'});
-  let state = initial();
+  const entry = mount.getAttribute('data-intake-entry');
+  const isHome = entry === 'home';
+  const direct = () => ({...rules.startFor(), mode: 'review', reviewMode: 'typed'});
+  const initial = () => isHome ? rules.startFor() : direct();
+  let state = entry === 'service' || isHome
+    ? rules.startFor(new URLSearchParams(window.location.search || '').get('service')) : direct();
+  if (!isHome && !state.answers.intent) state = direct();
+  const firstQuestion = isHome ? 0 : state.step;
   const emptyContact = () => ({name: '', method: 'call', phone: '', email: '', zip: '', ballpark: false});
   let contact = emptyContact();
   const endpoint = mount.getAttribute('data-intake-endpoint') || '';
@@ -30,7 +36,11 @@
   };
   const reset = () => {if (!editable()) return; state = initial(); contact = emptyContact(); render();};
   const pick = (id, value) => {state = rules.advance(state, id, value); render();};
-  const mode = value => {state = rules.switchMode(state, value); render();};
+  const mode = value => {
+    state = rules.switchMode(state, value);
+    if (!isHome && value === 'typed') state = rules.review(state);
+    render();
+  };
   function render(focus = true) {
     mount.replaceChildren();
     mount.classList.add('demo-flow');
@@ -40,6 +50,7 @@
     const stage = node('div', undefined, {class: 'demo-flow-stage', 'data-stage': locked ? 'complete' : opening ? 'opening' : state.mode === 'guided' ? 'questions' : state.mode});
     mount.append(stage);
     if (locked) renderReceipt(stage, delivery);
+    else if (!isHome && state.mode === 'review' && state.reviewMode === 'typed') stage.append(contactForm(true));
     else if (state.mode === 'review') renderReview(stage);
     else if (state.mode === 'typed') renderTyped(stage);
     else renderQuestion(stage, opening);
@@ -59,7 +70,7 @@
     const list = rules.questionsFor(state.answers);
     state.step = Math.max(0, Math.min(state.step, list.length - 1));
     const question = list[state.step];
-    if (!opening) progress(stage, 'YOUR PROJECT / QUESTION ' + (state.step + 1));
+    if (!opening) progress(stage, 'Your project');
     stage.append(node('h2', question.title, {class: 'demo-question', tabindex: '-1'}));
     if (question.help) stage.append(node('p', question.help, {class: 'demo-help'}));
     const options = node('div', undefined, {class: 'demo-options'});
@@ -72,7 +83,7 @@
     } else {
       const choices = opening ? ['install', 'upgrade', 'repair'].map(id => question.options.find(o => o.value === id)) : question.options;
       if (choices.length > 4) options.classList.add('demo-options-many');
-      const subtitles = {install: 'Add something to your home.', upgrade: 'Make room for what’s next.', repair: 'Tell us what stopped working.'};
+      const subtitles = {install: 'Add something to your home.', upgrade: 'Change what you already have.', repair: 'Tell us what stopped working.'};
       choices.forEach(choice => {
         const b = button(undefined, () => pick(question.id, choice.value));
         b.setAttribute('data-choice', choice.value);
@@ -88,12 +99,12 @@
     stage.append(options);
     const toolbar = node('div', undefined, {class: 'demo-toolbar'});
     if (opening) toolbar.append(button('I’m not sure', () => pick('intent', 'unknown'), 'demo-back'));
-    else toolbar.append(button('← Back', () => {state.step--; render();}, 'demo-back'));
+    else toolbar.append(button('← Back', () => {if (state.step <= firstQuestion) state = initial(); else state.step--; render();}, 'demo-back'));
     toolbar.append(button('I’d rather type', () => mode('typed'), 'demo-back'));
     stage.append(toolbar);
   }
   function renderTyped(stage) {
-    progress(stage, 'YOUR PROJECT / IN YOUR OWN WORDS');
+    progress(stage, 'Your project / In your own words');
     stage.append(node('h2', 'What do you have in mind?', {class: 'demo-question', tabindex: '-1'}), node('p', 'Tell us what you want done, or what isn’t working. A sentence or two is enough.', {class: 'demo-help'}));
     const text = node('textarea', undefined, {class: 'demo-text', id: 'home-project', rows: '5', maxlength: '2000', placeholder: 'For example: We want four lights in the living room. There’s an attic above it.'});
     text.value = state.typed;
@@ -104,7 +115,7 @@
   }
   function renderReview(stage) {
     const closing = rules.closingFor(state);
-    progress(stage, 'YOUR PROJECT / CONTACT DETAILS');
+    progress(stage, 'Your project / Contact details');
     stage.append(node('h2', closing.title, {class: 'demo-question', tabindex: '-1'}), node('p', closing.summary, {class: 'demo-help'}));
     const layout = node('div', undefined, {class: 'demo-review'});
     const summary = node('div', undefined, {class: 'demo-review-copy'});
@@ -119,7 +130,8 @@
         if (value === undefined) return;
         const label = question.type === 'text' ? value || 'No extra details' : question.options.find(o => o.value === value)?.label;
         const row = node('div', undefined, {class: 'demo-answer'});
-        row.append(node('dt', question.title), node('dd', label), button('Change', () => {state.mode = 'guided'; state.step = index; render();}, 'demo-back'));
+        row.append(node('dt', question.title), node('dd', label));
+        if (index >= firstQuestion) row.append(button('Change', () => {state.mode = 'guided'; state.step = index; render();}, 'demo-back'));
         answers.append(row);
       });
       review.append(answers);
@@ -129,9 +141,10 @@
     layout.append(summary, contactForm());
     stage.append(layout);
   }
-  function contactForm() {
+  function contactForm(directMessage = false) {
     const form = node('form', undefined, {class: 'demo-contact', 'aria-label': 'Contact details'});
-    form.append(node('h3', 'How can we reach you?'), node('p', endpoint ? 'We’ll use these details to reply about your request.' : 'Preview only — use made-up details. Nothing is sent.', {class: 'demo-notice', id: 'home-contact-notice'}));
+    if (!directMessage) form.append(node('h3', 'How can we reach you?'));
+    form.append(node('p', endpoint ? 'We’ll use these details to reply about your request.' : 'Preview only — use made-up details. Nothing is sent.', {class: 'demo-notice', id: 'home-contact-notice'}));
     function field(key, label, type, required, autocomplete) {
       const row = node('div', undefined, {class: 'demo-field'});
       const input = node('input', undefined, {id: 'home-' + key, type, name: key, autocomplete, maxlength: key === 'name' ? '120' : key === 'phone' ? '32' : '254', 'aria-describedby': 'home-contact-notice'});
@@ -155,6 +168,16 @@
     form.append(methods);
     const channel = contact.method === 'email' ? field('email', 'Email address', 'email', true, 'email') : field('phone', 'Phone number', 'tel', true, 'tel');
     const zip = field('zip', 'ZIP code (optional)', 'text', false, 'postal-code'); zip.setAttribute('inputmode', 'numeric'); zip.setAttribute('maxlength', '10');
+    let message;
+    if (directMessage) {
+      const row = node('div', undefined, {class: 'demo-field'});
+      message = node('textarea', undefined, {id: 'home-project', name: 'message', class: 'demo-text', rows: '4', maxlength: '2000'});
+      message.required = true;
+      message.value = state.typed;
+      message.addEventListener('input', () => {state.typed = message.value; message.setCustomValidity('');});
+      row.append(node('label', 'What can we help with?', {for: 'home-project'}), message);
+      form.append(row);
+    }
     if (contact.method === 'text') {
       const estimate = node('div', undefined, {class: 'demo-ballpark'});
       const label = node('label', undefined, {for: 'home-ballpark'});
@@ -170,12 +193,15 @@
     trap.append(node('label', 'Leave this blank', {for: 'home-website'}), website);
     const submit = node('button', 'Send request', {type: 'submit', class: 'demo-primary'});
     submit.disabled = !endpoint;
-    const footnote = node('p', endpoint ? 'This sends your request to Bremray. It does not book an appointment. ' : 'Sending is not connected in this preview.', {class: 'demo-notice'});
+    const footnote = node('p', endpoint ? 'This sends your request to Bremray. It does not book an appointment. ' : 'Sending is not connected in this preview. ', {class: 'demo-notice'});
     footnote.append(node('a', 'Privacy policy', {href: '/privacy.html'}));
     form.append(trap, submit, footnote);
     form.addEventListener('submit', async event => {
       event.preventDefault();
       if (!endpoint || !editable()) return;
+      if (message && !rules.cleanText(state.typed)) {
+        message.setCustomValidity('Please tell us a little about the job.'); message.reportValidity(); return;
+      }
       const error = rules.validateContact(contact);
       if (error) {
         const input = error.field === 'name' ? name : error.field === 'zip' ? zip : channel;
