@@ -3,7 +3,7 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const html=fs.readFileSync('index.html','utf8');
 test('selected homepage is a real indexed intake with preserved search and privacy controls',()=>{
- assert.match(html,/data-live-intake data-intake-endpoint="https:\/\/bots\.propfirmbot\.com\/bremray-intake\/v1\/requests"/);
+ assert.match(html,/data-live-intake data-intake-entry="home" data-intake-endpoint="https:\/\/bots\.propfirmbot\.com\/bremray-intake\/v1\/requests"/);
  assert.match(html,/\/js\/home-intake.js\?v=/);
  assert.match(html,/<link rel="canonical" href="https:\/\/bremray.com\/"/);
  assert.match(html,/\/js\/analytics.js\?v=20261020/);

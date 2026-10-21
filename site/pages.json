@@ -13,8 +13,8 @@
     "key": "contact",
     "path": "contact.html",
     "scripts": [
-      "/js/adaptive-intake.js?v=2026102101",
-      "/js/home-intake.js?v=2026102101"
+      "/js/adaptive-intake.js?v=2026102102",
+      "/js/home-intake.js?v=2026102102"
     ],
     "hideContactBand": true
   },
@@ -40,8 +40,8 @@
     "key": "get-help",
     "path": "get-help.html",
     "scripts": [
-      "/js/adaptive-intake.js?v=2026102101",
-      "/js/home-intake.js?v=2026102101"
+      "/js/adaptive-intake.js?v=2026102102",
+      "/js/home-intake.js?v=2026102102"
     ],
     "hideContactBand": true
   },
@@ -55,8 +55,8 @@
     "key": "home",
     "path": "index.html",
     "scripts": [
-      "/js/adaptive-intake.js?v=2026102101",
-      "/js/home-intake.js?v=2026102101"
+      "/js/adaptive-intake.js?v=2026102102",
+      "/js/home-intake.js?v=2026102102"
     ]
   },
   {

@@ -16,6 +16,9 @@ test('all request entry points share the lightweight intake with a real endpoint
  assert.ok(home.indexOf('data-live-intake')<home.indexOf('id="services"'));
  assert.match(home,/<h1[^>]*>[\s\S]*?Licensed[\s\S]*?electrician[\s\S]*?in Ann Arbor[\s\S]*?<\/h1>/);
  assert.match(read('get-help.html'),/Open the form in Housecall Pro/);
+ assert.match(home,/data-intake-entry="home"/);
+ assert.match(read('contact.html'),/data-intake-entry="contact"/);
+ assert.match(read('get-help.html'),/data-intake-entry="service"/);
 });
 
 test('privacy describes the first-party intake and completed-lead analytics without marketing opt-in',()=>{
