@@ -15,12 +15,13 @@ import (
 )
 
 type page struct {
-	Path    string        `json:"path"`
-	Key     string        `json:"key"`
-	Home    bool          `json:"home,omitempty"`
-	Scripts []string      `json:"scripts,omitempty"`
-	Head    template.HTML `json:"-"`
-	Content template.HTML `json:"-"`
+	Path            string        `json:"path"`
+	Key             string        `json:"key"`
+	Home            bool          `json:"home,omitempty"`
+	HideContactBand bool          `json:"hideContactBand,omitempty"`
+	Scripts         []string      `json:"scripts,omitempty"`
+	Head            template.HTML `json:"-"`
+	Content         template.HTML `json:"-"`
 }
 
 func main() {

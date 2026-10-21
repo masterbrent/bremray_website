@@ -20,6 +20,9 @@ var leadEmbed = regexp.MustCompile(`(?s)<!--Start of Housecallpro Lead Capture c
 var intakeEndpoint = regexp.MustCompile(`\sdata-intake-endpoint="[^"]*"`)
 var analyticsScript = regexp.MustCompile(`<script defer src="/js/analytics\.js(?:\?[^"]*)?"></script>`)
 
+// CSP blocks submissions here, but cannot block navigation to a sending form.
+var hostedLeadLink = regexp.MustCompile(`(?is)<a\b[^>]*\bhref=["']https://(?:book|online-booking)\.housecallpro\.com/[^"']*["'][^>]*>.*?</a>`)
+
 //go:embed lead-form-preview.tmpl
 var leadPreview []byte
 
@@ -72,6 +75,7 @@ func main() {
 				return
 			}
 			b = leadEmbed.ReplaceAllLiteral(b, leadPreview)
+			b = hostedLeadLink.ReplaceAllLiteral(b, []byte(`<span>Housecall Pro fallback is disabled in this preview</span>`))
 			b = intakeEndpoint.ReplaceAll(b, nil)
 			b = analyticsScript.ReplaceAll(b, nil)
 			b = bytes.Replace(b, []byte("</head>"), []byte(`<meta name="robots" content="noindex,nofollow"><script defer src="/js/staging.js"></script></head>`), 1)

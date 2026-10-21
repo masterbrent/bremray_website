@@ -55,7 +55,7 @@ function boot(reducedMotion = false) {
   const tabs = nodes.filter(node => node.classList.contains('tab-button'));
   return {
     tabs,
-    details: nodes.filter(node => node.text === 'View Details ↓'),
+    details: nodes.filter(node => node.getAttribute('data-generator-target') && node.getAttribute('role') !== 'tab'),
     panels: ['standby', 'portable'].map(name => document.getElementById(name + '-tab')),
     container: document.querySelector('.tab-container'),
     focused: () => focused,
@@ -86,7 +86,7 @@ test('generator tabs switch under the preview policy without inline JavaScript',
   assert.doesNotMatch(ui.html, /\bonclick=|function showTab/);
 });
 
-test('both View Details controls select their panel and move focus to the tabs', () => {
+test('both detail controls select their panel and move focus to the tabs', () => {
   const ui = boot();
   for (const index of [1, 0]) {
     ui.details[index].fire('click');
@@ -108,7 +108,7 @@ test('tab keyboard navigation wraps and supports Home and End', () => {
   assert.equal(ui.container.scrolls.length, 0);
 });
 
-test('View Details respects reduced-motion preferences', () => {
+test('Detail navigation respects reduced-motion preferences', () => {
   const ui = boot(true);
   ui.details[1].fire('click');
   assert.equal(ui.container.scrolls[0]?.behavior, 'auto');

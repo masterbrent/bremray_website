@@ -13,9 +13,10 @@
 <link rel="canonical" href="https://bremray.com/get-help.html" />
 
   <link rel="preload" href="/fonts/anton-latin-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/site.css?v=2026102003">
-  <link rel="stylesheet" href="/css/content-pages.css?v=2026102003">
-  <script defer src="/js/adaptive-intake.js"></script>
+  <link rel="stylesheet" href="/css/site.css?v=2026102101">
+  <link rel="stylesheet" href="/css/content-pages.css?v=2026102101">
+  <script defer src="/js/adaptive-intake.js?v=2026102101"></script>
+  <script defer src="/js/home-intake.js?v=2026102101"></script>
 
 </head>
 <body class="site-page">
@@ -28,32 +29,17 @@
     <nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="/services.html">Services</a><a href="/about.html">About</a><a href="/#questions">Contact</a></nav>
   </header>
   <main id="top">
-<section id="start" class="lead-start intake-preview" aria-labelledby="lead-title">
- <div class="wrap lead-first-layout">
-  <div class="lead-start-context">
-   <h1 id="lead-title">Tell us about the job</h1>
-  </div>
-  <section class="intake-card lead-first-card" data-intake-view="opening" data-intake-endpoint="https://bots.propfirmbot.com/bremray-intake/v1/requests" aria-label="Tell us about the job">
-   <nav id="intake-path" class="intake-path" aria-label="Your answers — select one to change it" hidden></nav>
-   <p id="intake-progress" class="intake-progress" aria-live="polite"></p>
-   <div class="intake-progress-track" aria-hidden="true"><span id="intake-track"></span></div>
-   <div id="intake-screen"></div>
-   <div id="intake-secondary" class="intake-modes" aria-label="How would you like to answer?">
-    <button type="button" data-intake-mode="guided" aria-pressed="true">Back to choices</button>
-    <button type="button" data-intake-mode="typed" aria-pressed="false">I’d rather type</button>
-   </div>
-
-   <noscript><p>Turn on JavaScript to use the questions, or call Bremray at <a href="tel:7342169437">(734) 216-9437</a>.</p></noscript>
+  <section class="request-opening wrap" aria-labelledby="page-title">
+    <h1 id="page-title">Tell us about the job.</h1>
+    <p class="request-intro">A few details help us understand what you need. You don’t need to know the technical terms.</p>
+    <div class="intake-wrap" id="questions" data-live-intake data-intake-endpoint="https://bots.propfirmbot.com/bremray-intake/v1/requests"></div>
+    <noscript><p>Call <a href="tel:+17342169437">(734) 216-9437</a> or <a href="mailto:contact@bremray.com">email us about the job</a>.</p></noscript>
+    <div class="lead-first-next"><p>Prefer to call? <a href="tel:7342169437">(734) 216-9437</a></p><a class="lead-services-link" href="/services.html">Read about our services →</a></div>
+    <p class="form-note">Having trouble? <a href="https://book.housecallpro.com/lead-form/Bremray-Electrical/9e242df02d1d42b9a5870a37b41984f3">Open the form in Housecall Pro</a> or call <a href="tel:7342169437">(734) 216-9437</a>.</p>
   </section>
-  <div class="lead-first-next">
-   <p>Prefer to call? <a href="tel:7342169437">(734) 216-9437</a></p>
-   <a class="lead-services-link" href="/services.html">Browse our services →</a>
-  </div>
- </div>
-</section>
-<p class="form-note wrap">Having trouble? <a href="https://book.housecallpro.com/lead-form/Bremray-Electrical/9e242df02d1d42b9a5870a37b41984f3">Open the form in Housecall Pro</a> or call <a href="tel:7342169437">(734) 216-9437</a>.</p></main>
+</main>
 
-  <section class="contact-band"><div class="wrap"><div><h2>Get in touch</h2><p class="section-subheading">Have a project in mind? Something not working?</p><p>Ann Arbor & Washtenaw County · Monday–Friday, 8am–5pm</p></div><div><a class="button" href="/get-help.html">Tell us what you need <span>↗</span></a><p>Or call <a href="tel:7342169437">(734) 216-9437</a></p></div></div></section>
+
   <footer class="site-footer shell" id="contact">
     <section class="equipment-bank" id="equipment-brands" aria-labelledby="equipment-label">
       <p id="equipment-label">Some of the equipment we install</p>

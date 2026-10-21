@@ -1,85 +1,107 @@
 [
   {
     "key": "404",
-    "path": "404.html"
+    "path": "404.html",
+    "hideContactBand": true
   },
   {
     "key": "about",
-    "path": "about.html"
+    "path": "about.html",
+    "hideContactBand": true
   },
   {
     "key": "contact",
-    "path": "contact.html"
+    "path": "contact.html",
+    "scripts": [
+      "/js/adaptive-intake.js?v=2026102101",
+      "/js/home-intake.js?v=2026102101"
+    ],
+    "hideContactBand": true
   },
   {
     "key": "electrical-panel-upgrade",
-    "path": "electrical-panel-upgrade.html"
+    "path": "electrical-panel-upgrade.html",
+    "hideContactBand": true
   },
   {
     "key": "ev-charger-installation",
-    "path": "ev-charger-installation.html"
+    "path": "ev-charger-installation.html",
+    "hideContactBand": true
   },
   {
     "key": "generators",
     "path": "generators.html",
     "scripts": [
       "/js/generator-tabs.js"
-    ]
+    ],
+    "hideContactBand": true
   },
   {
     "key": "get-help",
     "path": "get-help.html",
     "scripts": [
-      "/js/adaptive-intake.js"
-    ]
+      "/js/adaptive-intake.js?v=2026102101",
+      "/js/home-intake.js?v=2026102101"
+    ],
+    "hideContactBand": true
   },
   {
     "key": "grounding-and-bonding",
-    "path": "grounding-and-bonding.html"
+    "path": "grounding-and-bonding.html",
+    "hideContactBand": true
   },
   {
     "home": true,
     "key": "home",
     "path": "index.html",
     "scripts": [
-      "/js/adaptive-intake.js",
-      "/js/home-intake.js?v=2026102001"
+      "/js/adaptive-intake.js?v=2026102101",
+      "/js/home-intake.js?v=2026102101"
     ]
   },
   {
     "key": "privacy",
-    "path": "privacy.html"
+    "path": "privacy.html",
+    "hideContactBand": true
   },
   {
     "key": "residential-electrical",
-    "path": "residential-electrical.html"
+    "path": "residential-electrical.html",
+    "hideContactBand": true
   },
   {
     "key": "services",
-    "path": "services.html"
+    "path": "services.html",
+    "hideContactBand": true
   },
   {
     "key": "locations-ann-arbor-electrician",
-    "path": "locations/ann-arbor-electrician.html"
+    "path": "locations/ann-arbor-electrician.html",
+    "hideContactBand": true
   },
   {
     "key": "locations-chelsea-electrician",
-    "path": "locations/chelsea-electrician.html"
+    "path": "locations/chelsea-electrician.html",
+    "hideContactBand": true
   },
   {
     "key": "locations-saline-electrician",
-    "path": "locations/saline-electrician.html"
+    "path": "locations/saline-electrician.html",
+    "hideContactBand": true
   },
   {
     "key": "locations-ypsilanti-electrician",
-    "path": "locations/ypsilanti-electrician.html"
+    "path": "locations/ypsilanti-electrician.html",
+    "hideContactBand": true
   },
   {
     "key": "generators-portable-interlock",
-    "path": "generators/portable-interlock.html"
+    "path": "generators/portable-interlock.html",
+    "hideContactBand": true
   },
   {
     "key": "generators-standby",
-    "path": "generators/standby.html"
+    "path": "generators/standby.html",
+    "hideContactBand": true
   }
 ]

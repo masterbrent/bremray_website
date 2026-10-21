@@ -9,8 +9,8 @@
   <meta name="theme-color" content="#ffffff">
   {{.Head}}
   <link rel="preload" href="/fonts/anton-latin-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/site.css?v=2026102003">
-  {{if not .Home}}<link rel="stylesheet" href="/css/content-pages.css?v=2026102003">
+  <link rel="stylesheet" href="/css/site.css?v=2026102101">
+  {{if not .Home}}<link rel="stylesheet" href="/css/content-pages.css?v=2026102101">
   {{end}}{{range .Scripts}}<script defer src="{{.}}"></script>
   {{end}}
 </head>
@@ -18,7 +18,7 @@
   <a class="skip-link" href="#top">Skip to content</a>
   {{template "header" .}}
   {{.Content}}
-  {{if not .Home}}{{template "contact" .}}{{end}}
+  {{if and (not .Home) (not .HideContactBand)}}{{template "contact" .}}{{end}}
   {{template "footer" .}}
   <script defer src="/js/design.js"></script>
   <script defer src="/js/analytics.js?v=2026102003"></script>

@@ -29,7 +29,7 @@ test('first service images have early priority without lazy loading or altered s
   };
   for (const [file, source] of Object.entries(sources)) {
     const html = read(file);
-    const image = html.match(/<figure class="service-banner">\s*(<img\b[^>]+>)/)?.[1];
+    const image = html.match(/<figure class="service-banner">\s*(?:<picture>\s*<source[^>]+>\s*)?(<img\b[^>]+>)/)?.[1];
     assert.ok(image, `${file}: existing lead image remains discoverable in HTML`);
     assert.ok(image.includes(`src="${source}"`), `${file}: keep the reviewed photograph`);
     assert.match(image, /fetchpriority="high"/, file);
@@ -38,4 +38,22 @@ test('first service images have early priority without lazy loading or altered s
     assert.match(image, /height="\d+"/, file);
     assert.equal((html.match(/fetchpriority="high"/g) || []).length, 1, `${file}: do not prioritize every image`);
   }
+});
+
+test('service photos offer responsive WebP files instead of full-size downloads on phones',()=>{
+ for(const file of ['index.html','residential-electrical.html','generators.html','ev-charger-installation.html','electrical-panel-upgrade.html']){
+  const html=read(file);
+  const pictures=[...html.matchAll(/<picture>([\s\S]*?)<\/picture>/g)];
+  assert.ok(pictures.length>0,file);
+  for(const [,picture] of pictures){
+   assert.match(picture,/type="image\/webp"/);
+   assert.match(picture,/sizes="[^"]+"/);
+   for(const size of [480,960,1440])assert.ok(picture.includes(size+'.webp '+size+'w'),file+' width '+size);
+   for(const [,url] of picture.matchAll(/(\/images\/responsive\/[^\s",]+\.webp)/g)){
+    const b=fs.readFileSync(path.join(root,url));
+    assert.equal(b.toString('ascii',0,4),'RIFF');assert.equal(b.toString('ascii',8,12),'WEBP');
+    assert.ok(b.length<220000,url+' image budget');
+   }
+  }
+ }
 });

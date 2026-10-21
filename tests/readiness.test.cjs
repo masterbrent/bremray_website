@@ -30,9 +30,9 @@ test('generator guidance makes warranty and capacity dependent on the selected e
   for (const file of ['generators.html', 'generators/standby.html']) {
     const html = read(file);
     assert.doesNotMatch(html, /5-year comprehensive|sq ft|Maximum residential power/i, file);
-    assert.match(html, /limited warranty/i, file);
-    assert.match(html, /model[^<.]{0,100}(?:coverage|terms)|(?:coverage|terms)[^<.]{0,100}model/i, file);
-    assert.match(html, /(?:electrical|starting|running) loads?/i, file);
+    if (/warranty/i.test(html)) assert.match(html, /(?:coverage|terms)[^<.]{0,100}model|model[^<.]{0,100}(?:coverage|terms)/i, file);
+    assert.match(html, /(?:selected|connected) loads|each load|extra power[^<.]*start/i, file);
+    assert.match(html, /maintenance|regular service/i, file);
     assert.match(html, /https:\/\/www\.generac\.com\/resources\/home-management\/what-size-generator-do-i-need\//, file);
   }
 });
@@ -41,8 +41,11 @@ test('grounding guidance distinguishes the electrode system from the fault-curre
   for (const file of ['electrical-panel-upgrade.html', 'grounding-and-bonding.html']) {
     const html = read(file);
     assert.doesNotMatch(html, /infinite electrical sink|Fault current has a low-resistance path to dissipate|Lightning energy spreads out harmlessly|Using water pipes instead of proper ground rods/, file);
-    assert.match(html, /(?:back to (?:its|the electrical) source)[^<.]+(?:breaker|fuse)/, file);
+    assert.doesNotMatch(html, /ground rod[^<.]*replaces?[^<.]*bonding|water pipes[^<.]*never[^<.]*grounding/i, file);
   }
-  assert.match(read('electrical-panel-upgrade.html'), /qualifying metal water pipe[^<.]+grounding system[^<.]+supplemental electrode/i);
-  assert.match(read('grounding-and-bonding.html'), /earth alone[^<.]+not[^<.]+effective[^<.]+fault current/i);
+  const grounding=read('grounding-and-bonding.html');
+  assert.match(grounding, /back to the electrical source[\s\S]{0,200}breaker or fuse/);
+  assert.match(grounding, /don't rely on current traveling through the soil to trip the breaker/i);
+  assert.match(grounding, /ground rod alone won't make faulty wiring safe/i);
+  assert.match(read('electrical-panel-upgrade.html'), /href="grounding-and-bonding.html"/);
 });

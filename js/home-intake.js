@@ -1,11 +1,11 @@
-/* Homepage questionnaire. Delivery and duplicate protection live in BremrayIntake. */
+/* Shared website questionnaire. Delivery and duplicate protection live in BremrayIntake. */
 (function () {
   'use strict';
   const mount = document.querySelector('[data-live-intake]');
   const rules = window.BremrayIntake;
   if (!mount || !rules) return;
-  const initial = () => ({answers: {}, step: 0, typed: '', mode: 'guided', reviewMode: 'guided'});
-  let state = initial();
+  const initial = () => rules.startFor();
+  let state = rules.startFor(new URLSearchParams(window.location.search || '').get('service'));
   const emptyContact = () => ({name: '', method: 'call', phone: '', email: '', zip: '', ballpark: false});
   let contact = emptyContact();
   const endpoint = mount.getAttribute('data-intake-endpoint') || '';
@@ -59,7 +59,7 @@
     const list = rules.questionsFor(state.answers);
     state.step = Math.max(0, Math.min(state.step, list.length - 1));
     const question = list[state.step];
-    if (!opening) progress(stage, 'YOUR PROJECT / QUESTION ' + (state.step + 1));
+    if (!opening) progress(stage, 'Your project');
     stage.append(node('h2', question.title, {class: 'demo-question', tabindex: '-1'}));
     if (question.help) stage.append(node('p', question.help, {class: 'demo-help'}));
     const options = node('div', undefined, {class: 'demo-options'});
@@ -72,7 +72,7 @@
     } else {
       const choices = opening ? ['install', 'upgrade', 'repair'].map(id => question.options.find(o => o.value === id)) : question.options;
       if (choices.length > 4) options.classList.add('demo-options-many');
-      const subtitles = {install: 'Add something to your home.', upgrade: 'Make room for what’s next.', repair: 'Tell us what stopped working.'};
+      const subtitles = {install: 'Add something to your home.', upgrade: 'Change what you already have.', repair: 'Tell us what stopped working.'};
       choices.forEach(choice => {
         const b = button(undefined, () => pick(question.id, choice.value));
         b.setAttribute('data-choice', choice.value);
@@ -93,7 +93,7 @@
     stage.append(toolbar);
   }
   function renderTyped(stage) {
-    progress(stage, 'YOUR PROJECT / IN YOUR OWN WORDS');
+    progress(stage, 'Your project / In your own words');
     stage.append(node('h2', 'What do you have in mind?', {class: 'demo-question', tabindex: '-1'}), node('p', 'Tell us what you want done, or what isn’t working. A sentence or two is enough.', {class: 'demo-help'}));
     const text = node('textarea', undefined, {class: 'demo-text', id: 'home-project', rows: '5', maxlength: '2000', placeholder: 'For example: We want four lights in the living room. There’s an attic above it.'});
     text.value = state.typed;
@@ -104,7 +104,7 @@
   }
   function renderReview(stage) {
     const closing = rules.closingFor(state);
-    progress(stage, 'YOUR PROJECT / CONTACT DETAILS');
+    progress(stage, 'Your project / Contact details');
     stage.append(node('h2', closing.title, {class: 'demo-question', tabindex: '-1'}), node('p', closing.summary, {class: 'demo-help'}));
     const layout = node('div', undefined, {class: 'demo-review'});
     const summary = node('div', undefined, {class: 'demo-review-copy'});
