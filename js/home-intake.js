@@ -60,9 +60,9 @@
     state.step = Math.max(0, Math.min(state.step, list.length - 1));
     const question = list[state.step];
     if (!opening) progress(stage, 'YOUR PROJECT / QUESTION ' + (state.step + 1));
-    stage.append(node('h2', question.title, {class: 'demo-question', tabindex: '-1'}));
+    stage.append(node('h2', question.title, {class: opening ? 'demo-question ask' : 'demo-question', tabindex: '-1'}));
     if (question.help) stage.append(node('p', question.help, {class: 'demo-help'}));
-    const options = node('div', undefined, {class: 'demo-options'});
+    const options = node('div', undefined, {class: opening ? 'demo-options opts' : 'demo-options'});
     if (question.type === 'text') {
       const label = node('label', 'A few details (optional)', {for: 'home-details', class: 'demo-label'});
       const input = node('textarea', undefined, {id: 'home-details', class: 'demo-text', rows: '4', maxlength: '2000'});
@@ -70,26 +70,41 @@
       input.addEventListener('input', () => {state.answers = rules.answer(state.answers, question.id, input.value);});
       options.append(label, input, button('Review details →', () => pick(question.id, input.value), 'demo-primary'));
     } else {
-      const choices = opening ? ['install', 'upgrade', 'repair'].map(id => question.options.find(o => o.value === id)) : question.options;
+      const faces = {
+        repair: {num: '01', label: 'Something broke', detail: 'Tell us what stopped working.', on: true},
+        install: {num: '02', label: 'Install something new', detail: 'Add something to your home.', on: false},
+        upgrade: {num: '03', label: 'Upgrade something', detail: 'Make room for what’s next.', on: false}
+      };
+      const choices = opening ? ['repair', 'install', 'upgrade'].map(id => question.options.find(o => o.value === id)) : question.options;
       if (choices.length > 4) options.classList.add('demo-options-many');
-      const subtitles = {install: 'Add something to your home.', upgrade: 'Make room for what’s next.', repair: 'Tell us what stopped working.'};
       choices.forEach(choice => {
-        const b = button(undefined, () => pick(question.id, choice.value));
+        const face = opening ? faces[choice.value] : null;
+        const b = button(undefined, () => pick(question.id, choice.value), face ? 'demo-option opt' : 'demo-option');
+        if (face && face.on) b.classList.add('opt1');
         b.setAttribute('data-choice', choice.value);
-        b.setAttribute('aria-label', choice.label);
         b.setAttribute('aria-pressed', String(state.answers[question.id] === choice.value));
-        const copy = node('span', undefined, {class: 'demo-option-copy'});
-        copy.append(node('span', choice.label, {class: 'demo-option-label'}));
-        if (opening) copy.append(node('span', subtitles[choice.value], {class: 'demo-option-detail'}));
-        b.append(copy, node('span', '↗', {class: 'demo-arrow', 'aria-hidden': 'true'}));
+        if (face) {
+          const tog = node('span', undefined, {class: 'tog', 'aria-hidden': 'true'});
+          tog.append(node('i'));
+          b.append(tog, node('span', face.num, {class: 'num', 'aria-hidden': 'true'}), node('span', face.label, {class: 'lbl demo-option-label'}), node('span', face.detail, {class: 'sub demo-option-detail'}), node('span', '→', {class: 'arr demo-arrow', 'aria-hidden': 'true'}));
+        } else {
+          b.setAttribute('aria-label', choice.label);
+          const tog = node('span', undefined, {class: 'tog', 'aria-hidden': 'true'});
+          tog.append(node('i'));
+          const copy = node('span', undefined, {class: 'demo-option-copy'});
+          copy.append(node('span', choice.label, {class: 'demo-option-label'}));
+          b.append(tog, copy, node('span', '→', {class: 'arr demo-arrow', 'aria-hidden': 'true'}));
+        }
         options.append(b);
       });
     }
     stage.append(options);
-    const toolbar = node('div', undefined, {class: 'demo-toolbar'});
-    if (opening) toolbar.append(button('I’m not sure', () => pick('intent', 'unknown'), 'demo-back'));
-    else toolbar.append(button('← Back', () => {state.step--; render();}, 'demo-back'));
-    toolbar.append(button('I’d rather type', () => mode('typed'), 'demo-back'));
+    const toolbar = node('div', undefined, {class: opening ? 'demo-toolbar alt' : 'demo-toolbar'});
+    if (opening) {
+      toolbar.append(button('I’m not sure', () => pick('intent', 'unknown'), 'demo-back'), node('span', '·', {class: 'dot', 'aria-hidden': 'true'}), button('I’d rather type', () => mode('typed'), 'demo-back type-more'), node('span', '·', {class: 'dot', 'aria-hidden': 'true'}), node('a', 'Or call (734) 216-9437', {href: 'tel:+17342169437', class: 'alt-call'}));
+    } else {
+      toolbar.append(button('← Back', () => {state.step--; render();}, 'demo-back'), button('I’d rather type', () => mode('typed'), 'demo-back'));
+    }
     stage.append(toolbar);
   }
   function renderTyped(stage) {
